@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="src/styles.css?v=20260624p" />
-  <link rel="stylesheet" href="src/ach-accents.css?v=20260624p" />
+  <link rel="stylesheet" href="src/styles.css?v=20260624q" />
+  <link rel="stylesheet" href="src/ach-accents.css?v=20260624q" />
 </head>
 <body>
 <div id="image-lightbox" class="lightbox" aria-hidden="true">
@@ -345,7 +345,7 @@
         <li>Put students' full Spanish repertoires into practice</li>
       </ul>
     </div>
-    <figure class="stage figure-stage">
+    <figure class="stage figure-stage illus">
       <img src="images/azu_dartboard.png" alt="Illustration of three arrows in a target's bullseye">
     </figure>
   </section>
@@ -367,7 +367,7 @@
     <div class="content">
       <div class="label">Azucena García Gutiérrez</div>
       <h1>Interactions</h1>
-      <h2 class="azu-sub">The training</h2>
+      <h2 class="azu-sub">Texts and guided questions</h2>
       <ul class="arrow-bullets">
         <li>Three texts from the Spanish textbook: immigration, El Caribe, and Guatemalan Indigenous populations</li>
         <li>AmigAI surfaces biases, stereotypes, omissions, and different realities within the text through guided questions</li>
@@ -392,9 +392,13 @@
         <li>Debriefing discussion as a class</li>
       </ul>
     </div>
-    <figure class="stage figure-stage">
-      <img src="images/azu_thinking.png" alt="Illustration of a student thinking, surrounded by speech bubbles">
-    </figure>
+    <div class="stage bubble-cloud" role="img" aria-label="Speech bubbles of the guiding questions AmigAI asks: why, analyze the text, does it match reality, what is left out, explain your answer">
+      <span class="bubble b1" tabindex="0">¿Por qué?</span>
+      <span class="bubble b2" tabindex="0">Analiza el texto</span>
+      <span class="bubble b3" tabindex="0">¿Coincide con la realidad?</span>
+      <span class="bubble b4" tabindex="0">¿Qué se omite?</span>
+      <span class="bubble b5" tabindex="0">Explica tu respuesta</span>
+    </div>
   </section>
 
   <section class="slide placeholder-slide crowded azu-impressions" data-slide="azu-7" aria-label="Azucena, First Impressions — positive">
@@ -460,9 +464,16 @@
         <li>Technical issues and invisible labor remain real costs</li>
       </ul>
     </div>
-    <figure class="stage figure-stage">
-      <img src="images/azu_clipboard.png" alt="Illustration of a clipboard holding a report with charts">
-    </figure>
+    <div class="stage json-card" role="img" aria-label="The conclusions as a JSON object: AmigAI is a pedagogical tool that develops critical awareness through conversation, with limitations around translingual approaches, technical issues, and invisible labor">
+<pre><span class="j-pun">{</span>
+  <span class="j-key">"tool"</span><span class="j-pun">:</span> <span class="j-str">"AmigAI"</span><span class="j-pun">,</span>
+  <span class="j-key">"role"</span><span class="j-pun">:</span> <span class="j-str">"pedagogical tool for AI critical-literacy"</span><span class="j-pun">,</span>
+  <span class="j-key">"develops"</span><span class="j-pun">:</span> <span class="j-str">"critical awareness through conversation"</span><span class="j-pun">,</span>
+  <span class="j-key">"limitations"</span><span class="j-pun">:</span> <details><summary><span class="j-pun">[</span> 3 <span class="j-pun">]</span></summary><span class="j-arr"><span class="j-str">"translingual approaches / lower levels"</span><span class="j-pun">,</span>
+<span class="j-str">"technical issues"</span><span class="j-pun">,</span>
+<span class="j-str">"invisible labor"</span></span></details>
+<span class="j-pun">}</span></pre>
+    </div>
   </section>
 
   <section class="slide placeholder-slide figure-hero" data-slide="azu-10" aria-label="Azucena, Examples of interactions">
@@ -593,6 +604,7 @@
 </footer>
 
 <script src="src/slides.js"></script>
+<script src="src/ach-fit.js?v=20260624q"></script>
 <script>
 (function () {
   // Animated WebGL background for the title slide (domain-warped fbm noise),
