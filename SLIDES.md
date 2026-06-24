@@ -183,8 +183,7 @@ https://canva.link/09y0vdxtlx2dzla
   - Explanation of the task with AmigAI; onboarding instructions
   - Individual interaction with AmigAI
   - Debriefing discussion as a class
-- stage: **`.bubble-cloud`** — speech bubbles of AmigAI's guiding questions: **¿Por qué? · Analiza el texto · ¿Coincide con la realidad? · ¿Qué se omite? · Explica tu respuesta**
-- image: — (CSS component, no file)
+- image: **`azu_thinking.png`** (wordless illustration — a student in thought with abstract, text-free speech bubbles) on a blended `.illus` stage. (Replaced an earlier `.bubble-cloud` of Spanish guiding-question text, removed because the word-tokens flattened the tool's discourse.)
 
 ### 30 · `azu-7` (crowded · azu-impressions) — First Impressions / Positive Components
 3-column quote board (`.cols-3`):
@@ -273,18 +272,18 @@ All text-only (`crowded`); no images.
 
 # Asset audit (`images/`)
 
-**In use (21):**
+**In use (22):**
 `ach26.svg` (emblem/favicon) · `favicon.png` · `cail-logo-white.png` (header) ·
 `cali-website-home.png` · `cali-books.gif` · `cali-cohort1-slide13.jpg` ·
 `cali-cohort2-slide16.png` · `13_cali_to_cail.png` · `zm-step1-signin.png` ·
 `zm-step2-chat.png` · `zm-step3-models.png` · `14_zero_retention_flow.png` ·
 `owui_comparison_a.png` · `owui_comparison_b.png` · `owui_model_cards.png` ·
 `17_communities_hub.png` · `18_thinkering_fellows.png` · `19_amigai_build.png` ·
-`azu_dartboard.png` · `azu_amigai_interface.png` · `azu_examples_transcript.png`.
+`azu_dartboard.png` · `azu_amigai_interface.png` · `azu_examples_transcript.png` ·
+`azu_thinking.png` (slide 29).
 
-**Orphaned (3 — present in `images/` but not referenced anywhere):**
-- `azu_thinking.png` — slide 29 (`azu-6`) was redesigned to a CSS `.bubble-cloud`.
-- `azu_clipboard.png` — slide 32 (`azu-9`) was redesigned to a CSS `.json-card`.
+**Orphaned (2 — present in `images/` but not referenced anywhere):**
+- `azu_clipboard.png` — slide 32 (`azu-9`) uses a CSS `.json-card` instead.
 - `TLC-Logo-v4-No-GC-white.png` — old footer logo, replaced by the CAIL wordmark.
 
 Kept on disk for reference; safe to delete if you want a lean repo.
