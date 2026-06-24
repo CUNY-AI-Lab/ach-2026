@@ -209,73 +209,42 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
   border-radius: 10px; border: 1px solid rgba(180,200,220,0.14);
 }
 
-/* ── First Impressions — quote gallery ──
-   The student quotes are the evidence at the heart of Azucena's talk, so they
-   become the hero: a horizontal scroll-snap gallery of full-height cards, each a
-   large display-serif pull-quote tagged with her analytical theme. The gallery
-   scrolls on its own (src/ach-gallery.js stops wheel/swipe from reaching the
-   theme's slide nav); presentation pagination is untouched. No `--fit` here —
-   overflow is horizontal and scrolled, not shrunk. */
+/* ── First Impressions — quote boards ──
+   Three thematic columns on a wide viewport, stacked to one column for medium
+   and small viewports. Compact: moderate quote type, tight gaps (`--fit` still
+   trims a dense board if it would overflow). Content is verbatim, not edited. */
 .placeholder-slide.azu-impressions .content {
   flex-basis: 100%; min-width: 0;
-  display: flex; flex-direction: column;
-  padding: clamp(16px,2.2vw,30px) clamp(16px,2.2vw,32px);
+  justify-content: flex-start;   /* top-align; override the crowded-slide centering */
+  padding: clamp(14px,2vw,28px) clamp(14px,2vw,30px);
 }
-.azu-impressions .content h1 { margin-bottom: 0.05em; }
+.azu-impressions .content h1 { margin-bottom: 0.04em; }
 .azu-impressions .impressions-sub {
   font-family: var(--font-mono); font-size: var(--fs-label);
   letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--accent-azu); opacity: 0.85;
-  margin: 0 0 clamp(10px, 1.6vh, 18px);
+  color: var(--accent-azu); opacity: 0.8;
+  margin: 0 0 clamp(8px, 1.1vh, 13px);
 }
-
-.quote-gallery {
-  flex: 1 1 auto; min-height: 0;
-  display: flex; gap: clamp(14px, 1.3vw, 22px);
-  overflow-x: auto; overflow-y: hidden;
-  scroll-snap-type: x proximity; scroll-behavior: smooth;
-  overscroll-behavior-x: contain;
-  padding-bottom: 14px;
-  scrollbar-width: thin;
-  scrollbar-color: color-mix(in oklab, var(--accent-azu) 60%, transparent) transparent;
+.quote-cols { display: grid; gap: clamp(10px, 1vw, 16px); align-items: start; }
+.quote-cols.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.quote-cols.cols-2 { grid-template-columns: repeat(2, 1fr); }
+.quote-col { display: flex; flex-direction: column; gap: clamp(6px, 0.8vh, 9px); min-width: 0; }
+.quote-col .col-head {
+  font-family: var(--font-sans); font-weight: 600;
+  font-size: calc(clamp(12px, 1.0vw, 14.5px) * var(--fit, 1)); line-height: 1.2;
+  color: var(--accent-azu);
+  padding-bottom: 4px;
+  border-bottom: 1px solid color-mix(in oklab, var(--accent-azu) 28%, transparent);
 }
-.quote-gallery::-webkit-scrollbar { height: 7px; }
-.quote-gallery::-webkit-scrollbar-thumb { background: color-mix(in oklab, var(--accent-azu) 55%, transparent); border-radius: 99px; }
-.quote-gallery::-webkit-scrollbar-track { background: rgba(180,200,220,0.07); border-radius: 99px; }
-.quote-gallery:focus-visible { outline: 2px solid var(--accent-azu); outline-offset: 3px; border-radius: 4px; }
-
-.quote-card {
-  scroll-snap-align: start; flex: 0 0 clamp(300px, 26vw, 430px); min-width: 0;
-  display: flex; flex-direction: column;
-  padding: clamp(18px,1.6vw,28px) clamp(18px,1.5vw,26px);
-  border-radius: 14px;
-  background: rgba(180,200,220,0.035);
-  box-shadow: inset 3px 0 0 0 color-mix(in oklab, var(--accent-azu) 70%, transparent);
+.azu-impressions .quote-col blockquote {
+  margin: 0;
+  padding: clamp(7px, 0.8vh, 10px) clamp(9px, 0.75vw, 12px);
+  font-size: calc(clamp(13px, 1.05vw, 16px) * var(--fit, 1)); line-height: 1.34;
 }
-.quote-card .qtheme {
-  flex: 0 0 auto; margin: 0; line-height: 1.3;
-  font-family: var(--font-mono); font-size: clamp(11px,0.78vw,13px);
-  letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--accent-azu); opacity: 0.92;
-}
-.quote-card .qbody {
-  flex: 1 1 auto; min-height: 0;
-  display: flex; flex-direction: column; justify-content: center;
-  gap: clamp(12px, 2vh, 22px);
-}
-.quote-card blockquote {
-  margin: 0; padding: 0; border: none; background: none;
-  font-family: var(--font-display); font-weight: 400;
-  font-size: clamp(22px, 1.85vw, 30px); line-height: 1.36;
-  color: rgba(236,242,248,0.95); text-wrap: pretty;
-}
-.quote-card cite {
-  display: block; font-style: normal;
-  font-family: var(--font-mono); font-size: clamp(11px,0.78vw,13px);
-  letter-spacing: 0.08em; text-transform: uppercase; color: rgba(218,225,232,0.6);
-}
-@media (max-width: 720px) {
-  .quote-card { flex-basis: 80vw; }
+.azu-impressions .quote-col blockquote cite { display: inline; margin: 0 0 0 0.4em; font-size: 0.72em; }
+/* 3-up / 2-up on wide; stack vertically for medium and small viewports. */
+@media (max-width: 1024px) {
+  .quote-cols.cols-3, .quote-cols.cols-2 { grid-template-columns: 1fr; }
 }
 
 /* Numbered step-grid — imported verbatim from the cali-brooklyn deck's
