@@ -4,23 +4,14 @@
 `python3 -m http.server` from `deck/`).
 **Theme:** the CALI-NARST deck (`cuny-ai-lab.github.io/cali-narst`) — dark
 `#0f1319`, `Newsreader` serif display + `IBM Plex Sans`/`Mono`, per-presenter
-accent colors. Assets in `deck/src/` (`styles.css`, `slides.js`) are the theme
-verbatim; `deck/src/ach-accents.css` adds this panel's presenters.
-**Navigation:** arrow keys / space / footer scrubber.
-**Zach's layout:** his eight slides use the `figure-hero` layout — a slim title
-bar (label + title) on top, the image foregrounded across the whole body below.
-The stage is transparent/borderless so wide screenshots read large rather than
-floating in a black box. The bullets are no longer on-slide; they live as the
-spoken talk track at the bottom of this file. Zach slide 2 carries a stepped
-image walkthrough (sign-in → chat → model picker) via the theme's `.frag`
-reveal (`zm-step1/2/3-*.png`); his model-comparison slide (zach-4) is a
-click-reveal of the two comparison screenshots, each shown full-stage (a
-side-by-side made them unreadable, since each shot is already a 2-model split).
-**Emblem:** `images/ach26.svg` (gold hands + lightbulb) is the panel mark — it
-sits in the header top-left and as the favicon (shown once; the duplicate on
-the title card was removed). It keeps its gold (the `.brand-mark` class cancels
-the theme's logo-invert filter). The header top-right carries the white CUNY AI
-Lab wordmark (`images/cail-logo-white.png`, `.header-cail-logo`).
+accent colors. `deck/src/styles.css` + `deck/src/slides.js` are the theme
+verbatim (do not edit); `deck/src/ach-accents.css` adds this panel's presenters,
+layouts, and components; `deck/src/ach-fit.js` is our auto-shrink-to-fit script.
+**Navigation:** arrow keys / space / footer scrubber. Footer order is
+`← [scrubber] → ⛶ counter`; the scrubber `max` is hardcoded in `index.html`.
+**Header:** gold emblem (`ach26.svg`) top-left → links to **ach2026.ach.org/en/**;
+white CUNY AI Lab wordmark (`cail-logo-white.png`) top-right → ailab.gc.cuny.edu.
+The emblem is also the favicon. (`.brand-mark` cancels the theme's logo-invert.)
 
 **Panel:** Building Community-Oriented Infrastructures for AI Experimentation
 **Event:** Association for Computers and the Humanities (ACH) 2026
@@ -28,27 +19,9 @@ Lab wordmark (`images/cail-logo-white.png`, `.header-cail-logo`).
 **Presenting order:** Matthew Gold → Luke Waltzer → Zach Muhlbauer →
 Azucena García Gutiérrez → Stephen Zweibel
 
-41 slides total: 1 title · 8 Matt · 5 Luke · 1 Zach opener + 8 Zach ·
-11 Azucena · 7 Steve.
-
-## Status (QA pass)
-All 41 slides were rendered and reviewed — every slide is visible and
-well-formatted: no broken images, no text overflow, no empty/error slides.
-- Title (1): single emblem, calmer title size, no subtitle, presenters in
-  presenting order, CAIL wordmark top-right. ✓
-- Matt (2–9): intentionally blank placeholders — label + "Slide N of 8 ·
-  content to be drafted", vertically centered. No content. ✓
-- Luke (10–14): recreated from source decks (cali-narst / cali-brooklyn) +
-  the CALI 1/2 text supplied by the presenter. No content authored here. ✓
-- Zach opener (15) + Zach (16–23): charts use `figure-hero` (title on top, image
-  fills width); screenshot slides (17/19/20) use `figure-side` (narrow title rail
-  left, screenshot fills the right at full height). Both read large. ✓
-- Slide 17: 3-step sign-in → chat → model-picker reveal, real screenshots. ✓
-- Slide 19: model-comparison click-reveal — each shot full-stage, readable. ✓
-- Azucena (24–34): full rebuild from her source PDF — five image slides
-  (`odd-layout`/`figure-hero`) plus the two multi-column quote boards; all
-  images and quotes restored. Steve (35–41): text/quote slides, centered.
-  Section openers lead with affiliation (topical subtitles removed). ✓
+**41 slides:** 1 title · 8 Matt · 5 Luke · 1 Zach opener + 8 Zach · 11 Azucena ·
+7 Steve. (title=1 · matt 2–9 · luke 10–14 · zach-intro=15, zach 16–23 ·
+azu 24–34 · steve 35–41.)
 
 | accent | presenter | data-slide |
 |--------|-----------|-----------|
@@ -58,113 +31,284 @@ well-formatted: no broken images, no text overflow, no empty/error slides.
 | lavender `#c9a6cf` | Azucena García Gutiérrez | `azu-1…11` |
 | mint `#8fd5c3` | Stephen Zweibel | `steve-1…7` |
 
+## Layouts in use (class on the `<section>`)
+- `slide-title` — animated WebGL background + title card.
+- `crowded` — text-only; the `figure.stage` is `aria-hidden` and hidden.
+- `odd-layout` / `even-layout` — text column + figure stage side by side.
+- `figure-hero` — minimal title line on top, image fills the body (wide charts).
+- `figure-side` — narrow title rail left, image fills the right at full height
+  (screenshots / near-square images; aspect ≲ ~1.8).
+- `walk-stage` — stacked `.walk-step` images; each later one is a `.frag` so a
+  click swaps to it (used as a stepped reveal AND as a two-shot A→B toggle).
+
 ---
 
-## 1 · Title
-Panel title, presenters (in presenting order), event, date/time. No subtitle.
-Animated WebGL background carried from the theme.
+# Verbatim slide-by-slide
 
-## Matt — slides 2–9 (BLANK placeholders)
-Eight blank placeholder slides (`matt-1…8`): presenter label + "Slide N of 8 ·
-content to be drafted". No content — Matt drafts these himself.
+Each entry is the live content of the slide, exactly as in `index.html`:
+**header(s)** then **body** then **image / stage**. `—` = no image (blank /
+`aria-hidden` stage). Banned words (`bot`/`chatbot`) appear only inside
+Azucena's verbatim student quotes, which are evidence and kept as-is.
 
-## Luke — slides 10–14 (CALI origin story)
-Recreated faithfully from the presenter's source decks — content not authored
-here. Note: connect the Lab's critical ethos and ethical commitments to the
-CALI origin story and fellows' need for model-agnostic, accountable AI
-infrastructure; how CALI grew into a broader infrastructure serving faculty,
-students, and other publics across CUNY.
+## 1 · Title  (`title` · slide-title)
+- eyebrow: **ACH 2026 · Friday, June 26 · 12:00–13:15 CDT**
+- h1: **Building Community-Oriented Infrastructures for AI Experimentation**
+- panelists: **Matthew Gold, Luke Waltzer, Zach Muhlbauer, Azucena García Gutiérrez, and Stephen Zweibel**
+- institution: **CUNY Graduate Center · Association for Computers and the Humanities (ACH) 2026**
+- stage: animated domain-warp canvas (no image file).
 
-| # | title | source |
-|---|-------|--------|
-| luke-1 | The Critical AI Literacy Institute: Origins | cali-narst #4 (`cali-website-home.png`; Origins/Elements as `.frag`) |
-| luke-2 | CALI: Grounding Scholarship | cali-narst #5 (`cali-books.gif`) |
-| luke-3 | CALI as an Intervention | cali-brooklyn #3 (`step-grid`, 4 numbered areas) |
-| luke-4 | CALI 1 | presenter text + `cali-cohort1-slide13.jpg` (cali-brooklyn `images/slide13.jpg`) |
-| luke-5 | CALI 2 | presenter text + `cali-cohort2-slide16.png` (cali-brooklyn `images/slide16.png`) |
+## Matt Gold — slides 2–9  (`matt-1…8` · crowded)
+Eight identical blank placeholders. **No content — Matt drafts these himself.**
+- label: **Matthew Gold** · h1: **Slide N of 8** · note: **content to be drafted**
+- image: — (blank stage)
 
-The `step-grid`/`step-row`/`step-num`/`step-text` CSS was imported verbatim from
-cali-brooklyn into `ach-accents.css` (it is not part of the cali-narst theme).
+## Luke Waltzer — slides 10–14  (CALI origin story)
+Recreated from the presenter's source decks (cali-narst / cali-brooklyn); content
+not authored here. **Spoken note:** connect the Lab's critical ethos and ethical
+commitments to the CALI origin story and fellows' need for model-agnostic,
+accountable AI infrastructure; how CALI grew into a broader infrastructure
+serving faculty, students, and other publics across CUNY.
 
-## Zach — opener (15) + slides 16–23
-Opener `zach-intro` (slide 15): name + section title + affiliation, like the
-Azucena/Steve openers. Then the eight figure-hero slides:
+### 10 · `luke-1` (odd-layout lw2) — The Critical AI Literacy Institute: Origins
+- label: **Luke Waltzer** · h1: **The Critical AI Literacy Institute: Origins**
+- body (`.parallel-points`, both items reveal as `.frag`):
+  - **Origins**
+  - **Elements** → Faculty Development · Research · Research & Development · Advocacy
+- image: **`cali-website-home.png`** (CALI website home page) · src: cali-narst #4
 
-Titles from `ach26.docx`; bullets distilled from `scripts/slides_data.py`
-talk tracks; figures from `figures/` (banned words `bot`/`chatbot`/`assistant`
-avoided per house style).
+### 11 · `luke-2` (odd-layout) — CALI: Grounding Scholarship
+- label: **Luke Waltzer** · h1: **CALI: Grounding Scholarship**
+- body: Critical University Studies · Critical Ed Tech and Infrastructure Studies · DH, Science Education, Educational Development
+- image: **`cali-books.gif`** (key texts) · src: cali-narst #5
 
-| # | title | figure |
-|---|-------|--------|
-| zach-1 | From CALI to the CUNY AI Lab | `13_cali_to_cail.png` |
-| zach-2 | What is the CUNY AI Lab Sandbox? | 3-step reveal: `zm-step1-signin` → `zm-step2-chat` → `zm-step3-models` |
-| zach-3 | Transparency and Privacy by Design | `14_zero_retention_flow.png` |
-| zach-4 | Evaluating and Comparing Open-Weight Models | gallery: `owui_comparison_a.png` + `owui_comparison_b.png` |
-| zach-5 | Supporting Purpose-Built, Custom Models | `owui_model_cards.png` |
-| zach-6 | Communities of Practice within the Sandbox | `17_communities_hub.png` |
-| zach-7 | T(h)inkering with Faculty Fellows | `18_thinkering_fellows.png` |
-| zach-8 | Workshopping Project Pilots: AmigAI | `19_amigai_build.png` |
+### 12 · `luke-3` (odd-layout) — CALI as an Intervention
+- label: **Luke Waltzer** · h1: **CALI as an Intervention** · h2: **Four interconnected areas**
+- stage: `step-grid`, four numbered rows — **1 Faculty Development · 2 Research · 3 Research and Development · 4 Advocacy** · src: cali-brooklyn #3
+- image: — (CSS step-grid, no file)
 
-Hands off to Azucena after slide 8 (AmigAI, 36.6% of all messages).
+### 13 · `luke-4` (odd-layout) — CALI 1
+- label: **Luke Waltzer** · h1: **CALI 1** · h2: **22 Faculty from 12 Campuses**
+- body: Outcomes · Curricula · Survey Responses and Focus Groups · Faculty Reflections · Collaborations
+- image: **`cali-cohort1-slide13.jpg`** (first CALI cohort, 2025) · src: cali-brooklyn slide13
 
-## Azucena — slides 24–34
-Rebuilt in full from `Blue Modern Academic Analysis Presentation.pdf` (11 pages)
-into the panel theme — every image and quote from her source deck restored
-(an earlier port had dropped all images and condensed the quote slides).
-Images were extracted from the PDF (`images/azu_*.png`); the dartboard, person,
-and clipboard are transparent cutouts so they sit on the dark stage. Student
-quotes kept verbatim as evidence (her quotes are the one exception to the
-banned-words rule, so "chatbot" stands in slides 7–8).
+### 14 · `luke-5` (odd-layout) — CALI 2
+- label: **Luke Waltzer** · h1: **CALI 2** · h2: **23 Faculty from 12 Campuses** · list-label: **Tracks**
+- body: Critical Foundations · Ecological Implications · T(h)inkering
+- image: **`cali-cohort2-slide16.png`** (faculty presenting an 8-class module at the GC) · src: cali-brooklyn slide16
 
-1. AmigAI · Spanish 204 (title)
-2. Classroom Context — sub-label + 4 bullets; SPAN 204, Queens College; mixed HL/L2; CLA
-3. Learning Outcomes — `odd-layout` + `azu_dartboard.png`; "AmigAI Intervention" sub
-4. The Configuration's Prompt — `odd-layout`; system prompt verbatim + `azu_amigai_interface.png`
-5. Interactions — "The training" sub; three textbook texts; example exchange (Student A03)
-6. Classroom Application — `odd-layout` + `azu_thinking.png`; check-list, 4 components
-7. First Impressions — Positive — 3-column quote board (`.azu-impressions .cols-3`), all quotes + headers
-8. First Impressions — Negative — 2-column quote board (`.cols-2`), all quotes + headers
-9. Conclusions — `odd-layout` + `azu_clipboard.png`; check-list, 4 points
-10. Examples of Interactions — `figure-hero` + `azu_examples_transcript.png` (the transcript screenshot)
-11. Thank you / contact
+## Zach Muhlbauer — opener (15) + slides 16–23
+Charts use `figure-hero` (title on top, image fills width); screenshots and the
+near-square diagram use `figure-side` (title rail left, image fills right). The
+on-slide bullets were removed; they now live as the spoken talk track at the
+bottom of this file.
 
-Components added to `ach-accents.css`: `h2.azu-sub` (sub-labels), `ul.check-bullets`
-(✓ lists), `.azu-impressions` + `.quote-cols`/`.quote-col`/`.col-head` (the boards),
-and `img.framed` (an edge on the light transcript shot).
+### 15 · `zach-intro` (crowded) — section opener
+- label: **Zach Muhlbauer** · h1: **Experimentation as Infrastructure: The CUNY AI Lab Sandbox** · institution: **CUNY AI Lab · CUNY Graduate Center**
+- image: —
 
-Source also references a Canva deck: https://canva.link/09y0vdxtlx2dzla
+### 16 · `zach-1` (figure-hero) — From CALI to the CUNY AI Lab
+- image: **`13_cali_to_cail.png`** (CALI → year-one R&D → tools → proposal → CAIL timeline)
 
-## Steve — slides 35–41
+### 17 · `zach-2` (figure-side) — What is the CUNY AI Lab Sandbox?
+- stage: `walk-stage`, 3-step reveal — **`zm-step1-signin.png`** → **`zm-step2-chat.png`** → **`zm-step3-models.png`** (sign-in → chat → model picker)
+
+### 18 · `zach-3` (figure-hero) — Transparency and Privacy by Design
+- image: **`14_zero_retention_flow.png`** (zero-retention routing flow)
+
+### 19 · `zach-4` (figure-side) — Evaluating and Comparing Open-Weight Models
+- stage: `walk-stage` A→B click-reveal — **`owui_comparison_a.png`** then **`owui_comparison_b.png`** (each shown full-stage; not side by side — each shot is itself a 2-model split)
+
+### 20 · `zach-5` (figure-side) — Supporting Purpose-Built, Custom Models
+- image: **`owui_model_cards.png`** (course-specific model configurations)
+
+### 21 · `zach-6` (figure-side) — Communities of Practice within the Sandbox
+- image: **`17_communities_hub.png`** (the Sandbox as connective tissue — near-square diagram)
+
+### 22 · `zach-7` (figure-hero) — T(h)inkering with Faculty Fellows
+- image: **`18_thinkering_fellows.png`** (fellows across five disciplines)
+
+### 23 · `zach-8` (figure-hero) — Workshopping Project Pilots: AmigAI
+- image: **`19_amigai_build.png`** (AmigAI adapted across three sections)
+- Hands off to Azucena after this slide.
+
+## Azucena García Gutiérrez — slides 24–34
+Rebuilt from `Blue Modern Academic Analysis Presentation.pdf`. The dartboard,
+interface, and transcript are real images; the original's thinking-person and
+clipboard clip-art were **recreated as on-theme components** — a `.bubble-cloud`
+(slide 29) and an interactive `.json-card` (slide 32). Student quotes verbatim;
+attributions exactly match the source. Source also references a Canva deck:
+https://canva.link/09y0vdxtlx2dzla
+
+### 24 · `azu-1` (crowded) — title
+- label: **Azucena García Gutiérrez** · h1: **AmigAI · Spanish 204** · institution: **City University of New York (CUNY) · The Graduate Center**
+- image: —
+
+### 25 · `azu-2` (crowded) — Classroom Context
+- h1: **Classroom Context** · sub: **Intermediate Spanish · SPAN 204 · Queens College, CUNY**
+- body (arrow-bullets):
+  - A mixed classroom of heritage (HL) and second-language (L2) learners
+  - Spanish-language textbooks lean on technologies that ignore diverse Latinx and Afrolatinx realities (Padilla & Vana, 2022; Vana & Padilla, 2024)
+  - Equip students to critically analyze pedagogical texts and build a Critical Language Awareness (CLA) (Leeman, 2018)
+  - Use AmigAI to help students challenge texts from their own textbook
+- image: —
+
+### 26 · `azu-3` (odd-layout) — Learning Outcomes
+- h1: **Learning Outcomes** · sub: **AmigAI Intervention**
+- body (arrow-bullets):
+  - Develop awareness of how to scrutinize texts through guided questions
+  - Provide a space to reflect on AI technologies in language education with AmigAI
+  - Develop AI critical awareness about these technologies
+  - Put students' full Spanish repertoires into practice
+- image: **`azu_dartboard.png`** (three arrows in a bullseye) on a blended `.illus` stage
+
+### 27 · `azu-4` (odd-layout) — The Configuration's Prompt
+- h1: **The Configuration's Prompt**
+- blockquote (the AmigAI system prompt, verbatim):
+  > "You are a guide for conducting discourse analysis of educational texts in Spanish for intermediate-level college students (B2 level on the CEFR scale). You challenge the student to analyze the text critically. Your students include both Spanish L2 and heritage language learners. You speak Spanish at an intermediate level (B2 level on the CEFR scale). You never use praise, compliments, or validation in your responses. You guide the student only through questions."
+- image: **`azu_amigai_interface.png`** (the AmigAI 204 configuration in the Sandbox)
+
+### 28 · `azu-5` (crowded) — Interactions
+- h1: **Interactions** · sub: **Texts and guided questions**
+- body (arrow-bullets):
+  - Three texts from the Spanish textbook: immigration, El Caribe, and Guatemalan Indigenous populations
+  - AmigAI surfaces biases, stereotypes, omissions, and different realities within the text through guided questions
+- blockquote (example exchange):
+  > "Te pido que mires de nuevo el primer párrafo. En las líneas 3 a 6 dice que 'con mayor frecuencia el latino llega a los Estados Unidos con un nivel de estudios más alto y mejor preparado para ejercer trabajos bien remunerados' [1]. ¿Esta afirmación del texto, de que los trabajos son 'bien remunerados', coincide con la realidad de muchos inmigrantes latinos que conoces o de la que has oído hablar?" — *AmigAI, first interaction, Student A03*
+- image: —
+
+### 29 · `azu-6` (odd-layout) — Classroom Application
+- h1: **Classroom Application** · sub: **Fundamental Components**
+- body (check-bullets ✓):
+  - Reading comprehension of the reading materials
+  - Explanation of the task with AmigAI; onboarding instructions
+  - Individual interaction with AmigAI
+  - Debriefing discussion as a class
+- stage: **`.bubble-cloud`** — speech bubbles of AmigAI's guiding questions: **¿Por qué? · Analiza el texto · ¿Coincide con la realidad? · ¿Qué se omite? · Explica tu respuesta**
+- image: — (CSS component, no file)
+
+### 30 · `azu-7` (crowded · azu-impressions) — First Impressions / Positive Components
+3-column quote board (`.cols-3`):
+- **More intentional**
+  - "…overall, this was a very positive interaction. It asked very specific questions, and it asked more about, like, in conversation." — Student 1
+  - "I didn't expect it to be so detailed with these questions. And I thought it was very cool — quotes directly from the text." — Student 2
+  - "When you have someone, or something else, to ask questions to think deeper, it kind of gives you a deeper understanding of what you're reading." — Student 4
+- **"A before" and "an after" the readings**
+  - "It feels informative, but it doesn't portray the negative side." — Student 1
+  - "The chatbot actually helped me see the real side of immigration that the text might not have wanted to cover." — Student 2
+  - "The text never talks about the push back on immigration or negative attention…" — Student 2
+- **AI Critical Awareness**
+  - "It makes me think of how ChatGPT is being trained — what are their perspectives, what kind of information are we actually reading?" — Student 3
+  - "Los libros de texto cuentan con formas de enseñar relacionadas a una agenda." — Student 3
+- image: —
+
+### 31 · `azu-8` (crowded · azu-impressions) — First Impressions / Negative Components
+2-column quote board (`.cols-2`):
+- **Awareness of their learning process through AI**
+  - "Analyzing text… it's hard to do that on an AI-chat basis model." — Student 2
+  - "There's a lot more opportunity for the student to voice their input in a natural way when it's in a real-life setting, like a classroom." — Student 2
+  - "I feel like with AI, you lose that personal touch." — Student 2
+  - "And doing it with the chatbot, you lose that humanity." — Student 2
+  - "The false positivity feels like you are talking with a robot, a screen." — Student 1
+- **Monolingual Approach**
+  - "It would not translate for me. It just repeats the question." — Student 1
+  - "If it's not gonna help me understand the text, what's the point?" — Student 1
+- image: —
+
+### 32 · `azu-9` (odd-layout) — Conclusions
+- h1: **Conclusions**
+- body (check-bullets ✓):
+  - A pedagogical tool for AI critical-literacy discussions
+  - Challenging to use under translingual approaches and at lower levels
+  - Conversations that develop critical awareness
+  - Technical issues and invisible labor remain real costs
+- stage: interactive **`.json-card`** — `{ "tool": "AmigAI", "role": "pedagogical tool for AI critical-literacy", "develops": "critical awareness through conversation", "limitations": [3] }`, the array expanding to `"translingual approaches / lower levels", "technical issues", "invisible labor"`
+- image: — (CSS component, no file)
+
+### 33 · `azu-10` (figure-hero) — Examples of Interactions
+- h1: **Examples of Interactions**
+- image: **`azu_examples_transcript.png`** (`.framed`) — AmigAI transcript analyzing "Corriente latina" with the student's written response
+
+### 34 · `azu-11` (crowded) — Thank you
+- h1: **Thank you** · institution: **CUNY, The Graduate Center · azucena.garciagutierrez39@gc.cuny.edu**
+- image: —
+
+## Stephen Zweibel — slides 35–41
 From https://zweibel.net/ach-2026-steve/ (7 slides), reformatted into the theme.
+All text-only (`crowded`); no images.
 
-1. Tools, Agentic AI, and Scholarly Communication (intro)
-2. What the Lab Builds and Runs
-3. Tools Portal (tools.ailab.gc.cuny.edu)
-4. Working with Agentic AI (Agent Studio, Site Studio)
-5. Kale Workbench
-6. Kale Deploy
-7. From Sandbox to a Live Web App (Sandbox → Workbench → Kale Deploy)
+### 35 · `steve-1` — intro
+- h1: **Tools, Agentic AI, and Scholarly Communication** · institution: **CUNY Graduate Center · Mina Rees Library**
+
+### 36 · `steve-2` — What the Lab Builds and Runs
+- How faculty and students build and run their own AI tools
+- The impact of agentic AI on research and libraries
+- An infrastructure layer for custom tool development
+
+### 37 · `steve-3` — Tools Portal
+- tools.ailab.gc.cuny.edu — standalone applications
+- Media tools: transcription, OCR, image description; plus a disclosure tool and agentic studios
+- Zero-retention: the providers store nothing from prompts or outputs
+
+### 38 · `steve-4` — Working with Agentic AI
+- Agent Studio and Site Studio for research tasks
+- A shift from conversation toward task delegation
+- Faculty and students build tools with minimal coding
+
+### 39 · `steve-5` — Kale Workbench
+- A browser environment for controlled coding-agent work
+- Agents use only vetted tools; code runs in sandboxed environments
+- Budget controls and audit trails; hands off to Kale Deploy when ready
+
+### 40 · `steve-6` — Kale Deploy
+- Publishes projects to CUNY addresses
+- Functions like Vercel or Netlify, but institution-operated
+- Runs on Cloudflare Workers, with CUNY holding the credentials
+
+### 41 · `steve-7` — From Sandbox to a Live Web App
+- Sandbox → Workbench → Kale Deploy
+- From chat access, through governed development, to publication
+- Accountability and institutional control throughout
+
+---
+
+# Asset audit (`images/`)
+
+**In use (21):**
+`ach26.svg` (emblem/favicon) · `favicon.png` · `cail-logo-white.png` (header) ·
+`cali-website-home.png` · `cali-books.gif` · `cali-cohort1-slide13.jpg` ·
+`cali-cohort2-slide16.png` · `13_cali_to_cail.png` · `zm-step1-signin.png` ·
+`zm-step2-chat.png` · `zm-step3-models.png` · `14_zero_retention_flow.png` ·
+`owui_comparison_a.png` · `owui_comparison_b.png` · `owui_model_cards.png` ·
+`17_communities_hub.png` · `18_thinkering_fellows.png` · `19_amigai_build.png` ·
+`azu_dartboard.png` · `azu_amigai_interface.png` · `azu_examples_transcript.png`.
+
+**Orphaned (3 — present in `images/` but not referenced anywhere):**
+- `azu_thinking.png` — slide 29 (`azu-6`) was redesigned to a CSS `.bubble-cloud`.
+- `azu_clipboard.png` — slide 32 (`azu-9`) was redesigned to a CSS `.json-card`.
+- `TLC-Logo-v4-No-GC-white.png` — old footer logo, replaced by the CAIL wordmark.
+
+Kept on disk for reference; safe to delete if you want a lean repo.
 
 ---
 
 ## Editing notes
-- Add/reorder slides by editing `<section class="slide" data-slide="…">`
-  blocks in `index.html`; `slides.js` re-paginates and the footer counter
-  updates automatically (no need to hand-edit the `1 / 35`).
-- Accents follow the `data-slide` prefix — keep the `matt-`/`zach-`/`azu-`/
-  `steve-` prefixes so colors and the overview view stay correct.
-- Fonts load from Google Fonts; system serif/sans fall back offline.
-- Steve's slides are text-only (`.crowded`); Azucena's mix `.crowded` with
-  `odd-layout`/`figure-hero` image slides. To add an image to a text slide,
-  replace the empty `figure.stage` with a `figure.stage.figure-stage` + `img`
-  and switch the section to `odd-layout`/`even-layout`, as Zach's and Azucena's
-  slides do.
+- Add/reorder slides by editing `<section class="slide" data-slide="…">` blocks;
+  `slides.js` re-paginates and the footer counter updates — but **bump the
+  scrubber `<input … max="N">` by hand** and **bump the `?v=` cache-buster** on
+  the CSS links whenever you touch a stylesheet.
+- Keep the `matt-`/`luke-`/`zach-`/`azu-`/`steve-` `data-slide` prefixes so
+  accents and the overview view stay correct.
+- Components live in `ach-accents.css`: `h2.azu-sub`, `p.impressions-sub`,
+  `p.list-label`, `ul.check-bullets`, `.azu-impressions` + `.quote-cols` /
+  `.quote-col` / `.col-head`, `img.framed`, `.illus`, `.bubble-cloud`,
+  `.json-card`, plus `figure-hero` / `figure-side` / `walk-stage` / `gallery-2`
+  and the cali-brooklyn `step-grid`. Dense slides shrink to fit via the `--fit`
+  auto-scale (`src/ach-fit.js`); write new sizes as `calc(<size> * var(--fit, 1))`.
 
 ---
 
-## Zach — talk track (bullets, now spoken not on-slide)
-Distilled from `scripts/slides_data.py`. Moved off the slides when they switched
-to the `figure-hero` layout; deliver these over each figure.
+## Zach — talk track (bullets, spoken not on-slide)
+Distilled from `scripts/slides_data.py`; deliver these over each figure.
 
 ### From CALI to the CUNY AI Lab
 - Grew out of the Google.org-sponsored Critical AI Literacy Institute (CALI)
@@ -205,4 +349,3 @@ to the `figure-hero` layout; deliver these over each figure.
 - One configuration template, adapted across three Spanish sections
 - SPAN 101 conversation · SPA 204 discourse analysis · SPAN 207 heritage critique
 - The AmigAI sections are the busiest workload — 36.6% of all messages
-
