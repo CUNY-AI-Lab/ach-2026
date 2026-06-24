@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="src/styles.css?v=ach2026" />
-  <link rel="stylesheet" href="src/ach-accents.css?v=ach2026" />
+  <link rel="stylesheet" href="src/styles.css?v=20260624b" />
+  <link rel="stylesheet" href="src/ach-accents.css?v=20260624b" />
 </head>
 <body>
 <div id="image-lightbox" class="lightbox" aria-hidden="true">
@@ -29,6 +29,9 @@
   </a>
   <div class="bar"><div class="kbd" id="kbdSwipe">Swipe</div></div>
   <a href="https://ailab.gc.cuny.edu/" target="_blank" rel="noopener" class="header-deck-link">ailab.gc.cuny.edu</a>
+  <a href="https://ailab.gc.cuny.edu/" target="_blank" rel="noopener" class="header-cail-link" aria-label="CUNY AI Lab">
+    <img src="images/cail-logo-white.png" alt="CUNY AI Lab" class="header-cail-logo">
+  </a>
 </header>
 
 <main id="slide-content" role="main" aria-label="Presentation slides">
@@ -196,7 +199,16 @@
     <figure class="stage blank-stage" aria-hidden="true"></figure>
   </section>
 
-  <!-- ========================= ZACH (8) ========================= -->
+  <!-- ===================== ZACH (intro + 8) ===================== -->
+  <section class="slide placeholder-slide crowded" data-slide="zach-intro" aria-label="Zach Muhlbauer, section opening">
+    <div class="content">
+      <div class="label">Zach Muhlbauer</div>
+      <h1>The CUNY AI Lab Sandbox</h1>
+      <p class="institution">CUNY AI Lab · CUNY Graduate Center</p>
+    </div>
+    <figure class="stage blank-stage" aria-hidden="true"></figure>
+  </section>
+
   <section class="slide placeholder-slide figure-hero" data-slide="zach-1" aria-label="Zach, From CALI to the CUNY AI Lab">
     <div class="content">
       <div class="label">Zach Muhlbauer</div>
@@ -234,9 +246,9 @@
       <div class="label">Zach Muhlbauer</div>
       <h1>Evaluating and Comparing Open-Weight Models</h1>
     </div>
-    <figure class="stage figure-stage gallery-2" aria-label="Two side-by-side model comparisons in the Sandbox">
-      <img src="images/owui_comparison_a.png" alt="Model comparison in the Sandbox, prompt one">
-      <img src="images/owui_comparison_b.png" alt="Model comparison in the Sandbox, prompt two">
+    <figure class="stage walk-stage" aria-label="Two model comparisons in the Sandbox, shown in turn">
+      <img class="walk-step" src="images/owui_comparison_a.png" alt="Model comparison in the Sandbox, prompt one">
+      <img class="walk-step frag" src="images/owui_comparison_b.png" alt="Model comparison in the Sandbox, prompt two">
     </figure>
   </section>
 
@@ -285,8 +297,7 @@
     <div class="content">
       <div class="label">Azucena García Gutiérrez</div>
       <h1>AmigAI in Spanish 204</h1>
-      <h2>Critical Language Awareness with an AI conversation partner</h2>
-      <p class="institution">City University of New York · The Graduate Center</p>
+      <p class="institution">CUNY Graduate Center · Spanish, Queens College</p>
     </div>
     <figure class="stage blank-stage" aria-hidden="true"></figure>
   </section>
@@ -418,8 +429,7 @@
     <div class="content">
       <div class="label">Stephen Zweibel</div>
       <h1>Tools, Agentic AI, and Scholarly Communication</h1>
-      <h2>The infrastructure layer for building custom tools</h2>
-      <p class="institution">CUNY AI Lab · Mina Rees Library</p>
+      <p class="institution">CUNY Graduate Center · Mina Rees Library</p>
     </div>
     <figure class="stage blank-stage" aria-hidden="true"></figure>
   </section>
@@ -505,13 +515,10 @@
 </main>
 
 <footer class="sticky-footer">
-  <a href="https://ailab.gc.cuny.edu/" target="_blank" rel="noopener" class="footer-logo-link" aria-label="CUNY AI Lab">
-    <img src="images/cail-logo-white.png" alt="CUNY AI Lab" class="footer-logo">
-  </a>
   <div class="footer-slider">
     <button class="footer-arrow" id="btn-prev" aria-label="Previous slide">&#8592;</button>
     <div class="slider-track">
-      <input type="range" id="slide-scrubber" min="1" max="43" value="1" aria-label="Navigate to slide">
+      <input type="range" id="slide-scrubber" min="1" max="44" value="1" aria-label="Navigate to slide">
       <div class="slider-progress"></div>
       <div class="slider-thumb"></div>
     </div>

@@ -48,21 +48,26 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
    this long panel title. Bring it down to a calmer display size. ── */
 .slide-title .title-card h1 { font-size: clamp(30px, 4vw, 64px); }
 
-/* ── Figure-hero: a slim title bar on top, the image foregrounded across the
-   whole body below. The presenter label + title are kept compact so the stage
-   (and the screenshot/chart in it) gets the maximum height — height is what
-   sizes these wide images, since they're contain-fit. The stage is transparent
-   and borderless so any letterboxing falls on the slide's own dark ground
-   rather than a hard black box. ── */
+/* ── Figure-hero: a minimal title line on top, the image foregrounded across
+   nearly the whole slide below. The label + title are stripped to bare text
+   (no card, tight) and the slide's bottom padding is reclaimed so the stage
+   runs almost header-to-footer — height is what sizes these wide images, since
+   they're contain-fit. The stage is transparent/borderless so any letterboxing
+   falls on the slide's own dark ground rather than a hard black box. ── */
 @media (min-width: 720px) {
-  .placeholder-slide.figure-hero { flex-direction: column; align-items: stretch; gap: clamp(8px, 1.1vh, 15px); }
+  section.slide.placeholder-slide.figure-hero {
+    padding-bottom: calc(6px + var(--footer-h));
+    gap: 4px;
+  }
+  .placeholder-slide.figure-hero { flex-direction: column; align-items: stretch; }
   .placeholder-slide.figure-hero > .content {
     flex: 0 0 auto; width: 100%; min-height: 0;
-    padding: clamp(10px, 1.4vh, 18px) clamp(20px, 2.6vw, 36px);
+    padding: 0 clamp(8px, 1vw, 16px) 2px;
+    background: transparent; border: none; box-shadow: none; backdrop-filter: none;
   }
-  .placeholder-slide.figure-hero > .content .label { margin-bottom: 5px; }
+  .placeholder-slide.figure-hero > .content .label { margin-bottom: 2px; }
   .placeholder-slide.figure-hero > .content h1 {
-    font-size: clamp(20px, 2.3vw, 34px); line-height: 1.06; margin-bottom: 0;
+    font-size: clamp(18px, 2vw, 30px); line-height: 1.05; margin-bottom: 0;
   }
   .placeholder-slide.figure-hero > .stage {
     flex: 1 1 auto; width: 100%; min-height: 0;
@@ -76,15 +81,16 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
 }
 
 /* Two-up image gallery inside a figure-hero stage (Zach's model comparison):
-   both screenshots sit side by side, each filling half the width. */
+   both screenshots sit side by side, each filling its half as large as the
+   maximized stage allows. */
 .figure-hero .stage.gallery-2 {
   display: flex; flex-direction: row; align-items: center; justify-content: center;
-  gap: clamp(10px, 1.5vw, 22px); background: transparent; border: none; padding: 0;
+  gap: clamp(6px, 1vw, 14px); background: transparent; border: none; padding: 0;
 }
 .figure-hero .stage.gallery-2 > img {
   flex: 1 1 0; min-width: 0; width: 50%; height: 100%;
   object-fit: contain; object-position: center;
-  border-radius: 10px; border: 1px solid rgba(180,200,220,0.08);
+  border-radius: 8px; border: 1px solid rgba(180,200,220,0.08);
 }
 
 /* Stepped image walkthrough inside a figure-hero stage: each screenshot is a
@@ -128,6 +134,18 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
    light/gold, so cancel the invert and let it keep its color. */
 .header-logo.brand-mark { filter: none; opacity: 0.95; }
 .header-logo.brand-mark:hover { opacity: 1; }
+
+/* CUNY AI Lab wordmark, moved to the header's top-right (opposite the emblem). */
+.header-cail-link {
+  margin-left: auto; pointer-events: auto;
+  display: inline-flex; line-height: 0; flex-shrink: 0;
+  transition: opacity 0.2s ease;
+}
+.header-cail-logo {
+  height: clamp(16px, 1.9vw, 26px); width: auto; display: block;
+  opacity: 0.82; object-fit: contain; transition: opacity 0.2s ease;
+}
+.header-cail-link:hover .header-cail-logo { opacity: 1; }
 
 /* Blank placeholder slides for Matt & Luke: faint "to be drafted" affordance. */
 .blank-note {

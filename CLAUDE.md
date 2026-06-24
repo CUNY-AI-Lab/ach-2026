@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## What this is
 
 The HTML slide deck for the **CUNY AI Lab panel at ACH 2026** (Fri June 26, 2026):
-"Building Community-Oriented Infrastructures for AI Experimentation." 43 slides for
+"Building Community-Oriented Infrastructures for AI Experimentation." 44 slides for
 five presenters. It is **based on the `cuny-ai-lab/cali-narst` theme**
 (https://cuny-ai-lab.github.io/cali-narst/) — a custom dark deck, not reveal.js.
 This folder is its own git repo (branch `main`).
@@ -41,12 +41,14 @@ talk track). Edit `SLIDES.md` and `index.html` together.
 - `slide-title` — title slide (animated WebGL background + title card).
 - `placeholder-slide even-layout` / `odd-layout` — text column + figure stage.
 - `placeholder-slide crowded` — text-only (stage hidden); used by Azucena/Steve.
-- `placeholder-slide figure-hero` — **slim title bar on top, the image
-  foregrounded across the whole body below.** Stage is transparent/borderless so
-  wide screenshots read large, not boxed. Used for all of Zach's slides. Defined
-  in `ach-accents.css`.
-- `figure.stage figure-stage gallery-2` — two images side by side inside a
-  figure-hero (Zach slide 4's model comparison).
+- `placeholder-slide figure-hero` — **minimal title line on top, the image
+  foregrounded across nearly the whole slide.** Bottom padding is reclaimed and
+  the stage is transparent/borderless so wide screenshots read large, not boxed.
+  Used for all of Zach's figure slides. Defined in `ach-accents.css`.
+- Zach's model-comparison (zach-4) uses the `walk-stage` reveal — each of the
+  two comparison shots is shown full-stage in turn, not side by side (a 2-up
+  made them unreadable, since each shot is itself a 2-model split). The
+  `.gallery-2` CSS remains in `ach-accents.css` for any genuine 2-up need.
 
 **Stepped image walkthrough** (e.g. Zach slide 2, sign-in → chat → models): put
 `<img class="walk-step">` images in a `<figure class="stage walk-stage">`; the
