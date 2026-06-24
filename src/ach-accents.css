@@ -108,6 +108,14 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
   }
 }
 
+/* Balance two-column slides (Luke / Azucena interactions): center the text
+   column against its figure so a fuller stack (title + subtitle + label + list)
+   isn't top-heavy with the last item crammed against the card's bottom edge. */
+@media (min-width: 720px) {
+  .placeholder-slide.odd-layout > .content,
+  .placeholder-slide.even-layout > .content { justify-content: center; }
+}
+
 /* Two-up image gallery inside a figure-hero stage (kept for any genuine 2-up):
    both screenshots sit side by side, each filling its half. */
 .figure-hero .stage.gallery-2 {
@@ -194,6 +202,33 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
 }
 .header-cail-link:hover .header-cail-logo { opacity: 1; }
 
+/* Mobile: when slides stack to a single column (<720px), stage images keep
+   their intrinsic width (flex items default to min-width:auto) and overflow the
+   viewport — text and screenshots run off the right edge. Pin them to the
+   column width and let height follow the aspect ratio. */
+@media (max-width: 720px) {
+  section.slide { overflow-x: hidden; }
+  /* Both columns must shrink below their content's intrinsic size, or a wide
+     image/chart drags the stacked column past the viewport. */
+  .placeholder-slide > .content,
+  .placeholder-slide > .stage {
+    flex-shrink: 1 !important; min-width: 0 !important; max-width: 100% !important;
+  }
+  .placeholder-slide > .stage { width: 100%; }
+  /* The image is itself a flex item (figure-stage is a column flex), so it keeps
+     min-width:auto = its intrinsic width and gets clipped by the stage's
+     overflow:hidden. Pin it to the column width. Selector specificity matches
+     the theme's `.figure-hero .figure-stage > img` (0,3,1) so height:100% loses. */
+  .placeholder-slide .figure-stage > img,
+  .placeholder-slide .stage > img,
+  .figure-hero .figure-stage > img,
+  .figure-side .figure-stage > img {
+    width: 100% !important; height: auto !important;
+    min-width: 0 !important; max-width: 100% !important;
+    object-fit: contain;
+  }
+}
+
 /* The "Swipe" hint is for touch only, but the theme keys it to viewport width —
    so a desktop user in a narrow window still sees it. Hide it on any device with
    a real mouse/trackpad (fine pointer + hover), regardless of width. Touch
@@ -235,3 +270,4 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
   font-family: var(--font-mono); font-size: var(--fs-caption);
   letter-spacing: 0.06em;
 }
+
