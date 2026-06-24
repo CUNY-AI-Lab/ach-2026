@@ -194,6 +194,14 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
 }
 .header-cail-link:hover .header-cail-logo { opacity: 1; }
 
+/* The "Swipe" hint is for touch only, but the theme keys it to viewport width —
+   so a desktop user in a narrow window still sees it. Hide it on any device with
+   a real mouse/trackpad (fine pointer + hover), regardless of width. Touch
+   devices keep the theme's behavior. */
+@media (hover: hover) and (pointer: fine) {
+  #kbdSwipe { display: none; }
+}
+
 /* Footer scrubber: run it from the far left to the nav controls. The theme's
    left gutter (clamp 90-130px) reserved room for the footer logo, which now
    lives in the header — drop it; and remove the centered max-width so the track
