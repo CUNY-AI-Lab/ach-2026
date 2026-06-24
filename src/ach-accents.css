@@ -1,0 +1,93 @@
+/* ACH 2026 panel — presenter accents.
+   Extends the CALI-NARST theme for this panel's five presenters, mirroring the
+   theme's own [data-slide]-prefix accent pattern (styles.css §568-581, 824-831).
+   Matt & Luke share one section accent; Zach reuses the theme's gold; Azucena
+   takes the lavender; Steve takes the bright mint. */
+:root {
+  --accent-mattluke: #c9d5e8;  /* pale blue  — Matthew Gold & Luke Waltzer */
+  --accent-azu:      #c9a6cf;  /* lavender   — Azucena Garcia Gutierrez   */
+  --accent-steve:    #8fd5c3;  /* bright mint— Stephen Zweibel            */
+}
+
+/* Section-break accents */
+[data-slide="break-mattluke"] { --break-accent: var(--accent-mattluke); }
+[data-slide="break-zach"]     { --break-accent: var(--accent-zach); }
+[data-slide="break-azu"]      { --break-accent: var(--accent-azu); }
+[data-slide="break-steve"]    { --break-accent: var(--accent-steve); }
+
+/* Per-slide label color */
+[data-slide^="matt-"]  .content .label { color: var(--accent-mattluke); }
+[data-slide^="zach-"]  .content .label { color: var(--accent-zach); }
+[data-slide^="azu-"]   .content .label { color: var(--accent-azu); }
+[data-slide^="steve-"] .content .label { color: var(--accent-steve); }
+
+/* Per-slide left accent rule on the content card */
+[data-slide^="matt-"]  .content { box-shadow: inset 3px 0 0 0 color-mix(in oklab, var(--accent-mattluke) 75%, transparent); }
+[data-slide^="zach-"]  .content { box-shadow: inset 3px 0 0 0 color-mix(in oklab, var(--accent-zach) 75%, transparent); }
+[data-slide^="azu-"]   .content { box-shadow: inset 3px 0 0 0 color-mix(in oklab, var(--accent-azu) 75%, transparent); }
+[data-slide^="steve-"] .content { box-shadow: inset 3px 0 0 0 color-mix(in oklab, var(--accent-steve) 75%, transparent); }
+
+/* Overview-mode top borders */
+body.overview section.slide[data-slide^="matt-"],
+body.overview section.slide[data-slide="break-mattluke"] { border-top: 2px solid var(--accent-mattluke) !important; }
+body.overview section.slide[data-slide^="zach-"],
+body.overview section.slide[data-slide="break-zach"]     { border-top: 2px solid var(--accent-zach) !important; }
+body.overview section.slide[data-slide^="azu-"],
+body.overview section.slide[data-slide="break-azu"]      { border-top: 2px solid var(--accent-azu) !important; }
+body.overview section.slide[data-slide^="steve-"],
+body.overview section.slide[data-slide="break-steve"]    { border-top: 2px solid var(--accent-steve) !important; }
+
+/* Figure-hero layout: the figure fills the slide body; only the presenter
+   label and title sit above it. Used for Zach's figure-as-slide segment so the
+   charts and screenshots read large. (Overrides the row split at >=720px.) */
+@media (min-width: 720px) {
+  .placeholder-slide.figure-hero { flex-direction: column; align-items: stretch; }
+  .placeholder-slide.figure-hero > .content {
+    flex: 0 0 auto; width: 100%; min-height: 0;
+    padding: clamp(16px, 2vw, 26px) clamp(22px, 3vw, 40px);
+  }
+  .placeholder-slide.figure-hero > .stage { flex: 1 1 auto; width: 100%; min-height: 0; }
+}
+.placeholder-slide.figure-hero .content h1 { margin-bottom: 0; }
+
+/* Stepped image walkthrough inside a figure-hero stage: each screenshot is a
+   .frag stacked over the last, so clicking advances login -> chat -> models. */
+.figure-hero .stage .walk-step {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: contain; object-position: center;
+  background: #080b10;
+}
+.figure-hero .stage .walk-step.frag { transform: none; }
+.figure-hero .stage .walk-step.frag.visible { transform: none; }
+
+/* Panel emblem (ach26.svg): gold hands + lightbulb. The theme's .header-logo
+   inverts dark wordmarks for the dark header; this mark is already light/gold,
+   so cancel the invert and let it keep its color. */
+.header-logo.brand-mark { filter: none; opacity: 0.95; }
+.header-logo.brand-mark:hover { opacity: 1; }
+
+/* Same emblem as a mark on the title card, above the eyebrow. */
+.title-mark {
+  display: block;
+  height: clamp(48px, 6vw, 84px);
+  width: auto;
+  margin-bottom: clamp(14px, 1.6vw, 22px);
+  opacity: 0.96;
+  filter: drop-shadow(0 4px 18px rgba(0,0,0,0.4));
+}
+
+/* Blank placeholder slides for Matt & Luke: faint "to be drafted" affordance. */
+.blank-note {
+  margin-top: 0.4em;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.04em;
+  color: rgba(201, 213, 232, 0.42);
+}
+.blank-stage {
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(201, 213, 232, 0.30);
+  font-family: var(--font-mono); font-size: var(--fs-caption);
+  letter-spacing: 0.06em;
+}
