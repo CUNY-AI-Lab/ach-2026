@@ -28,29 +28,31 @@ Lab wordmark (`images/cail-logo-white.png`, `.header-cail-logo`).
 **Presenting order:** Matthew Gold → Luke Waltzer → Zach Muhlbauer →
 Azucena García Gutiérrez → Stephen Zweibel
 
-44 slides total: 1 title · 8 Matt · 8 Luke · 1 Zach opener + 8 Zach ·
+41 slides total: 1 title · 8 Matt · 5 Luke · 1 Zach opener + 8 Zach ·
 11 Azucena · 7 Steve.
 
 ## Status (QA pass)
-All 44 slides were rendered and reviewed — every slide is visible and
+All 41 slides were rendered and reviewed — every slide is visible and
 well-formatted: no broken images, no text overflow, no empty/error slides.
 - Title (1): single emblem, calmer title size, no subtitle, presenters in
   presenting order, CAIL wordmark top-right. ✓
-- Matt (2–9) & Luke (10–17): intentionally blank placeholders — label +
-  "Slide N of 8 · content to be drafted", vertically centered. No content. ✓
-- Zach opener (18) + Zach (19–26): `figure-hero` — minimal title line, the
+- Matt (2–9): intentionally blank placeholders — label + "Slide N of 8 ·
+  content to be drafted", vertically centered. No content. ✓
+- Luke (10–14): recreated from source decks (cali-narst / cali-brooklyn) +
+  the CALI 1/2 text supplied by the presenter. No content authored here. ✓
+- Zach opener (15) + Zach (16–23): `figure-hero` — minimal title line, the
   image foregrounded across nearly the whole slide. Screenshots/charts read
   large. ✓
-- Slide 20: 3-step sign-in → chat → model-picker reveal, real screenshots. ✓
-- Slide 22: model-comparison click-reveal — each shot full-stage, readable. ✓
-- Azucena (27–37) & Steve (38–44): text/quote slides, centered; all three
+- Slide 17: 3-step sign-in → chat → model-picker reveal, real screenshots. ✓
+- Slide 19: model-comparison click-reveal — each shot full-stage, readable. ✓
+- Azucena (24–34) & Steve (35–41): text/quote slides, centered; all three
   quotes fit per slide without overflow. Section openers lead with affiliation
   (topical subtitles removed). ✓
 
 | accent | presenter | data-slide |
 |--------|-----------|-----------|
 | pale blue `#c9d5e8` | Matthew Gold | `matt-1…8` |
-| sage `#a8c4b5` | Luke Waltzer | `luke-1…8` |
+| sage `#a8c4b5` | Luke Waltzer | `luke-1…5` |
 | gold `#e8c89f` | Zach Muhlbauer | `zach-intro`, `zach-1…8` |
 | lavender `#c9a6cf` | Azucena García Gutiérrez | `azu-1…11` |
 | mint `#8fd5c3` | Stephen Zweibel | `steve-1…7` |
@@ -65,12 +67,26 @@ Animated WebGL background carried from the theme.
 Eight blank placeholder slides (`matt-1…8`): presenter label + "Slide N of 8 ·
 content to be drafted". No content — Matt drafts these himself.
 
-## Luke — slides 10–17 (BLANK placeholders)
-Eight blank placeholder slides (`luke-1…8`): presenter label + "Slide N of 8 ·
-content to be drafted". No content — Luke drafts these himself.
+## Luke — slides 10–14 (CALI origin story)
+Recreated faithfully from the presenter's source decks — content not authored
+here. Note: connect the Lab's critical ethos and ethical commitments to the
+CALI origin story and fellows' need for model-agnostic, accountable AI
+infrastructure; how CALI grew into a broader infrastructure serving faculty,
+students, and other publics across CUNY.
 
-## Zach — opener (18) + slides 19–26
-Opener `zach-intro` (slide 18): name + section title + affiliation, like the
+| # | title | source |
+|---|-------|--------|
+| luke-1 | The Critical AI Literacy Institute: Origins | cali-narst #4 (`cali-website-home.png`; Origins/Elements as `.frag`) |
+| luke-2 | CALI: Grounding Scholarship | cali-narst #5 (`cali-books.gif`) |
+| luke-3 | CALI as an Intervention | cali-brooklyn #3 (`step-grid`, 4 numbered areas) |
+| luke-4 | CALI 1 | presenter text + `cali-cohort1-slide13.jpg` (cali-brooklyn `images/slide13.jpg`) |
+| luke-5 | CALI 2 | presenter text (text-only) |
+
+The `step-grid`/`step-row`/`step-num`/`step-text` CSS was imported verbatim from
+cali-brooklyn into `ach-accents.css` (it is not part of the cali-narst theme).
+
+## Zach — opener (15) + slides 16–23
+Opener `zach-intro` (slide 15): name + section title + affiliation, like the
 Azucena/Steve openers. Then the eight figure-hero slides:
 
 Titles from `ach26.docx`; bullets distilled from `scripts/slides_data.py`
@@ -90,7 +106,7 @@ avoided per house style).
 
 Hands off to Azucena after slide 8 (AmigAI, 36.6% of all messages).
 
-## Azucena — slides 27–37
+## Azucena — slides 24–34
 Reformatted from `Blue Modern Academic Analysis Presentation.pdf` (11 pages)
 into the panel theme. Student quotes kept verbatim as evidence.
 
@@ -108,7 +124,7 @@ into the panel theme. Student quotes kept verbatim as evidence.
 
 Source also references a Canva deck: https://canva.link/09y0vdxtlx2dzla
 
-## Steve — slides 38–44
+## Steve — slides 35–41
 From https://zweibel.net/ach-2026-steve/ (7 slides), reformatted into the theme.
 
 1. Tools, Agentic AI, and Scholarly Communication (intro)
