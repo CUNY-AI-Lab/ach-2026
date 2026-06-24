@@ -6,7 +6,9 @@
 `#0f1319`, `Newsreader` serif display + `IBM Plex Sans`/`Mono`, per-presenter
 accent colors. `deck/src/styles.css` + `deck/src/slides.js` are the theme
 verbatim (do not edit); `deck/src/ach-accents.css` adds this panel's presenters,
-layouts, and components; `deck/src/ach-fit.js` is our auto-shrink-to-fit script.
+layouts, and components; `deck/src/ach-fit.js` is our auto-shrink-to-fit script;
+`deck/src/ach-gallery.js` lets the First Impressions quote galleries (30–31)
+scroll horizontally without triggering slide nav.
 **Navigation:** arrow keys / space / footer scrubber. Footer order is
 `← [scrubber] → ⛶ counter`; the scrubber `max` is hardcoded in `index.html`.
 **Header:** gold emblem (`ach26.svg`) top-left → links to **ach2026.ach.org/en/**;
@@ -186,7 +188,9 @@ https://canva.link/09y0vdxtlx2dzla
 - image: **`azu_thinking.png`** (wordless illustration — a student in thought with abstract, text-free speech bubbles) on a blended `.illus` stage. (Replaced an earlier `.bubble-cloud` of Spanish guiding-question text, removed because the word-tokens flattened the tool's discourse.)
 
 ### 30 · `azu-7` (crowded · azu-impressions) — First Impressions / Positive Components
-3-column quote board (`.cols-3`):
+Horizontal **scroll-snap gallery** (`.quote-gallery`) of 8 full-height pull-quote
+cards (display-serif quote, lavender mono theme eyebrow, mono attribution); scroll
+sideways. Scroll is shielded from slide nav by `src/ach-gallery.js`. Grouped:
 - **More intentional**
   - "…overall, this was a very positive interaction. It asked very specific questions, and it asked more about, like, in conversation." — Student 1
   - "I didn't expect it to be so detailed with these questions. And I thought it was very cool — quotes directly from the text." — Student 2
@@ -201,7 +205,8 @@ https://canva.link/09y0vdxtlx2dzla
 - image: —
 
 ### 31 · `azu-8` (crowded · azu-impressions) — First Impressions / Negative Components
-2-column quote board (`.cols-2`):
+Horizontal **scroll-snap gallery** (`.quote-gallery`) of 7 cards; scroll sideways.
+Grouped:
 - **Awareness of their learning process through AI**
   - "Analyzing text… it's hard to do that on an AI-chat basis model." — Student 2
   - "There's a lot more opportunity for the student to voice their input in a natural way when it's in a real-life setting, like a classroom." — Student 2
