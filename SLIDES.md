@@ -80,7 +80,7 @@ students, and other publics across CUNY.
 | luke-2 | CALI: Grounding Scholarship | cali-narst #5 (`cali-books.gif`) |
 | luke-3 | CALI as an Intervention | cali-brooklyn #3 (`step-grid`, 4 numbered areas) |
 | luke-4 | CALI 1 | presenter text + `cali-cohort1-slide13.jpg` (cali-brooklyn `images/slide13.jpg`) |
-| luke-5 | CALI 2 | presenter text (text-only) |
+| luke-5 | CALI 2 | presenter text + `cali-cohort2-slide16.png` (cali-brooklyn `images/slide16.png`) |
 
 The `step-grid`/`step-row`/`step-num`/`step-text` CSS was imported verbatim from
 cali-brooklyn into `ach-accents.css` (it is not part of the cali-narst theme).
