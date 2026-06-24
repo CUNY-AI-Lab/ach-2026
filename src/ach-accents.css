@@ -194,6 +194,13 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
 }
 .header-cail-link:hover .header-cail-logo { opacity: 1; }
 
+/* Footer scrubber: run it from the far left to the nav controls. The theme's
+   left gutter (clamp 90-130px) reserved room for the footer logo, which now
+   lives in the header — drop it; and remove the centered max-width so the track
+   uses the full width. The arrows/fullscreen/counter cluster sits on the right. */
+.sticky-footer { padding-left: clamp(16px, 2vw, 28px); }
+.footer-slider { max-width: none; }
+
 /* Blank placeholder slides for Matt & Luke: faint "to be drafted" affordance. */
 .blank-note {
   margin-top: 0.4em;
