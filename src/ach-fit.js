@@ -16,14 +16,16 @@
     var content = slide.querySelector(':scope > .content');
     if (!content) return;
     content.style.setProperty('--fit', '1');
-    var cs = getComputedStyle(slide);
-    var avail = slide.clientHeight
-      - parseFloat(cs.paddingTop || 0)
-      - parseFloat(cs.paddingBottom || 0);
-    if (avail <= 0) return;                       // slide not laid out yet
+    // Below the theme's row breakpoint the slide scrolls (overflow-y:auto), so
+    // shrinking would only make stacked content needlessly tiny — leave it at 1.
+    if (!window.matchMedia('(min-width: 720px)').matches) return;
+    if (content.clientHeight <= 0) return;        // slide not laid out yet
+    // The content is a stretched flex item, so its clientHeight stays pinned to
+    // the available height while overflow spills into scrollHeight. Measure the
+    // overflow as scrollHeight > clientHeight and shrink until it's gone.
     var k = 1;
     for (var i = 0; i < 20 && k > MIN; i++) {
-      if (content.clientHeight <= avail + 2) break;
+      if (content.scrollHeight <= content.clientHeight + 1) break;
       k = Math.max(MIN, k - STEP);
       content.style.setProperty('--fit', k.toFixed(3));
       void content.offsetHeight;                  // force reflow before re-measure
