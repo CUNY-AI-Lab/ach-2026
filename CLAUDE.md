@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## What this is
 
 The HTML slide deck for the **CUNY AI Lab panel at ACH 2026** (Fri June 26, 2026):
-"Building Community-Oriented Infrastructures for AI Experimentation." 35 slides for
+"Building Community-Oriented Infrastructures for AI Experimentation." 43 slides for
 five presenters. It is **based on the `cuny-ai-lab/cali-narst` theme**
 (https://cuny-ai-lab.github.io/cali-narst/) — a custom dark deck, not reveal.js.
 This folder is its own git repo (branch `main`).
@@ -32,16 +32,21 @@ talk track). Edit `SLIDES.md` and `index.html` together.
   hand-edit the "1 / 35"**; add or remove a `<section>` and it re-counts.
 - **Fragments:** any element with class `frag` is hidden until revealed; each
   click/Right-arrow reveals the next `.frag`, then advances to the next slide.
-- **Accents are CSS, keyed by `data-slide` prefix** (`matt-`, `zach-`, `azu-`,
-  `steve-`) — see `ach-accents.css`. Keep the prefixes or colors/overview break.
+- **Accents are CSS, keyed by `data-slide` prefix** (`matt-`, `luke-`, `zach-`,
+  `azu-`, `steve-`) — see `ach-accents.css`. Keep the prefixes or colors/overview
+  break.
 
 ## Slide layouts (class on the `<section>`)
 
 - `slide-title` — title slide (animated WebGL background + title card).
 - `placeholder-slide even-layout` / `odd-layout` — text column + figure stage.
 - `placeholder-slide crowded` — text-only (stage hidden); used by Azucena/Steve.
-- `placeholder-slide figure-hero` — **label + title on top, figure fills the body
-  below.** Used for all of Zach's slides. Defined in `ach-accents.css`.
+- `placeholder-slide figure-hero` — **slim title bar on top, the image
+  foregrounded across the whole body below.** Stage is transparent/borderless so
+  wide screenshots read large, not boxed. Used for all of Zach's slides. Defined
+  in `ach-accents.css`.
+- `figure.stage figure-stage gallery-2` — two images side by side inside a
+  figure-hero (Zach slide 4's model comparison).
 
 **Stepped image walkthrough** (e.g. Zach slide 2, sign-in → chat → models): put
 `<img class="walk-step">` images in a `<figure class="stage walk-stage">`; the

@@ -7,62 +7,64 @@
 accent colors. Assets in `deck/src/` (`styles.css`, `slides.js`) are the theme
 verbatim; `deck/src/ach-accents.css` adds this panel's presenters.
 **Navigation:** arrow keys / space / footer scrubber.
-**Zach's layout:** his eight slides use the `figure-hero` layout — only the
-presenter label + title sit at the top; the figure fills the slide body below.
-The bullets are no longer on-slide; they live as the spoken talk track at the
-bottom of this file. Zach slide 2 carries a stepped image walkthrough (sign-in →
-chat → model picker) via the theme's `.frag` reveal (`zm-step1/2/3-*.png`).
+**Zach's layout:** his eight slides use the `figure-hero` layout — a slim title
+bar (label + title) on top, the image foregrounded across the whole body below.
+The stage is transparent/borderless so wide screenshots read large rather than
+floating in a black box. The bullets are no longer on-slide; they live as the
+spoken talk track at the bottom of this file. Zach slide 2 carries a stepped
+image walkthrough (sign-in → chat → model picker) via the theme's `.frag`
+reveal (`zm-step1/2/3-*.png`); slide 4 is a two-image gallery (`.gallery-2`).
 **Emblem:** `images/ach26.svg` (gold hands + lightbulb) is the panel mark — it
-sits in the header, on the title card, and as the favicon. It keeps its gold
-(the `.brand-mark` class cancels the theme's logo-invert filter).
+sits in the header and as the favicon (shown once; the duplicate on the title
+card was removed). It keeps its gold (the `.brand-mark` class cancels the
+theme's logo-invert filter). The footer carries the white CUNY AI Lab wordmark
+(`images/cail-logo-white.png`).
 
 **Panel:** Building Community-Oriented Infrastructures for AI Experimentation
 **Event:** Association for Computers and the Humanities (ACH) 2026
 **When:** Friday, June 26, 2026 · 12:00–13:15 CDT
 **Presenting order:** Matthew Gold → Luke Waltzer → Zach Muhlbauer →
-Azucena Garcia Gutierrez → Stephen Zweibel
+Azucena García Gutiérrez → Stephen Zweibel
 
-35 slides total: 1 title · 8 Matt/Luke (blank) · 8 Zach · 11 Azucena · 7 Steve.
+43 slides total: 1 title · 8 Matt · 8 Luke · 8 Zach · 11 Azucena · 7 Steve.
 
 ## Status (QA pass)
-All 35 slides were rendered and reviewed — every slide is visible and
+All 43 slides were rendered and reviewed — every slide is visible and
 well-formatted: no broken images, no text overflow, no empty/error slides.
-- Title: emblem + animated background, presenters in presenting order. ✓
-- Zach (10–17): `figure-hero` — figures fill the body under the title. ✓
-- Slide 11: 3-step sign-in → chat → model-picker reveal, real screenshots. ✓
-- Azucena (18–28) & Steve (29–35): text/quote slides, all legible.
-- Matt/Luke (2–9): intentionally blank (title + "content to be drafted").
-Known-by-design: blank slides read sparse until drafted; text slides are
-left-aligned (theme default), leaving open space on wide displays.
+- Title (1): single emblem, calmer title size, no subtitle, presenters in
+  presenting order, CAIL footer wordmark. ✓
+- Matt (2–9) & Luke (10–17): intentionally blank placeholders — label +
+  "Slide N of 8 · content to be drafted", vertically centered. No content. ✓
+- Zach (18–25): `figure-hero` — slim title bar on top, the image foregrounded
+  across the whole body below. Screenshots read large; charts fill the width. ✓
+- Slide 19: 3-step sign-in → chat → model-picker reveal, real screenshots. ✓
+- Slide 21: two-image gallery (owui_comparison_a + _b side by side). ✓
+- Azucena (26–36) & Steve (37–43): text/quote slides, centered; all three
+  quotes fit per slide without overflow. ✓
 
-| accent | presenter(s) | data-slide |
-|--------|--------------|-----------|
-| pale blue `#c9d5e8` | Matt Gold & Luke Waltzer | `matt-1…8` |
+| accent | presenter | data-slide |
+|--------|-----------|-----------|
+| pale blue `#c9d5e8` | Matthew Gold | `matt-1…8` |
+| sage `#a8c4b5` | Luke Waltzer | `luke-1…8` |
 | gold `#e8c89f` | Zach Muhlbauer | `zach-1…8` |
-| lavender `#c9a6cf` | Azucena Garcia Gutierrez | `azu-1…11` |
+| lavender `#c9a6cf` | Azucena García Gutiérrez | `azu-1…11` |
 | mint `#8fd5c3` | Stephen Zweibel | `steve-1…7` |
 
 ---
 
 ## 1 · Title
-Panel title, subtitle, presenters (in presenting order), event, date/time.
+Panel title, presenters (in presenting order), event, date/time. No subtitle.
 Animated WebGL background carried from the theme.
 
-## Matt & Luke — slides 2–9 (BLANK placeholders)
-Eight blank slides to be drafted. Working titles are placeholders only.
-Planning notes from `ach26.docx` to seed them:
-- **Matt:** set the stakes; CUNY's public-serving mission; the proven track
-  record of open-source innovation and community-led infrastructure (Manifold,
-  CAC); teaching critical AI studies alongside advocacy/service (Empire AI,
-  GC's forthcoming AI guidelines, GC digital initiatives, scholarly comms).
-- **Luke:** connect the Lab's critical ethos to the CALI origin story and
-  fellows' need for model-agnostic, accountable AI infrastructure; how CALI
-  grew into a broader infrastructure serving faculty, students, and publics.
-- Closing (Matt or Luke): return to the shared question — how can CAIL support
-  hands-on AI experimentation that builds institutional capacity toward AI
-  infrastructure that is accountable, interpretable, and owned by its users.
+## Matt — slides 2–9 (BLANK placeholders)
+Eight blank placeholder slides (`matt-1…8`): presenter label + "Slide N of 8 ·
+content to be drafted". No content — Matt drafts these himself.
 
-## Zach — slides 10–17
+## Luke — slides 10–17 (BLANK placeholders)
+Eight blank placeholder slides (`luke-1…8`): presenter label + "Slide N of 8 ·
+content to be drafted". No content — Luke drafts these himself.
+
+## Zach — slides 18–25
 Titles from `ach26.docx`; bullets distilled from `scripts/slides_data.py`
 talk tracks; figures from `figures/` (banned words `bot`/`chatbot`/`assistant`
 avoided per house style).
@@ -72,17 +74,15 @@ avoided per house style).
 | zach-1 | From CALI to the CUNY AI Lab | `13_cali_to_cail.png` |
 | zach-2 | What is the CUNY AI Lab Sandbox? | 3-step reveal: `zm-step1-signin` → `zm-step2-chat` → `zm-step3-models` |
 | zach-3 | Transparency and Privacy by Design | `14_zero_retention_flow.png` |
-| zach-4 | Evaluating and Comparing Open-Weight Models | `owui_comparison_a.png` |
+| zach-4 | Evaluating and Comparing Open-Weight Models | gallery: `owui_comparison_a.png` + `owui_comparison_b.png` |
 | zach-5 | Supporting Purpose-Built, Custom Models | `owui_model_cards.png` |
 | zach-6 | Communities of Practice within the Sandbox | `17_communities_hub.png` |
 | zach-7 | T(h)inkering with Faculty Fellows | `18_thinkering_fellows.png` |
 | zach-8 | Workshopping Project Pilots: AmigAI | `19_amigai_build.png` |
 
 Hands off to Azucena after slide 8 (AmigAI, 36.6% of all messages).
-Note: slide 4 shows one comparison screenshot (`owui_comparison_a`); the source
-has a second (`owui_comparison_b`) if a side-by-side is wanted later.
 
-## Azucena — slides 18–28
+## Azucena — slides 26–36
 Reformatted from `Blue Modern Academic Analysis Presentation.pdf` (11 pages)
 into the panel theme. Student quotes kept verbatim as evidence.
 
@@ -100,7 +100,7 @@ into the panel theme. Student quotes kept verbatim as evidence.
 
 Source also references a Canva deck: https://canva.link/09y0vdxtlx2dzla
 
-## Steve — slides 29–35
+## Steve — slides 37–43
 From https://zweibel.net/ach-2026-steve/ (7 slides), reformatted into the theme.
 
 1. Tools, Agentic AI, and Scholarly Communication (intro)

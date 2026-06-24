@@ -1,81 +1,133 @@
-/* ACH 2026 panel — presenter accents.
+/* ACH 2026 panel — presenter accents + panel layouts.
    Extends the CALI-NARST theme for this panel's five presenters, mirroring the
    theme's own [data-slide]-prefix accent pattern (styles.css §568-581, 824-831).
-   Matt & Luke share one section accent; Zach reuses the theme's gold; Azucena
-   takes the lavender; Steve takes the bright mint. */
+   Matt takes pale blue; Luke reuses the theme's sage; Zach reuses the theme's
+   gold; Azucena takes lavender; Steve takes the bright mint. Loaded after
+   styles.css, so rules here win on equal specificity. */
 :root {
-  --accent-mattluke: #c9d5e8;  /* pale blue  — Matthew Gold & Luke Waltzer */
-  --accent-azu:      #c9a6cf;  /* lavender   — Azucena Garcia Gutierrez   */
-  --accent-steve:    #8fd5c3;  /* bright mint— Stephen Zweibel            */
+  --accent-matt:  #c9d5e8;  /* pale blue   — Matthew Gold  */
+  --accent-azu:   #c9a6cf;  /* lavender    — Azucena García Gutiérrez */
+  --accent-steve: #8fd5c3;  /* bright mint — Stephen Zweibel */
+  /* --accent-luke (sage) and --accent-zach (gold) come from the theme. */
 }
 
 /* Section-break accents */
-[data-slide="break-mattluke"] { --break-accent: var(--accent-mattluke); }
-[data-slide="break-zach"]     { --break-accent: var(--accent-zach); }
-[data-slide="break-azu"]      { --break-accent: var(--accent-azu); }
-[data-slide="break-steve"]    { --break-accent: var(--accent-steve); }
+[data-slide="break-matt"]  { --break-accent: var(--accent-matt); }
+[data-slide="break-luke"]  { --break-accent: var(--accent-luke); }
+[data-slide="break-zach"]  { --break-accent: var(--accent-zach); }
+[data-slide="break-azu"]   { --break-accent: var(--accent-azu); }
+[data-slide="break-steve"] { --break-accent: var(--accent-steve); }
 
 /* Per-slide label color */
-[data-slide^="matt-"]  .content .label { color: var(--accent-mattluke); }
+[data-slide^="matt-"]  .content .label { color: var(--accent-matt); }
+[data-slide^="luke-"]  .content .label { color: var(--accent-luke); }
 [data-slide^="zach-"]  .content .label { color: var(--accent-zach); }
 [data-slide^="azu-"]   .content .label { color: var(--accent-azu); }
 [data-slide^="steve-"] .content .label { color: var(--accent-steve); }
 
 /* Per-slide left accent rule on the content card */
-[data-slide^="matt-"]  .content { box-shadow: inset 3px 0 0 0 color-mix(in oklab, var(--accent-mattluke) 75%, transparent); }
+[data-slide^="matt-"]  .content { box-shadow: inset 3px 0 0 0 color-mix(in oklab, var(--accent-matt) 75%, transparent); }
+[data-slide^="luke-"]  .content { box-shadow: inset 3px 0 0 0 color-mix(in oklab, var(--accent-luke) 75%, transparent); }
 [data-slide^="zach-"]  .content { box-shadow: inset 3px 0 0 0 color-mix(in oklab, var(--accent-zach) 75%, transparent); }
 [data-slide^="azu-"]   .content { box-shadow: inset 3px 0 0 0 color-mix(in oklab, var(--accent-azu) 75%, transparent); }
 [data-slide^="steve-"] .content { box-shadow: inset 3px 0 0 0 color-mix(in oklab, var(--accent-steve) 75%, transparent); }
 
 /* Overview-mode top borders */
 body.overview section.slide[data-slide^="matt-"],
-body.overview section.slide[data-slide="break-mattluke"] { border-top: 2px solid var(--accent-mattluke) !important; }
+body.overview section.slide[data-slide="break-matt"]  { border-top: 2px solid var(--accent-matt) !important; }
+body.overview section.slide[data-slide^="luke-"],
+body.overview section.slide[data-slide="break-luke"]  { border-top: 2px solid var(--accent-luke) !important; }
 body.overview section.slide[data-slide^="zach-"],
-body.overview section.slide[data-slide="break-zach"]     { border-top: 2px solid var(--accent-zach) !important; }
+body.overview section.slide[data-slide="break-zach"]  { border-top: 2px solid var(--accent-zach) !important; }
 body.overview section.slide[data-slide^="azu-"],
-body.overview section.slide[data-slide="break-azu"]      { border-top: 2px solid var(--accent-azu) !important; }
+body.overview section.slide[data-slide="break-azu"]   { border-top: 2px solid var(--accent-azu) !important; }
 body.overview section.slide[data-slide^="steve-"],
-body.overview section.slide[data-slide="break-steve"]    { border-top: 2px solid var(--accent-steve) !important; }
+body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid var(--accent-steve) !important; }
 
-/* Figure-hero layout: the figure fills the slide body; only the presenter
-   label and title sit above it. Used for Zach's figure-as-slide segment so the
-   charts and screenshots read large. (Overrides the row split at >=720px.) */
+/* ── Title slide: the theme's --fs-title runs up to 120px, which overpowered
+   this long panel title. Bring it down to a calmer display size. ── */
+.slide-title .title-card h1 { font-size: clamp(30px, 4vw, 64px); }
+
+/* ── Figure-hero: a slim title bar on top, the image foregrounded across the
+   whole body below. The presenter label + title are kept compact so the stage
+   (and the screenshot/chart in it) gets the maximum height — height is what
+   sizes these wide images, since they're contain-fit. The stage is transparent
+   and borderless so any letterboxing falls on the slide's own dark ground
+   rather than a hard black box. ── */
 @media (min-width: 720px) {
-  .placeholder-slide.figure-hero { flex-direction: column; align-items: stretch; }
+  .placeholder-slide.figure-hero { flex-direction: column; align-items: stretch; gap: clamp(8px, 1.1vh, 15px); }
   .placeholder-slide.figure-hero > .content {
     flex: 0 0 auto; width: 100%; min-height: 0;
-    padding: clamp(16px, 2vw, 26px) clamp(22px, 3vw, 40px);
+    padding: clamp(10px, 1.4vh, 18px) clamp(20px, 2.6vw, 36px);
   }
-  .placeholder-slide.figure-hero > .stage { flex: 1 1 auto; width: 100%; min-height: 0; }
+  .placeholder-slide.figure-hero > .content .label { margin-bottom: 5px; }
+  .placeholder-slide.figure-hero > .content h1 {
+    font-size: clamp(20px, 2.3vw, 34px); line-height: 1.06; margin-bottom: 0;
+  }
+  .placeholder-slide.figure-hero > .stage {
+    flex: 1 1 auto; width: 100%; min-height: 0;
+    background: transparent; border: none;
+  }
 }
 .placeholder-slide.figure-hero .content h1 { margin-bottom: 0; }
+.figure-hero > .stage > img,
+.figure-hero .figure-stage > img {
+  width: 100%; height: 100%; object-fit: contain; object-position: center;
+}
+
+/* Two-up image gallery inside a figure-hero stage (Zach's model comparison):
+   both screenshots sit side by side, each filling half the width. */
+.figure-hero .stage.gallery-2 {
+  display: flex; flex-direction: row; align-items: center; justify-content: center;
+  gap: clamp(10px, 1.5vw, 22px); background: transparent; border: none; padding: 0;
+}
+.figure-hero .stage.gallery-2 > img {
+  flex: 1 1 0; min-width: 0; width: 50%; height: 100%;
+  object-fit: contain; object-position: center;
+  border-radius: 10px; border: 1px solid rgba(180,200,220,0.08);
+}
 
 /* Stepped image walkthrough inside a figure-hero stage: each screenshot is a
-   .frag stacked over the last, so clicking advances login -> chat -> models. */
+   .frag stacked over the last, so clicking advances login -> chat -> models.
+   Transparent so the shots foreground on the slide ground, not a black box. */
+.figure-hero .stage.walk-stage { background: transparent; border: none; }
 .figure-hero .stage .walk-step {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: contain; object-position: center;
-  background: #080b10;
+  background: transparent;
 }
 .figure-hero .stage .walk-step.frag { transform: none; }
 .figure-hero .stage .walk-step.frag.visible { transform: none; }
 
-/* Panel emblem (ach26.svg): gold hands + lightbulb. The theme's .header-logo
-   inverts dark wordmarks for the dark header; this mark is already light/gold,
-   so cancel the invert and let it keep its color. */
+/* ── Text-only (crowded) slides — Azucena & Steve, plus Matt/Luke placeholders.
+   The theme top-aligns crowded content, so sparse slides hung empty at the
+   bottom and three-quote slides spilled under the footer. Center the content
+   vertically and size Azucena's quotes so up to three fit cleanly. ── */
+@media (min-width: 720px) {
+  .placeholder-slide.crowded .content { justify-content: center; }
+}
+[data-slide^="azu-"] .content,
+[data-slide^="steve-"] .content { gap: clamp(8px, 1.4vh, 16px); }
+
+[data-slide^="azu-"] .content blockquote {
+  margin-top: 0;
+  padding: clamp(9px, 1.1vh, 14px) clamp(13px, 1.2vw, 18px);
+  font-size: clamp(14px, 1.45vw, 19px);
+  line-height: 1.4;
+}
+[data-slide^="azu-"] .content blockquote cite {
+  display: block; margin-top: 0.45em;
+  font-style: normal; font-family: var(--font-mono);
+  font-size: 0.72em; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--accent-azu); opacity: 0.85;
+}
+
+/* Panel emblem (ach26.svg): gold hands + lightbulb in the header. The theme's
+   .header-logo inverts dark wordmarks for the dark header; this mark is already
+   light/gold, so cancel the invert and let it keep its color. */
 .header-logo.brand-mark { filter: none; opacity: 0.95; }
 .header-logo.brand-mark:hover { opacity: 1; }
-
-/* Same emblem as a mark on the title card, above the eyebrow. */
-.title-mark {
-  display: block;
-  height: clamp(48px, 6vw, 84px);
-  width: auto;
-  margin-bottom: clamp(14px, 1.6vw, 22px);
-  opacity: 0.96;
-  filter: drop-shadow(0 4px 18px rgba(0,0,0,0.4));
-}
 
 /* Blank placeholder slides for Matt & Luke: faint "to be drafted" affordance. */
 .blank-note {
