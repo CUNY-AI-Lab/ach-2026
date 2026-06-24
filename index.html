@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-  <link rel="stylesheet" href="src/styles.css?v=20260624n" />
-  <link rel="stylesheet" href="src/ach-accents.css?v=20260624n" />
+  <link rel="stylesheet" href="src/styles.css?v=20260624p" />
+  <link rel="stylesheet" href="src/ach-accents.css?v=20260624p" />
 </head>
 <body>
 <div id="image-lightbox" class="lightbox" aria-hidden="true">
@@ -24,7 +24,7 @@
 <div id="slide-announcer" class="sr-only" aria-live="polite" aria-atomic="true"></div>
 
 <header role="banner">
-  <a href="https://ailab.gc.cuny.edu/" target="_blank" rel="noopener" class="header-logo-link" aria-label="CUNY AI Lab">
+  <a href="https://ach2026.ach.org/en/" target="_blank" rel="noopener" class="header-logo-link" aria-label="ACH 2026 conference">
     <img src="images/ach26.svg" alt="CUNY AI Lab" class="header-logo brand-mark" width="321" height="319">
   </a>
   <div class="bar"><div class="kbd" id="kbdSwipe">Swipe</div></div>
@@ -312,8 +312,8 @@
   <section class="slide placeholder-slide crowded" data-slide="azu-1" aria-label="Azucena, AmigAI in Spanish 204">
     <div class="content">
       <div class="label">Azucena García Gutiérrez</div>
-      <h1>AmigAI in Spanish 204</h1>
-      <p class="institution">CUNY Graduate Center · Spanish, Queens College</p>
+      <h1>AmigAI · Spanish 204</h1>
+      <p class="institution">City University of New York (CUNY) · The Graduate Center</p>
     </div>
     <figure class="stage blank-stage" aria-hidden="true"></figure>
   </section>
@@ -322,113 +322,157 @@
     <div class="content">
       <div class="label">Azucena García Gutiérrez</div>
       <h1>Classroom Context</h1>
+      <h2 class="azu-sub">Intermediate Spanish · SPAN 204 · Queens College, CUNY</h2>
       <ul class="arrow-bullets">
-        <li>Intermediate Spanish, SPAN 204, Queens College — a mixed class of heritage (HL) and second-language (L2) learners</li>
-        <li>Textbooks often ignore diverse Latinx and Afrolatinx realities (Padilla &amp; Vana, 2022; Vana &amp; Padilla, 2024)</li>
-        <li>Goal: build Critical Language Awareness (Leeman, 2018) by challenging textbook texts</li>
+        <li>A mixed classroom of heritage (HL) and second-language (L2) learners</li>
+        <li>Spanish-language textbooks lean on technologies that ignore diverse Latinx and Afrolatinx realities (Padilla &amp; Vana, 2022; Vana &amp; Padilla, 2024)</li>
+        <li>Equip students to critically analyze pedagogical texts and build a Critical Language Awareness (CLA) (Leeman, 2018)</li>
+        <li>Use AmigAI to help students challenge texts from their own textbook</li>
       </ul>
     </div>
     <figure class="stage blank-stage" aria-hidden="true"></figure>
   </section>
 
-  <section class="slide placeholder-slide crowded" data-slide="azu-3" aria-label="Azucena, Learning Outcomes">
+  <section class="slide placeholder-slide odd-layout" data-slide="azu-3" aria-label="Azucena, Learning Outcomes">
     <div class="content">
       <div class="label">Azucena García Gutiérrez</div>
       <h1>Learning Outcomes</h1>
+      <h2 class="azu-sub">AmigAI Intervention</h2>
       <ul class="arrow-bullets">
-        <li>Scrutinize texts through guided questions</li>
-        <li>Reflect on AI technologies in language education with AmigAI</li>
-        <li>Develop critical awareness of how these AI systems work</li>
+        <li>Develop awareness of how to scrutinize texts through guided questions</li>
+        <li>Provide a space to reflect on AI technologies in language education with AmigAI</li>
+        <li>Develop AI critical awareness about these technologies</li>
         <li>Put students' full Spanish repertoires into practice</li>
       </ul>
     </div>
-    <figure class="stage blank-stage" aria-hidden="true"></figure>
+    <figure class="stage figure-stage">
+      <img src="images/azu_dartboard.png" alt="Illustration of three arrows in a target's bullseye">
+    </figure>
   </section>
 
-  <section class="slide placeholder-slide crowded" data-slide="azu-4" aria-label="Azucena, The Prompt">
+  <section class="slide placeholder-slide odd-layout" data-slide="azu-4" aria-label="Azucena, The Prompt">
     <div class="content">
       <div class="label">Azucena García Gutiérrez</div>
       <h1>The Configuration's Prompt</h1>
       <blockquote>
-        "You are a guide for conducting discourse analysis of educational texts in Spanish for intermediate-level college students (B2 on the CEFR scale). You challenge the student to analyze the text critically. Your students include both Spanish L2 and heritage learners. You never use praise, compliments, or validation — you guide the student only through questions."
+        "You are a guide for conducting discourse analysis of educational texts in Spanish for intermediate-level college students (B2 level on the CEFR scale). You challenge the student to analyze the text critically. Your students include both Spanish L2 and heritage language learners. You speak Spanish at an intermediate level (B2 level on the CEFR scale). You never use praise, compliments, or validation in your responses. You guide the student only through questions."
       </blockquote>
     </div>
-    <figure class="stage blank-stage" aria-hidden="true"></figure>
+    <figure class="stage figure-stage">
+      <img src="images/azu_amigai_interface.png" alt="The AmigAI 204 configuration open in the CUNY AI Lab Sandbox interface">
+    </figure>
   </section>
 
   <section class="slide placeholder-slide crowded" data-slide="azu-5" aria-label="Azucena, Interactions">
     <div class="content">
       <div class="label">Azucena García Gutiérrez</div>
       <h1>Interactions</h1>
+      <h2 class="azu-sub">The training</h2>
       <ul class="arrow-bullets">
-        <li>Three textbook texts: immigration, El Caribe, and Guatemalan Indigenous populations</li>
-        <li>AmigAI surfaces biases, stereotypes, and omissions through guided questions</li>
+        <li>Three texts from the Spanish textbook: immigration, El Caribe, and Guatemalan Indigenous populations</li>
+        <li>AmigAI surfaces biases, stereotypes, omissions, and different realities within the text through guided questions</li>
       </ul>
       <blockquote>
-        "¿Esta afirmación del texto, de que los trabajos son 'bien remunerados', coincide con la realidad de muchos inmigrantes latinos que conoces o de la que has oído hablar?"
+        "Te pido que mires de nuevo el primer párrafo. En las líneas 3 a 6 dice que 'con mayor frecuencia el latino llega a los Estados Unidos con un nivel de estudios más alto y mejor preparado para ejercer trabajos bien remunerados' [1]. ¿Esta afirmación del texto, de que los trabajos son 'bien remunerados', coincide con la realidad de muchos inmigrantes latinos que conoces o de la que has oído hablar?"
         <cite>— AmigAI, first interaction, Student A03</cite>
       </blockquote>
     </div>
     <figure class="stage blank-stage" aria-hidden="true"></figure>
   </section>
 
-  <section class="slide placeholder-slide crowded" data-slide="azu-6" aria-label="Azucena, Classroom Application">
+  <section class="slide placeholder-slide odd-layout" data-slide="azu-6" aria-label="Azucena, Classroom Application">
     <div class="content">
       <div class="label">Azucena García Gutiérrez</div>
       <h1>Classroom Application</h1>
-      <ul class="arrow-bullets">
-        <li>Onboarding instructions and an explanation of the task</li>
-        <li>Reading comprehension of the materials</li>
+      <h2 class="azu-sub">Fundamental Components</h2>
+      <ul class="check-bullets">
+        <li>Reading comprehension of the reading materials</li>
+        <li>Explanation of the task with AmigAI; onboarding instructions</li>
         <li>Individual interaction with AmigAI</li>
         <li>Debriefing discussion as a class</li>
       </ul>
     </div>
-    <figure class="stage blank-stage" aria-hidden="true"></figure>
+    <figure class="stage figure-stage">
+      <img src="images/azu_thinking.png" alt="Illustration of a student thinking, surrounded by speech bubbles">
+    </figure>
   </section>
 
-  <section class="slide placeholder-slide crowded" data-slide="azu-7" aria-label="Azucena, First Impressions — positive">
+  <section class="slide placeholder-slide crowded azu-impressions" data-slide="azu-7" aria-label="Azucena, First Impressions — positive">
     <div class="content">
       <div class="label">Azucena García Gutiérrez</div>
-      <h1>First Impressions — Positive</h1>
-      <blockquote>"It asked very specific questions, and it asked more about, like, in conversation." <cite>— Student 1</cite></blockquote>
-      <blockquote>"It helped me see the real side of immigration that the text might not have wanted to cover." <cite>— Student 2</cite></blockquote>
-      <blockquote>"It makes me think of how ChatGPT is being trained — what perspectives, what kind of information are we actually reading?" <cite>— Student 3</cite></blockquote>
+      <h1>First Impressions</h1>
+      <p class="impressions-sub">Positive Components</p>
+      <div class="quote-cols cols-3">
+        <div class="quote-col">
+          <div class="col-head">More intentional</div>
+          <blockquote>"…overall, this was a very positive interaction. It asked very specific questions, and it asked more about, like, in conversation." <cite>— Student 1</cite></blockquote>
+          <blockquote>"I didn't expect it to be so detailed with these questions. And I thought it was very cool — quotes directly from the text." <cite>— Student 2</cite></blockquote>
+          <blockquote>"When you have someone, or something else, to ask questions to think deeper, it kind of gives you a deeper understanding of what you're reading." <cite>— Student 4</cite></blockquote>
+        </div>
+        <div class="quote-col">
+          <div class="col-head">"A before" and "an after" the readings</div>
+          <blockquote>"It feels informative, but it doesn't portray the negative side." <cite>— Student 1</cite></blockquote>
+          <blockquote>"The chatbot actually helped me see the real side of immigration that the text might not have wanted to cover." <cite>— Student 2</cite></blockquote>
+          <blockquote>"The text never talks about the push back on immigration or negative attention…" <cite>— Student 2</cite></blockquote>
+        </div>
+        <div class="quote-col">
+          <div class="col-head">AI Critical Awareness</div>
+          <blockquote>"It makes me think of how ChatGPT is being trained — what are their perspectives, what kind of information are we actually reading?" <cite>— Student 3</cite></blockquote>
+          <blockquote>"Los libros de texto cuentan con formas de enseñar relacionadas a una agenda." <cite>— Student 3</cite></blockquote>
+        </div>
+      </div>
     </div>
     <figure class="stage blank-stage" aria-hidden="true"></figure>
   </section>
 
-  <section class="slide placeholder-slide crowded" data-slide="azu-8" aria-label="Azucena, First Impressions — negative">
+  <section class="slide placeholder-slide crowded azu-impressions" data-slide="azu-8" aria-label="Azucena, First Impressions — negative">
     <div class="content">
       <div class="label">Azucena García Gutiérrez</div>
-      <h1>First Impressions — Critical</h1>
-      <blockquote>"There's a lot more opportunity for the student to voice their input in a natural way when it's a real-life setting, like a classroom." <cite>— Student 2</cite></blockquote>
-      <blockquote>"With AI, you lose that personal touch… you lose that humanity." <cite>— Student 2</cite></blockquote>
-      <blockquote>"It would not translate for me. It just repeats the question. If it's not gonna help me understand the text, what's the point?" <cite>— Student 1</cite></blockquote>
+      <h1>First Impressions</h1>
+      <p class="impressions-sub">Negative Components</p>
+      <div class="quote-cols cols-2">
+        <div class="quote-col">
+          <div class="col-head">Awareness of their learning process through AI</div>
+          <blockquote>"Analyzing text… it's hard to do that on an AI-chat basis model." <cite>— Student 2</cite></blockquote>
+          <blockquote>"There's a lot more opportunity for the student to voice their input in a natural way when it's in a real-life setting, like a classroom." <cite>— Student 2</cite></blockquote>
+          <blockquote>"I feel like with AI, you lose that personal touch." <cite>— Student 2</cite></blockquote>
+          <blockquote>"And doing it with the chatbot, you lose that humanity." <cite>— Student 2</cite></blockquote>
+          <blockquote>"The false positivity feels like you are talking with a robot, a screen." <cite>— Student 1</cite></blockquote>
+        </div>
+        <div class="quote-col">
+          <div class="col-head">Monolingual Approach</div>
+          <blockquote>"It would not translate for me. It just repeats the question." <cite>— Student 1</cite></blockquote>
+          <blockquote>"If it's not gonna help me understand the text, what's the point?" <cite>— Student 1</cite></blockquote>
+        </div>
+      </div>
     </div>
     <figure class="stage blank-stage" aria-hidden="true"></figure>
   </section>
 
-  <section class="slide placeholder-slide crowded" data-slide="azu-9" aria-label="Azucena, Conclusions">
+  <section class="slide placeholder-slide odd-layout" data-slide="azu-9" aria-label="Azucena, Conclusions">
     <div class="content">
       <div class="label">Azucena García Gutiérrez</div>
       <h1>Conclusions</h1>
-      <ul class="arrow-bullets">
-        <li>Conversations that develop critical awareness</li>
+      <ul class="check-bullets">
         <li>A pedagogical tool for AI critical-literacy discussions</li>
+        <li>Challenging to use under translingual approaches and at lower levels</li>
+        <li>Conversations that develop critical awareness</li>
         <li>Technical issues and invisible labor remain real costs</li>
-        <li>Challenging under translingual approaches and at lower levels</li>
       </ul>
     </div>
-    <figure class="stage blank-stage" aria-hidden="true"></figure>
+    <figure class="stage figure-stage">
+      <img src="images/azu_clipboard.png" alt="Illustration of a clipboard holding a report with charts">
+    </figure>
   </section>
 
-  <section class="slide placeholder-slide crowded" data-slide="azu-10" aria-label="Azucena, Examples of interactions">
+  <section class="slide placeholder-slide figure-hero" data-slide="azu-10" aria-label="Azucena, Examples of interactions">
     <div class="content">
       <div class="label">Azucena García Gutiérrez</div>
       <h1>Examples of Interactions</h1>
-      <p class="blank-note">Live walkthrough — selected AmigAI transcripts</p>
     </div>
-    <figure class="stage blank-stage" aria-hidden="true"></figure>
+    <figure class="stage figure-stage">
+      <img class="framed" src="images/azu_examples_transcript.png" alt="AmigAI conversation transcript analyzing the text 'Corriente latina,' with the student's written response">
+    </figure>
   </section>
 
   <section class="slide placeholder-slide crowded" data-slide="azu-11" aria-label="Azucena, Thank you">

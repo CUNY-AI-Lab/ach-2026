@@ -6,7 +6,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 The HTML slide deck for the **CUNY AI Lab panel at ACH 2026** (Fri June 26, 2026):
 "Building Community-Oriented Infrastructures for AI Experimentation." 41 slides for
-five presenters. It is **based on the `cuny-ai-lab/cali-narst` theme**
+five presenters (see `SLIDES.md` for the per-presenter ranges and count). It is **based on the `cuny-ai-lab/cali-narst` theme**
 (https://cuny-ai-lab.github.io/cali-narst/) — a custom dark deck, not reveal.js.
 This folder is its own git repo (branch `main`).
 
@@ -30,10 +30,11 @@ talk track). Edit `SLIDES.md` and `index.html` together.
 
 - `slides.js` auto-paginates every `section.slide` and drives nav (arrow keys /
   space / footer scrubber / `btn-prev`·`btn-next`), the lightbox, and fragments.
-  The footer **counter** ("18 / 44") is set from `slides.length` — don't
+  The footer **counter** ("18 / 41") is set from `slides.length` — don't
   hand-edit it. The scrubber's **`max` attribute is NOT** — it's hardcoded on
-  `<input id="slide-scrubber" … max="44">` in `index.html`; bump it whenever you
-  add/remove a slide or the scrubber stops short.
+  `<input id="slide-scrubber" … max="41">` in `index.html`; bump it whenever you
+  add/remove a slide or the scrubber stops short. (Footer order is currently
+  `← [scrubber] → ⛶ counter`, full-width — overridden in `ach-accents.css`.)
 - **Fragments:** any element with class `frag` is hidden until revealed; each
   click/Right-arrow reveals the next `.frag`, then advances to the next slide.
 - **Accents are CSS, keyed by `data-slide` prefix** (`matt-`, `luke-`, `zach-`,
@@ -51,9 +52,12 @@ talk track). Edit `SLIDES.md` and `index.html` together.
   for Zach's **chart** slides (wide aspect ratios need full width). In
   `ach-accents.css`.
 - `placeholder-slide figure-side` — **horizontal variant: narrow title rail
-  (~29%) on the left, screenshot fills the right at full slide height.** Used for
-  Zach's **screenshot** slides (`zach-2`, `zach-4`, `zach-5`) — ~16:9 shots run
-  taller this way than stacked under a title. In `ach-accents.css`.
+  (~29%) on the left, image fills the right at full slide height.** Used for
+  Zach's screenshots and **near-square images** (`zach-2`, `zach-4`, `zach-5`,
+  `zach-6`) — anything ~16:9 or squarer reads bigger this way than stacked under
+  a title. **Wide charts stay `figure-hero`** (they need the full width). Rule of
+  thumb: aspect ratio ≲ ~1.8 → `figure-side`; wider → `figure-hero`. In
+  `ach-accents.css`.
 - Zach's model-comparison (zach-4) uses the `walk-stage` reveal — each of the
   two comparison shots is shown full-stage in turn, not side by side (a 2-up
   made them unreadable, since each shot is itself a 2-model split). The
@@ -76,6 +80,18 @@ For a headless screenshot of slide N (how QA is done — there are no tests):
   --window-size=1440,900 --virtual-time-budget=2500 --screenshot=out.png \
   "http://localhost:8765/index.html#N"`
 
+Two headless-QA traps that have wasted real time:
+- **Confirm the server is actually up** before reading a screenshot
+  (`curl -s -o /dev/null -w '%{http_code}' http://localhost:8765/index.html`).
+  A dead server yields a stale/blank shot that looks like "my change did
+  nothing." When a fix seems ignored, suspect the server/screenshot before the
+  CSS.
+- **Headless floors the CSS viewport at ~500px.** `--window-size=390` still
+  renders at `innerWidth≈500` but the *screenshot* is 390px wide — so the right
+  ~110px is cropped and looks like overflow that isn't real. To test mobile, use
+  `--window-size=500,900` (screenshot width == viewport) and treat ~500px as the
+  narrowest reliable width.
+
 ## Deploy
 
 Public deck lives at **https://cuny-ai-lab.github.io/ach-2026/** (repo
@@ -91,6 +107,11 @@ rebuilds (~1 min).** No build/CI step; the repo root is served as-is.
   (e.g. `?v=20260624b`).
 - iCloud-synced tree: PNGs can go `compressed,dataless`; `brctl download images`
   before heavy reads/renders if a screenshot stalls.
+- **Mobile (<720px):** the layouts collapse to one column via the theme. A
+  `@media (max-width:720px)` block in `ach-accents.css` force-shrinks stage
+  images (`min-width:0; max-width:100%`) — without it a wide image keeps its
+  intrinsic width (flex `min-width:auto`) and is clipped by the stage's
+  `overflow:hidden`. Keep that guard if you touch stage CSS.
 
 ## House rules
 
