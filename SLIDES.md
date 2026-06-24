@@ -40,9 +40,9 @@ well-formatted: no broken images, no text overflow, no empty/error slides.
   content to be drafted", vertically centered. No content. ✓
 - Luke (10–14): recreated from source decks (cali-narst / cali-brooklyn) +
   the CALI 1/2 text supplied by the presenter. No content authored here. ✓
-- Zach opener (15) + Zach (16–23): `figure-hero` — minimal title line, the
-  image foregrounded across nearly the whole slide. Screenshots/charts read
-  large. ✓
+- Zach opener (15) + Zach (16–23): charts use `figure-hero` (title on top, image
+  fills width); screenshot slides (17/19/20) use `figure-side` (narrow title rail
+  left, screenshot fills the right at full height). Both read large. ✓
 - Slide 17: 3-step sign-in → chat → model-picker reveal, real screenshots. ✓
 - Slide 19: model-comparison click-reveal — each shot full-stage, readable. ✓
 - Azucena (24–34) & Steve (35–41): text/quote slides, centered; all three

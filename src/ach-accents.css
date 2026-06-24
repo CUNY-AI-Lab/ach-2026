@@ -76,13 +76,40 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
 }
 .placeholder-slide.figure-hero .content h1 { margin-bottom: 0; }
 .figure-hero > .stage > img,
-.figure-hero .figure-stage > img {
+.figure-hero .figure-stage > img,
+.figure-side > .stage > img,
+.figure-side .figure-stage > img {
   width: 100%; height: 100%; object-fit: contain; object-position: center;
 }
 
-/* Two-up image gallery inside a figure-hero stage (Zach's model comparison):
-   both screenshots sit side by side, each filling its half as large as the
-   maximized stage allows. */
+/* ── Figure-side: horizontal variant of figure-hero, for wide UI screenshots.
+   A narrow title rail on the left; the screenshot fills the right column at the
+   full slide height, so ~16:9 shots run edge-to-edge in height instead of
+   losing a band to a stacked title. Charts keep figure-hero (they need width). */
+@media (min-width: 720px) {
+  section.slide.placeholder-slide.figure-side {
+    flex-direction: row; align-items: stretch;
+    gap: clamp(18px, 2.4vw, 40px);
+    padding-bottom: calc(6px + var(--footer-h));
+  }
+  .placeholder-slide.figure-side > .content {
+    flex: 0 0 29%; max-width: 29%; min-width: 0;
+    justify-content: center;
+    padding: 0 0 0 clamp(6px, 0.8vw, 16px);
+    background: transparent; border: none; box-shadow: none; backdrop-filter: none;
+  }
+  .placeholder-slide.figure-side > .content .label { margin-bottom: 10px; }
+  .placeholder-slide.figure-side > .content h1 {
+    font-size: clamp(20px, 2.1vw, 32px); line-height: 1.1; margin: 0;
+  }
+  .placeholder-slide.figure-side > .stage {
+    flex: 1 1 auto; min-width: 0; min-height: 0;
+    background: transparent; border: none;
+  }
+}
+
+/* Two-up image gallery inside a figure-hero stage (kept for any genuine 2-up):
+   both screenshots sit side by side, each filling its half. */
 .figure-hero .stage.gallery-2 {
   display: flex; flex-direction: row; align-items: center; justify-content: center;
   gap: clamp(6px, 1vw, 14px); background: transparent; border: none; padding: 0;
@@ -93,18 +120,22 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
   border-radius: 8px; border: 1px solid rgba(180,200,220,0.08);
 }
 
-/* Stepped image walkthrough inside a figure-hero stage: each screenshot is a
-   .frag stacked over the last, so clicking advances login -> chat -> models.
+/* Stepped image walkthrough (works in figure-hero or figure-side): each
+   screenshot is a .frag stacked over the last, so clicking advances the steps.
    Transparent so the shots foreground on the slide ground, not a black box. */
-.figure-hero .stage.walk-stage { background: transparent; border: none; }
-.figure-hero .stage .walk-step {
+.figure-hero .stage.walk-stage,
+.figure-side .stage.walk-stage { background: transparent; border: none; }
+.figure-hero .stage .walk-step,
+.figure-side .stage .walk-step {
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: contain; object-position: center;
   background: transparent;
 }
-.figure-hero .stage .walk-step.frag { transform: none; }
-.figure-hero .stage .walk-step.frag.visible { transform: none; }
+.figure-hero .stage .walk-step.frag,
+.figure-side .stage .walk-step.frag { transform: none; }
+.figure-hero .stage .walk-step.frag.visible,
+.figure-side .stage .walk-step.frag.visible { transform: none; }
 
 /* ── Text-only (crowded) slides — Azucena & Steve, plus Matt/Luke placeholders.
    The theme top-aligns crowded content, so sparse slides hung empty at the

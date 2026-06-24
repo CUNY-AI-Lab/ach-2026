@@ -47,8 +47,13 @@ talk track). Edit `SLIDES.md` and `index.html` together.
 - `placeholder-slide crowded` — text-only (stage hidden); used by Azucena/Steve.
 - `placeholder-slide figure-hero` — **minimal title line on top, the image
   foregrounded across nearly the whole slide.** Bottom padding is reclaimed and
-  the stage is transparent/borderless so wide screenshots read large, not boxed.
-  Used for all of Zach's figure slides. Defined in `ach-accents.css`.
+  the stage is transparent/borderless so wide images read large, not boxed. Used
+  for Zach's **chart** slides (wide aspect ratios need full width). In
+  `ach-accents.css`.
+- `placeholder-slide figure-side` — **horizontal variant: narrow title rail
+  (~29%) on the left, screenshot fills the right at full slide height.** Used for
+  Zach's **screenshot** slides (`zach-2`, `zach-4`, `zach-5`) — ~16:9 shots run
+  taller this way than stacked under a title. In `ach-accents.css`.
 - Zach's model-comparison (zach-4) uses the `walk-stage` reveal — each of the
   two comparison shots is shown full-stage in turn, not side by side (a 2-up
   made them unreadable, since each shot is itself a 2-model split). The
