@@ -220,7 +220,7 @@ https://canva.link/09y0vdxtlx2dzla
   - Challenging to use under translingual approaches and at lower levels
   - Conversations that develop critical awareness
   - Technical issues and invisible labor remain real costs
-- stage: interactive **`.json-card`** — `{ "tool": "AmigAI", "role": "pedagogical tool for AI critical-literacy", "develops": "critical awareness through conversation", "limitations": [3] }`, the array expanding to `"translingual approaches / lower levels", "technical issues", "invisible labor"`
+- stage: **`.json-card`** — the **actual AmigAI 204 configuration**: `{ "id": "amigai--204", "base_model_id": "deepseek.v3.2", "name": "AmigAI 204", "params": { "system": "Eres un guía para hacer un análisis del discurso… (B2)… [… 11 pasos …]", "max_tokens": 168, "top_k": 40, "top_p": 0.9, "temperature": 0.3 } }`. The system prompt is truncated; the `<pre>` wraps (inline `white-space:pre-wrap`).
 - image: — (CSS component, no file)
 
 ### 33 · `azu-10` (figure-hero) — Examples of Interactions
