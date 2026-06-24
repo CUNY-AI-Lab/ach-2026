@@ -13,12 +13,14 @@ The stage is transparent/borderless so wide screenshots read large rather than
 floating in a black box. The bullets are no longer on-slide; they live as the
 spoken talk track at the bottom of this file. Zach slide 2 carries a stepped
 image walkthrough (sign-in → chat → model picker) via the theme's `.frag`
-reveal (`zm-step1/2/3-*.png`); slide 4 is a two-image gallery (`.gallery-2`).
+reveal (`zm-step1/2/3-*.png`); his model-comparison slide (zach-4) is a
+click-reveal of the two comparison screenshots, each shown full-stage (a
+side-by-side made them unreadable, since each shot is already a 2-model split).
 **Emblem:** `images/ach26.svg` (gold hands + lightbulb) is the panel mark — it
-sits in the header and as the favicon (shown once; the duplicate on the title
-card was removed). It keeps its gold (the `.brand-mark` class cancels the
-theme's logo-invert filter). The footer carries the white CUNY AI Lab wordmark
-(`images/cail-logo-white.png`).
+sits in the header top-left and as the favicon (shown once; the duplicate on
+the title card was removed). It keeps its gold (the `.brand-mark` class cancels
+the theme's logo-invert filter). The header top-right carries the white CUNY AI
+Lab wordmark (`images/cail-logo-white.png`, `.header-cail-logo`).
 
 **Panel:** Building Community-Oriented Infrastructures for AI Experimentation
 **Event:** Association for Computers and the Humanities (ACH) 2026
@@ -26,27 +28,30 @@ theme's logo-invert filter). The footer carries the white CUNY AI Lab wordmark
 **Presenting order:** Matthew Gold → Luke Waltzer → Zach Muhlbauer →
 Azucena García Gutiérrez → Stephen Zweibel
 
-43 slides total: 1 title · 8 Matt · 8 Luke · 8 Zach · 11 Azucena · 7 Steve.
+44 slides total: 1 title · 8 Matt · 8 Luke · 1 Zach opener + 8 Zach ·
+11 Azucena · 7 Steve.
 
 ## Status (QA pass)
-All 43 slides were rendered and reviewed — every slide is visible and
+All 44 slides were rendered and reviewed — every slide is visible and
 well-formatted: no broken images, no text overflow, no empty/error slides.
 - Title (1): single emblem, calmer title size, no subtitle, presenters in
-  presenting order, CAIL footer wordmark. ✓
+  presenting order, CAIL wordmark top-right. ✓
 - Matt (2–9) & Luke (10–17): intentionally blank placeholders — label +
   "Slide N of 8 · content to be drafted", vertically centered. No content. ✓
-- Zach (18–25): `figure-hero` — slim title bar on top, the image foregrounded
-  across the whole body below. Screenshots read large; charts fill the width. ✓
-- Slide 19: 3-step sign-in → chat → model-picker reveal, real screenshots. ✓
-- Slide 21: two-image gallery (owui_comparison_a + _b side by side). ✓
-- Azucena (26–36) & Steve (37–43): text/quote slides, centered; all three
-  quotes fit per slide without overflow. ✓
+- Zach opener (18) + Zach (19–26): `figure-hero` — minimal title line, the
+  image foregrounded across nearly the whole slide. Screenshots/charts read
+  large. ✓
+- Slide 20: 3-step sign-in → chat → model-picker reveal, real screenshots. ✓
+- Slide 22: model-comparison click-reveal — each shot full-stage, readable. ✓
+- Azucena (27–37) & Steve (38–44): text/quote slides, centered; all three
+  quotes fit per slide without overflow. Section openers lead with affiliation
+  (topical subtitles removed). ✓
 
 | accent | presenter | data-slide |
 |--------|-----------|-----------|
 | pale blue `#c9d5e8` | Matthew Gold | `matt-1…8` |
 | sage `#a8c4b5` | Luke Waltzer | `luke-1…8` |
-| gold `#e8c89f` | Zach Muhlbauer | `zach-1…8` |
+| gold `#e8c89f` | Zach Muhlbauer | `zach-intro`, `zach-1…8` |
 | lavender `#c9a6cf` | Azucena García Gutiérrez | `azu-1…11` |
 | mint `#8fd5c3` | Stephen Zweibel | `steve-1…7` |
 
@@ -64,7 +69,10 @@ content to be drafted". No content — Matt drafts these himself.
 Eight blank placeholder slides (`luke-1…8`): presenter label + "Slide N of 8 ·
 content to be drafted". No content — Luke drafts these himself.
 
-## Zach — slides 18–25
+## Zach — opener (18) + slides 19–26
+Opener `zach-intro` (slide 18): name + section title + affiliation, like the
+Azucena/Steve openers. Then the eight figure-hero slides:
+
 Titles from `ach26.docx`; bullets distilled from `scripts/slides_data.py`
 talk tracks; figures from `figures/` (banned words `bot`/`chatbot`/`assistant`
 avoided per house style).
@@ -82,7 +90,7 @@ avoided per house style).
 
 Hands off to Azucena after slide 8 (AmigAI, 36.6% of all messages).
 
-## Azucena — slides 26–36
+## Azucena — slides 27–37
 Reformatted from `Blue Modern Academic Analysis Presentation.pdf` (11 pages)
 into the panel theme. Student quotes kept verbatim as evidence.
 
@@ -100,7 +108,7 @@ into the panel theme. Student quotes kept verbatim as evidence.
 
 Source also references a Canva deck: https://canva.link/09y0vdxtlx2dzla
 
-## Steve — slides 37–43
+## Steve — slides 38–44
 From https://zweibel.net/ach-2026-steve/ (7 slides), reformatted into the theme.
 
 1. Tools, Agentic AI, and Scholarly Communication (intro)
