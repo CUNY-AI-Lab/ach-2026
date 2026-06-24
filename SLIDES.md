@@ -45,9 +45,10 @@ well-formatted: no broken images, no text overflow, no empty/error slides.
   left, screenshot fills the right at full height). Both read large. ✓
 - Slide 17: 3-step sign-in → chat → model-picker reveal, real screenshots. ✓
 - Slide 19: model-comparison click-reveal — each shot full-stage, readable. ✓
-- Azucena (24–34) & Steve (35–41): text/quote slides, centered; all three
-  quotes fit per slide without overflow. Section openers lead with affiliation
-  (topical subtitles removed). ✓
+- Azucena (24–34): full rebuild from her source PDF — five image slides
+  (`odd-layout`/`figure-hero`) plus the two multi-column quote boards; all
+  images and quotes restored. Steve (35–41): text/quote slides, centered.
+  Section openers lead with affiliation (topical subtitles removed). ✓
 
 | accent | presenter | data-slide |
 |--------|-----------|-----------|
@@ -107,20 +108,29 @@ avoided per house style).
 Hands off to Azucena after slide 8 (AmigAI, 36.6% of all messages).
 
 ## Azucena — slides 24–34
-Reformatted from `Blue Modern Academic Analysis Presentation.pdf` (11 pages)
-into the panel theme. Student quotes kept verbatim as evidence.
+Rebuilt in full from `Blue Modern Academic Analysis Presentation.pdf` (11 pages)
+into the panel theme — every image and quote from her source deck restored
+(an earlier port had dropped all images and condensed the quote slides).
+Images were extracted from the PDF (`images/azu_*.png`); the dartboard, person,
+and clipboard are transparent cutouts so they sit on the dark stage. Student
+quotes kept verbatim as evidence (her quotes are the one exception to the
+banned-words rule, so "chatbot" stands in slides 7–8).
 
-1. AmigAI in Spanish 204 (title)
-2. Classroom Context — SPAN 204, Queens College; mixed HL/L2; CLA
-3. Learning Outcomes
-4. The Configuration's Prompt (system prompt, verbatim)
-5. Interactions — three textbook texts; example exchange (Student A03)
-6. Classroom Application — onboarding → reading → interaction → debrief
-7. First Impressions — Positive (student quotes)
-8. First Impressions — Critical (student quotes)
-9. Conclusions
-10. Examples of Interactions (live walkthrough)
+1. AmigAI · Spanish 204 (title)
+2. Classroom Context — sub-label + 4 bullets; SPAN 204, Queens College; mixed HL/L2; CLA
+3. Learning Outcomes — `odd-layout` + `azu_dartboard.png`; "AmigAI Intervention" sub
+4. The Configuration's Prompt — `odd-layout`; system prompt verbatim + `azu_amigai_interface.png`
+5. Interactions — "The training" sub; three textbook texts; example exchange (Student A03)
+6. Classroom Application — `odd-layout` + `azu_thinking.png`; check-list, 4 components
+7. First Impressions — Positive — 3-column quote board (`.azu-impressions .cols-3`), all quotes + headers
+8. First Impressions — Negative — 2-column quote board (`.cols-2`), all quotes + headers
+9. Conclusions — `odd-layout` + `azu_clipboard.png`; check-list, 4 points
+10. Examples of Interactions — `figure-hero` + `azu_examples_transcript.png` (the transcript screenshot)
 11. Thank you / contact
+
+Components added to `ach-accents.css`: `h2.azu-sub` (sub-labels), `ul.check-bullets`
+(✓ lists), `.azu-impressions` + `.quote-cols`/`.quote-col`/`.col-head` (the boards),
+and `img.framed` (an edge on the light transcript shot).
 
 Source also references a Canva deck: https://canva.link/09y0vdxtlx2dzla
 
@@ -144,9 +154,11 @@ From https://zweibel.net/ach-2026-steve/ (7 slides), reformatted into the theme.
 - Accents follow the `data-slide` prefix — keep the `matt-`/`zach-`/`azu-`/
   `steve-` prefixes so colors and the overview view stay correct.
 - Fonts load from Google Fonts; system serif/sans fall back offline.
-- Azucena and Steve slides are text-only (`.crowded`); drop in images by
-  replacing the empty `figure.stage` with a `figure.stage.figure-stage` + `img`
-  and switching the section to `even-layout`, as Zach's slides do.
+- Steve's slides are text-only (`.crowded`); Azucena's mix `.crowded` with
+  `odd-layout`/`figure-hero` image slides. To add an image to a text slide,
+  replace the empty `figure.stage` with a `figure.stage.figure-stage` + `img`
+  and switch the section to `odd-layout`/`even-layout`, as Zach's and Azucena's
+  slides do.
 
 ---
 

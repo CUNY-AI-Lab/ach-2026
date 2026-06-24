@@ -164,7 +164,7 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
 [data-slide^="azu-"] .content blockquote {
   margin-top: 0;
   padding: clamp(9px, 1.1vh, 14px) clamp(13px, 1.2vw, 18px);
-  font-size: clamp(14px, 1.45vw, 19px);
+  font-size: calc(clamp(14px, 1.45vw, 19px) * var(--fit, 1));
   line-height: 1.4;
 }
 [data-slide^="azu-"] .content blockquote cite {
@@ -172,6 +172,72 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
   font-style: normal; font-family: var(--font-mono);
   font-size: 0.72em; letter-spacing: 0.08em; text-transform: uppercase;
   color: var(--accent-azu); opacity: 0.85;
+}
+
+/* ── Azucena — components restored from her source deck ────────────────────
+   Her slides carried colored sub-labels, check-mark lists ("Fundamental
+   Components" / "Conclusions"), and two "First Impressions" boards that lay
+   student quotes out in 3- and 2-column grids. Rebuilt here in the dark
+   theme so no quote, header, or image is lost. ── */
+
+/* Colored sub-label under a slide title (her teal/green subheads) */
+[data-slide^="azu-"] .content h2.azu-sub {
+  font-family: var(--font-mono);
+  font-size: calc(var(--fs-label) * var(--fit, 1));
+  letter-spacing: 0.14em; text-transform: uppercase;
+  font-weight: 600;
+  color: var(--accent-azu); opacity: 0.9;
+  margin: 0.1em 0 0.7em;
+}
+
+/* Check-mark lists (Classroom Application, Conclusions) */
+[data-slide^="azu-"] .content ul.check-bullets {
+  list-style: none; padding-left: 0; max-width: none !important;
+}
+[data-slide^="azu-"] .content ul.check-bullets > li {
+  position: relative; padding-left: 1.7em; margin-bottom: 0.55em;
+}
+[data-slide^="azu-"] .content ul.check-bullets > li::before {
+  content: "\2713"; position: absolute; left: 0; top: 0.02em;
+  color: var(--accent-azu); font-weight: 700;
+}
+
+/* A screenshot framed inside a transparent figure-hero/side stage (the light
+   transcript shot needs an edge so it doesn't float as a bare white block). */
+.figure-hero .figure-stage > img.framed,
+.figure-side .figure-stage > img.framed {
+  border-radius: 10px; border: 1px solid rgba(180,200,220,0.14);
+}
+
+/* First Impressions: full-width quote boards. The stage is hidden (crowded),
+   so the content takes the whole slide and the columns fill it. */
+.placeholder-slide.azu-impressions .content { flex-basis: 100%; }
+.azu-impressions .content h1 { margin-bottom: 0.05em; }
+.azu-impressions .impressions-sub {
+  font-family: var(--font-mono); font-size: calc(var(--fs-label) * var(--fit, 1));
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--accent-azu); opacity: 0.85;
+  margin: 0 0 clamp(8px, 1.4vh, 14px);
+}
+.quote-cols { display: grid; gap: clamp(10px, 1.1vw, 18px); align-items: start; }
+.quote-cols.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.quote-cols.cols-2 { grid-template-columns: repeat(2, 1fr); }
+.quote-col { display: flex; flex-direction: column; gap: clamp(6px, 0.9vh, 10px); min-width: 0; }
+.quote-col .col-head {
+  font-family: var(--font-sans); font-weight: 600;
+  font-size: calc(clamp(12px, 1.05vw, 15px) * var(--fit, 1)); line-height: 1.22;
+  color: var(--accent-azu);
+  padding-bottom: 6px;
+  border-bottom: 1px solid color-mix(in oklab, var(--accent-azu) 32%, transparent);
+}
+.azu-impressions .quote-col blockquote {
+  margin: 0;
+  padding: clamp(7px, 0.85vh, 11px) clamp(9px, 0.8vw, 13px);
+  font-size: calc(clamp(11px, 0.9vw, 13.5px) * var(--fit, 1)); line-height: 1.34;
+}
+.azu-impressions .quote-col blockquote cite { font-size: 0.7em; margin-top: 0.4em; }
+@media (max-width: 720px) {
+  .quote-cols.cols-3, .quote-cols.cols-2 { grid-template-columns: 1fr; }
 }
 
 /* Numbered step-grid — imported verbatim from the cali-brooklyn deck's
@@ -277,3 +343,169 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
   letter-spacing: 0.06em;
 }
 
+/* Luke / Azucena image+text slides: when the layout stacks on narrow viewports,
+   give the text primacy — the full text card first, the photo secondary and
+   height-capped, so the image can't overlap or bury the bullets. */
+@media (max-width: 720px) {
+  .placeholder-slide.odd-layout,
+  .placeholder-slide.even-layout { flex-direction: column !important; }
+  .placeholder-slide.odd-layout > .content,
+  .placeholder-slide.even-layout > .content {
+    flex: 0 0 auto !important; order: 0; overflow: visible !important;
+  }
+  .placeholder-slide.odd-layout > .stage,
+  .placeholder-slide.even-layout > .stage {
+    flex: 0 0 auto !important; order: 1; max-height: 46vh;
+  }
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   Auto-fit + responsive sizing (added for the Azucena rebuild)
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* ── Auto-fit type. ach-fit.js lowers `--fit` on a slide's `.content` when its
+   text overflows the slide box; these rules re-state the theme's type tokens
+   multiplied by that factor (identical selectors, loaded later, so they win on
+   source order). Default `--fit:1` ⇒ no change to slides that already fit. ── */
+.content { --fit: 1; }
+.content h1 { font-size: calc(var(--fs-display) * var(--fit, 1)); }
+.content h2 { font-size: calc(var(--fs-heading) * var(--fit, 1)); }
+.content li { font-size: calc(var(--fs-body) * var(--fit, 1)); }
+.content blockquote { font-size: calc(var(--fs-quote) * var(--fit, 1)); }
+.placeholder-slide.dense .content h2 { font-size: calc(var(--fs-dense-h2) * var(--fit, 1)); }
+.placeholder-slide.dense .content li { font-size: calc(var(--fs-dense-li) * var(--fit, 1)); }
+.placeholder-slide.lw2.dense .content li { font-size: calc(var(--fs-body) * var(--fit, 1)); }
+
+/* ── Content must never hug the fixed header. The theme sets the slide's
+   top padding to exactly the header height; add a small guaranteed gap so a
+   presenter's name/label always sits clear of the header, even when a slide is
+   content-heavy. (Title/break slides keep their own framing.) ── */
+@media (min-width: 720px) {
+  section.slide.placeholder-slide:not(.figure-hero) {
+    padding-top: calc(var(--header-h) + clamp(8px, 1.6vh, 22px));
+  }
+}
+
+/* ── Illustration stage (Azucena's dartboard): blend the cut-out into the slide
+   ground instead of boxing it in the theme's dark card, and pad it so the art
+   is fully contained (never clipped by the card edge). ── */
+.placeholder-slide .stage.illus {
+  background: transparent; border: none;
+}
+.placeholder-slide .stage.illus > img {
+  width: 100%; height: 100%; object-fit: contain; object-position: center;
+  padding: clamp(6px, 1.6vw, 26px);
+}
+
+/* ── Interactive word-bubbles (Azucena, Classroom Application) — replaces the
+   stock thinking-person clip-art. Speech bubbles carry the guiding questions
+   AmigAI asks; they drift gently and lift on hover/focus. ── */
+.stage.bubble-cloud {
+  background: transparent; border: none;
+  position: relative; overflow: visible;
+  display: block;
+}
+.bubble-cloud .bubble {
+  position: absolute;
+  font-family: var(--font-body);
+  font-size: calc(clamp(13px, 1.15vw, 18px) * var(--fit, 1));
+  line-height: 1.25;
+  color: rgba(244, 240, 248, 0.96);
+  background: color-mix(in oklab, var(--accent-azu) 22%, rgba(20, 24, 32, 0.92));
+  border: 1px solid color-mix(in oklab, var(--accent-azu) 45%, transparent);
+  border-radius: 16px;
+  padding: 0.5em 0.85em;
+  white-space: nowrap;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, 0.35);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+  animation: bubble-float 7s ease-in-out infinite;
+  cursor: default;
+}
+/* the little speech tail */
+.bubble-cloud .bubble::after {
+  content: ""; position: absolute; bottom: -7px; left: 22px;
+  width: 14px; height: 14px;
+  background: inherit; border-right: inherit; border-bottom: inherit;
+  border-radius: 0 0 5px 0; transform: rotate(28deg);
+}
+.bubble-cloud .bubble:hover,
+.bubble-cloud .bubble:focus-visible {
+  transform: translateY(-4px) scale(1.06);
+  background: color-mix(in oklab, var(--accent-azu) 34%, rgba(20, 24, 32, 0.92));
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+  outline: none;
+}
+.bubble-cloud .b1 { top: 8%;  left: 6%;  animation-delay: 0s;    }
+.bubble-cloud .b2 { top: 30%; right: 6%; animation-delay: 0.8s;  }
+.bubble-cloud .b3 { top: 50%; left: 12%; animation-delay: 1.6s;  }
+.bubble-cloud .b4 { top: 70%; right: 10%; animation-delay: 2.4s; }
+.bubble-cloud .b5 { top: 86%; left: 28%; animation-delay: 3.2s;  }
+@keyframes bubble-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bubble-cloud .bubble { animation: none; }
+}
+
+/* ── Interactive JSON card (Azucena, Conclusions) — replaces the stock clipboard
+   clip-art. The findings read as a small syntax-highlighted object; the
+   limitations array is a native <details> the presenter can expand. ── */
+.stage.json-card {
+  background: #0b0f15; border: 1px solid rgba(180, 200, 220, 0.12);
+  border-radius: 14px; overflow: auto;
+  display: flex; align-items: center;
+  padding: clamp(14px, 2vw, 30px);
+}
+.json-card pre {
+  margin: 0; width: 100%;
+  font-family: var(--font-mono);
+  font-size: calc(clamp(12px, 1.05vw, 16px) * var(--fit, 1));
+  line-height: 1.6; color: rgba(218, 225, 232, 0.9);
+  white-space: pre; tab-size: 2;
+}
+.json-card .j-key  { color: var(--accent-azu); }
+.json-card .j-str  { color: #8fd5c3; }
+.json-card .j-pun  { color: rgba(218, 225, 232, 0.5); }
+.json-card details { display: inline; }
+.json-card summary {
+  display: inline; cursor: pointer; list-style: none;
+  color: #8fd5c3; outline: none;
+}
+.json-card summary::-webkit-details-marker { display: none; }
+.json-card summary::after {
+  content: " ▸"; color: var(--accent-azu); font-size: 0.85em;
+}
+.json-card details[open] summary::after { content: " ▾"; }
+.json-card details[open] summary { color: rgba(218, 225, 232, 0.5); }
+.json-card .j-arr { display: block; padding-left: 2.4ch; }
+
+/* ── Large viewports: let UI screenshots (figure-side, e.g. the sign-in
+   walkthrough on slide 17) take more of the width by narrowing the title rail. */
+@media (min-width: 1200px) {
+  .placeholder-slide.figure-side > .content {
+    flex-basis: 22%; max-width: 22%;
+  }
+}
+
+/* ── Narrow viewports: text gains primacy over the image / visualization.
+   Between the stacking breakpoint and ~1040px the columns stay side-by-side but
+   the text column widens and the visual shrinks; once stacked (<720px) the
+   bubble-cloud and json-card join the photos in being height-capped and
+   secondary to the text. ── */
+@media (min-width: 720px) and (max-width: 1040px) {
+  .placeholder-slide.odd-layout  > .content { flex-basis: 58%; }
+  .placeholder-slide.odd-layout  > .stage   { flex-basis: 42%; }
+  .placeholder-slide.even-layout > .content { flex: 0 1 46%; }
+  .placeholder-slide.even-layout > .stage   { flex: 1 1 54%; }
+  .placeholder-slide.figure-side > .content { flex-basis: 40%; max-width: 40%; }
+}
+@media (max-width: 720px) {
+  .placeholder-slide.odd-layout  > .stage.illus,
+  .placeholder-slide.even-layout > .stage.illus,
+  .placeholder-slide > .stage.bubble-cloud,
+  .placeholder-slide > .stage.json-card { max-height: 38vh; order: 1; }
+  .placeholder-slide > .content { order: 0; }
+  /* the bubbles' absolute scatter needs a real box once it's height-capped */
+  .stage.bubble-cloud { min-height: 34vh; }
+}
