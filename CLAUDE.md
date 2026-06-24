@@ -5,7 +5,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## What this is
 
 The HTML slide deck for the **CUNY AI Lab panel at ACH 2026** (Fri June 26, 2026):
-"Building Community-Oriented Infrastructures for AI Experimentation." 44 slides for
+"Building Community-Oriented Infrastructures for AI Experimentation." 41 slides for
 five presenters. It is **based on the `cuny-ai-lab/cali-narst` theme**
 (https://cuny-ai-lab.github.io/cali-narst/) — a custom dark deck, not reveal.js.
 This folder is its own git repo (branch `main`).
@@ -20,7 +20,9 @@ talk track). Edit `SLIDES.md` and `index.html` together.
 - `src/styles.css`, `src/slides.js` — **the cali-narst theme, verbatim. Do not edit.**
   Put all panel-specific CSS in `src/ach-accents.css` instead.
 - `src/ach-accents.css` — our additions: presenter accents, the `figure-hero`
-  layout, the `walk-step` image walkthrough, and the emblem (`.brand-mark`).
+  layout, the `walk-step` image walkthrough, the emblem (`.brand-mark`), and the
+  `step-grid` rules imported verbatim from cali-brooklyn (for Luke's Intervention
+  slide; not part of the vendored cali-narst theme).
 - `images/` — figures (copied from `../figures/`), Sandbox screenshots, the
   `zm-step*` walkthrough shots, the `ach26.svg` emblem, and logos.
 
@@ -28,8 +30,10 @@ talk track). Edit `SLIDES.md` and `index.html` together.
 
 - `slides.js` auto-paginates every `section.slide` and drives nav (arrow keys /
   space / footer scrubber / `btn-prev`·`btn-next`), the lightbox, and fragments.
-  The footer counter and scrubber max are set from `slides.length` — **never
-  hand-edit the "1 / 35"**; add or remove a `<section>` and it re-counts.
+  The footer **counter** ("18 / 44") is set from `slides.length` — don't
+  hand-edit it. The scrubber's **`max` attribute is NOT** — it's hardcoded on
+  `<input id="slide-scrubber" … max="44">` in `index.html`; bump it whenever you
+  add/remove a slide or the scrubber stops short.
 - **Fragments:** any element with class `frag` is hidden until revealed; each
   click/Right-arrow reveals the next `.frag`, then advances to the next slide.
 - **Accents are CSS, keyed by `data-slide` prefix** (`matt-`, `luke-`, `zach-`,
@@ -62,10 +66,26 @@ No build step. Serve and open a slide by number:
 python3 -m http.server 8765    # from this folder
 # open http://localhost:8765/index.html#11   (#N = slide N)
 ```
-For a headless screenshot of slide N:
+For a headless screenshot of slide N (how QA is done — there are no tests):
 `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
   --window-size=1440,900 --virtual-time-budget=2500 --screenshot=out.png \
   "http://localhost:8765/index.html#N"`
+
+## Deploy
+
+Public deck lives at **https://cuny-ai-lab.github.io/ach-2026/** (repo
+`CUNY-AI-Lab/ach-2026`, GitHub Pages off `main`). **Push to `main` → Pages
+rebuilds (~1 min).** No build/CI step; the repo root is served as-is.
+
+## Gotchas
+
+- **CSS cache-buster (bites hard).** The stylesheet links carry a version query
+  — `src/styles.css?v=…` and `src/ach-accents.css?v=…`. **Bump that `?v=` string
+  every time you change a CSS file**, or browsers (and the Pages CDN) serve the
+  *old* CSS and your layout change appears to do nothing. Use a date-ish token
+  (e.g. `?v=20260624b`).
+- iCloud-synced tree: PNGs can go `compressed,dataless`; `brctl download images`
+  before heavy reads/renders if a screenshot stalls.
 
 ## House rules
 
