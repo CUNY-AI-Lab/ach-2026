@@ -19,9 +19,9 @@ The emblem is also the favicon. (`.brand-mark` cancels the theme's logo-invert.)
 **Presenting order:** Matthew Gold → Luke Waltzer → Zach Muhlbauer →
 Azucena García Gutiérrez → Stephen Zweibel
 
-**40 slides:** 1 title · 5 Matt · 5 Luke · 1 Zach opener + 8 Zach · 11 Azucena ·
-9 Steve. (title=1 · matt 2–6 · luke 7–11 · zach-intro=12, zach 13–20 ·
-azu 21–31 · steve 32–40.)
+**41 slides:** 1 title · 5 Matt · 6 Luke · 1 Zach opener + 8 Zach · 11 Azucena ·
+9 Steve. (title=1 · matt 2–6 · luke 7–12 · zach-intro=13, zach 14–21 ·
+azu 22–32 · steve 33–41.)
 
 | accent | presenter | data-slide |
 |--------|-----------|-----------|
@@ -90,7 +90,7 @@ screenshots (CUNY context, DH platforms, AI-studies image) not yet in `images/`.
 - Preserve CUNY values
 - image: — (critical-AI-studies image pending)
 
-## Luke Waltzer — slides 7–11  (CALI origin story)
+## Luke Waltzer — slides 7–12  (CALI origin story)
 Recreated from the presenter's source decks (cali-narst / cali-brooklyn); content
 not authored here. **Spoken note:** connect the Lab's critical ethos and ethical
 commitments to the CALI origin story and fellows' need for model-agnostic,
@@ -99,9 +99,7 @@ serving faculty, students, and other publics across CUNY.
 
 ### 7 · `luke-1` (odd-layout lw2) — The Critical AI Literacy Institute: Origins
 - label: **Luke Waltzer** · h1: **The Critical AI Literacy Institute: Origins**
-- body (`.parallel-points`, both items reveal as `.frag`):
-  - **Origins**
-  - **Elements** → Faculty Development · Research · Research & Development · Advocacy
+- body (`.parallel-points`): CUNY Context · Funding from Google.org · CALI as a Response
 - image: **`cali-website-home.png`** (CALI website home page) · src: cali-narst #4
 
 ### 8 · `luke-2` (odd-layout) — CALI: Grounding Scholarship
@@ -114,12 +112,17 @@ serving faculty, students, and other publics across CUNY.
 - stage: `step-grid`, four numbered rows — **1 Faculty Development · 2 Research · 3 Research and Development · 4 Advocacy** · src: cali-brooklyn #3
 - image: — (CSS step-grid, no file)
 
-### 10 · `luke-4` (odd-layout) — CALI 1
-- label: **Luke Waltzer** · h1: **CALI 1** · h2: **22 Faculty from 12 Campuses**
-- body: Outcomes · Curricula · Survey Responses and Focus Groups · Faculty Reflections · Collaborations
+### 10 · `luke-4` (odd-layout) — CALI Goals
+- label: **Luke Waltzer** · h1: **CALI Goals** · h2: **Three commitments**
+- stage: `step-grid`, three numbered rows — **1 Reasoned Adoption ↔ Informed Refusal · 2 Communities of Practice · 3 Research, Tinker, Advocate** · src: cali-narst #8
+- image: — (CSS step-grid, no file)
+
+### 11 · `luke-5` (odd-layout) — CALI 1
+- label: **Luke Waltzer** · h1: **CALI 1** · h2: **22 Faculty from 12 Campuses** · list-label: **Outcomes**
+- body: Curricula · Survey Responses and Focus Groups · Faculty Reflections · Collaborations
 - image: **`cali-cohort1-slide13.jpg`** (first CALI cohort, 2025) · src: cali-brooklyn slide13
 
-### 11 · `luke-5` (odd-layout) — CALI 2
+### 12 · `luke-6` (odd-layout) — CALI 2
 - label: **Luke Waltzer** · h1: **CALI 2** · h2: **23 Faculty from 12 Campuses** · list-label: **Tracks**
 - body: Critical Foundations · Ecological Implications · T(h)inkering
 - image: **`cali-cohort2-slide16.png`** (faculty presenting an 8-class module at the GC) · src: cali-brooklyn slide16
@@ -130,32 +133,32 @@ near-square diagram use `figure-side` (title rail left, image fills right). The
 on-slide bullets were removed; they now live as the spoken talk track at the
 bottom of this file.
 
-### 12 · `zach-intro` (crowded) — section opener
+### 13 · `zach-intro` (crowded) — section opener
 - label: **Zach Muhlbauer** · h1: **Experimentation as Infrastructure: The CUNY AI Lab Sandbox** · institution: **CUNY AI Lab · CUNY Graduate Center**
 - image: —
 
-### 13 · `zach-1` (figure-hero) — From CALI to the CUNY AI Lab
+### 14 · `zach-1` (figure-hero) — From CALI to the CUNY AI Lab
 - image: **`13_cali_to_cail.png`** (CALI → year-one R&D → tools → proposal → CAIL timeline)
 
-### 14 · `zach-2` (figure-side) — What is the CUNY AI Lab Sandbox?
+### 15 · `zach-2` (figure-side) — What is the CUNY AI Lab Sandbox?
 - stage: `walk-stage`, 3-step reveal — **`zm-step1-signin.png`** → **`zm-step2-chat.png`** → **`zm-step3-models.png`** (sign-in → chat → model picker)
 
-### 15 · `zach-3` (figure-hero) — Transparency and Privacy by Design
+### 16 · `zach-3` (figure-hero) — Transparency and Privacy by Design
 - image: **`14_zero_retention_flow.png`** (zero-retention routing flow)
 
-### 16 · `zach-4` (figure-side) — Evaluating and Comparing Open-Weight Models
+### 17 · `zach-4` (figure-side) — Evaluating and Comparing Open-Weight Models
 - stage: `walk-stage` A→B click-reveal — **`owui_comparison_a.png`** then **`owui_comparison_b.png`** (each shown full-stage; not side by side — each shot is itself a 2-model split)
 
-### 17 · `zach-5` (figure-side) — Supporting Purpose-Built, Custom Models
+### 18 · `zach-5` (figure-side) — Supporting Purpose-Built, Custom Models
 - image: **`owui_model_cards.png`** (course-specific model configurations)
 
-### 18 · `zach-6` (figure-side) — Communities of Practice within the Sandbox
+### 19 · `zach-6` (figure-side) — Communities of Practice within the Sandbox
 - image: **`17_communities_hub.png`** (the Sandbox as connective tissue — near-square diagram)
 
-### 19 · `zach-7` (figure-hero) — T(h)inkering with Faculty Fellows
+### 20 · `zach-7` (figure-hero) — T(h)inkering with Faculty Fellows
 - image: **`18_thinkering_fellows.png`** (fellows across five disciplines)
 
-### 20 · `zach-8` (figure-hero) — Workshopping Project Pilots: AmigAI
+### 21 · `zach-8` (figure-hero) — Workshopping Project Pilots: AmigAI
 - image: **`19_amigai_build.png`** (AmigAI adapted across three sections)
 - Hands off to Azucena after this slide.
 
@@ -167,11 +170,11 @@ clipboard clip-art were **recreated as on-theme components** — a `.bubble-clou
 attributions exactly match the source. Source also references a Canva deck:
 https://canva.link/09y0vdxtlx2dzla
 
-### 21 · `azu-1` (crowded) — title
+### 22 · `azu-1` (crowded) — title
 - label: **Azucena García Gutiérrez** · h1: **AmigAI · Spanish 204** · institution: **City University of New York (CUNY) · The Graduate Center**
 - image: —
 
-### 22 · `azu-2` (crowded) — Classroom Context
+### 23 · `azu-2` (crowded) — Classroom Context
 - h1: **Classroom Context** · sub: **Intermediate Spanish · SPAN 204 · Queens College, CUNY**
 - body (arrow-bullets):
   - A mixed classroom of heritage (HL) and second-language (L2) learners
@@ -180,7 +183,7 @@ https://canva.link/09y0vdxtlx2dzla
   - Use AmigAI to help students challenge texts from their own textbook
 - image: —
 
-### 23 · `azu-3` (odd-layout) — Learning Outcomes
+### 24 · `azu-3` (odd-layout) — Learning Outcomes
 - h1: **Learning Outcomes** · sub: **AmigAI Intervention**
 - body (arrow-bullets):
   - Develop awareness of how to scrutinize texts through guided questions
@@ -189,13 +192,13 @@ https://canva.link/09y0vdxtlx2dzla
   - Put students' full Spanish repertoires into practice
 - image: **`azu_dartboard.png`** (three arrows in a bullseye) on a blended `.illus` stage
 
-### 24 · `azu-4` (odd-layout) — The Configuration's Prompt
+### 25 · `azu-4` (odd-layout) — The Configuration's Prompt
 - h1: **The Configuration's Prompt**
 - blockquote (the AmigAI system prompt, verbatim):
   > "You are a guide for conducting discourse analysis of educational texts in Spanish for intermediate-level college students (B2 level on the CEFR scale). You challenge the student to analyze the text critically. Your students include both Spanish L2 and heritage language learners. You speak Spanish at an intermediate level (B2 level on the CEFR scale). You never use praise, compliments, or validation in your responses. You guide the student only through questions."
 - image: **`azu_amigai_interface.png`** (the AmigAI 204 configuration in the Sandbox)
 
-### 25 · `azu-5` (crowded) — Interactions
+### 26 · `azu-5` (crowded) — Interactions
 - h1: **Interactions** · sub: **Texts and guided questions**
 - body (arrow-bullets):
   - Three texts from the Spanish textbook: immigration, El Caribe, and Guatemalan Indigenous populations
@@ -204,7 +207,7 @@ https://canva.link/09y0vdxtlx2dzla
   > "Te pido que mires de nuevo el primer párrafo. En las líneas 3 a 6 dice que 'con mayor frecuencia el latino llega a los Estados Unidos con un nivel de estudios más alto y mejor preparado para ejercer trabajos bien remunerados' [1]. ¿Esta afirmación del texto, de que los trabajos son 'bien remunerados', coincide con la realidad de muchos inmigrantes latinos que conoces o de la que has oído hablar?" — *AmigAI, first interaction, Student A03*
 - image: —
 
-### 26 · `azu-6` (odd-layout) — Classroom Application
+### 27 · `azu-6` (odd-layout) — Classroom Application
 - h1: **Classroom Application** · sub: **Fundamental Components**
 - body (check-bullets ✓):
   - Reading comprehension of the reading materials
@@ -213,7 +216,7 @@ https://canva.link/09y0vdxtlx2dzla
   - Debriefing discussion as a class
 - image: **`azu_thinking.png`** (wordless illustration — a student in thought with abstract, text-free speech bubbles) on a blended `.illus` stage. (Replaced an earlier `.bubble-cloud` of Spanish guiding-question text, removed because the word-tokens flattened the tool's discourse.)
 
-### 27 · `azu-7` (crowded · azu-impressions) — First Impressions / Positive Components
+### 28 · `azu-7` (crowded · azu-impressions) — First Impressions / Positive Components
 Three thematic columns (`.quote-cols.cols-3`) on a wide viewport; stacks to one
 column at ≤1024px (medium/small). Top-aligned, compact. Grouped:
 - **More intentional**
@@ -229,7 +232,7 @@ column at ≤1024px (medium/small). Top-aligned, compact. Grouped:
   - "Los libros de texto cuentan con formas de enseñar relacionadas a una agenda." — Student 3
 - image: —
 
-### 28 · `azu-8` (crowded · azu-impressions) — First Impressions / Negative Components
+### 29 · `azu-8` (crowded · azu-impressions) — First Impressions / Negative Components
 Two thematic columns (`.quote-cols.cols-2`) on a wide viewport; stacks to one
 column at ≤1024px. Grouped:
 - **Awareness of their learning process through AI**
@@ -243,7 +246,7 @@ column at ≤1024px. Grouped:
   - "If it's not gonna help me understand the text, what's the point?" — Student 1
 - image: —
 
-### 29 · `azu-9` (odd-layout) — Conclusions
+### 30 · `azu-9` (odd-layout) — Conclusions
 - h1: **Conclusions**
 - body (check-bullets ✓):
   - A pedagogical tool for AI critical-literacy discussions
@@ -253,11 +256,11 @@ column at ≤1024px. Grouped:
 - stage: **`.json-card`** — the **actual AmigAI 204 configuration**: `{ "id": "amigai--204", "base_model_id": "deepseek.v3.2", "name": "AmigAI 204", "params": { "system": "Eres un guía para hacer un análisis del discurso… (B2)… [… 11 pasos …]", "max_tokens": 168, "top_k": 40, "top_p": 0.9, "temperature": 0.3 } }`. The system prompt is truncated; the `<pre>` wraps (inline `white-space:pre-wrap`).
 - image: — (CSS component, no file)
 
-### 30 · `azu-10` (figure-hero) — Examples of Interactions
+### 31 · `azu-10` (figure-hero) — Examples of Interactions
 - h1: **Examples of Interactions**
 - image: **`azu_examples_transcript.png`** (`.framed`) — AmigAI transcript analyzing "Corriente latina" with the student's written response
 
-### 31 · `azu-11` (crowded) — Thank you
+### 32 · `azu-11` (crowded) — Thank you
 - h1: **Thank you** · institution: **CUNY, The Graduate Center · azucena.garciagutierrez39@gc.cuny.edu**
 - image: —
 
@@ -265,45 +268,45 @@ column at ≤1024px. Grouped:
 From https://zweibel.net/ach-2026-steve/ (9 slides), reformatted into the theme.
 All text-only (`crowded`); no images.
 
-### 32 · `steve-1` — intro
+### 33 · `steve-1` — intro
 - h1: **Tools, Agentic AI, and Scholarly Communication** · institution: **CUNY Graduate Center · Mina Rees Library**
 
-### 33 · `steve-2` — What the Lab Builds and Runs
+### 34 · `steve-2` — What the Lab Builds and Runs
 - How faculty and students build and run their own AI tools
 - The impact of agentic AI on research and libraries
 - An infrastructure layer for custom tool development
 
-### 34 · `steve-3` — Tools Portal
+### 35 · `steve-3` — Tools Portal
 - tools.ailab.gc.cuny.edu — standalone applications
 - Media tools: transcription, OCR, image description; plus a disclosure tool and agentic studios
 - Zero-retention: the providers store nothing from prompts or outputs
 
-### 35 · `steve-4` — Working with Agentic AI
+### 36 · `steve-4` — Working with Agentic AI
 - Agent Studio and Site Studio for research tasks
 - A shift from conversation toward task delegation
 - Faculty and students build tools with minimal coding
 
-### 36 · `steve-5` — Teaching Librarians to Build with AI
+### 37 · `steve-5` — Teaching Librarians to Build with AI
 - Agentic AI for Library Practice: a 16-week program for CUNY librarians, no programming background needed
 - Build working tools — Primo dashboards, LibGuides interfaces — with Claude Code, then investigate what it built
 - Spot hallucinations and errors, verify against the docs; better equipped for work with patrons and students
 
-### 37 · `steve-6` — Kale Workbench
+### 38 · `steve-6` — Kale Workbench
 - A coding agent in the browser, like Claude Code or Codex — on the lab's Cloudflare infrastructure, with open models
 - The lab runs it, so it sets the model and the limits
 - Nothing is pushed or published without your approval; hands off to Kale Deploy when ready
 
-### 38 · `steve-7` — Kale Deploy
+### 39 · `steve-7` — Kale Deploy
 - Agents deploy it themselves, through an MCP server
 - Build with an agent, and it's live at <project>.cuny.qzz.io — the first CUNY home for live web projects
 - Hosts many projects at once for very little; users run their own
 
-### 39 · `steve-8` — From Sandbox to a Live Web App
+### 40 · `steve-8` — From Sandbox to a Live Web App
 - Sandbox → Workbench → Kale Deploy
 - From chat access, through governed development, to publication
 - Accountability and institutional control throughout
 
-### 40 · `steve-9` — CUNY-Run AI Infrastructure
+### 41 · `steve-9` — CUNY-Run AI Infrastructure
 - Together they let CUNY run its own AI infrastructure
 - Built so the people who use it can inspect and operate it
 - institution: CUNY AI Lab · ailab.gc.cuny.edu
