@@ -675,3 +675,17 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
    shift the block vertically — same spacing on both. ── */
 [data-slide="luke-5"] > .content,
 [data-slide="luke-6"] > .content { justify-content: flex-start; }
+
+/* ── CALI 1 / CALI 2 (luke-5/6): make the cohort photos fill the stage
+   identically (their source aspect ratios differ — portrait vs landscape — so
+   `contain` left one letterboxed). `cover` = both full-bleed, matched. ── */
+[data-slide="luke-5"] .figure-stage > img,
+[data-slide="luke-6"] .figure-stage > img {
+  object-fit: cover; object-position: center;
+}
+
+/* ── CALI 1 / CALI 2 (luke-5/6): pin text sizes (no --fit) so the differing
+   bullet counts can't make ach-fit shrink one more than the other. ── */
+[data-slide="luke-5"] .content h1, [data-slide="luke-6"] .content h1 { font-size: var(--fs-display); }
+[data-slide="luke-5"] .content h2, [data-slide="luke-6"] .content h2 { font-size: var(--fs-heading); }
+[data-slide="luke-5"] .content li, [data-slide="luke-6"] .content li { font-size: clamp(18px, 1.8vw, 25px); }
