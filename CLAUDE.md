@@ -20,9 +20,17 @@ talk track). Edit `SLIDES.md` and `index.html` together.
 - `src/styles.css`, `src/slides.js` — **the cali-narst theme, verbatim. Do not edit.**
   Put all panel-specific CSS in `src/ach-accents.css` instead.
 - `src/ach-accents.css` — our additions: presenter accents, the `figure-hero`
-  layout, the `walk-step` image walkthrough, the emblem (`.brand-mark`), and the
+  layout, the `walk-step` image walkthrough, the emblem (`.brand-mark`), the
   `step-grid` rules imported verbatim from cali-brooklyn (for Luke's Intervention
-  slide; not part of the vendored cali-narst theme).
+  slide; not part of the vendored cali-narst theme), Azucena's restored
+  components (`.azu-impressions` quote boards, `.bubble-cloud`, `.json-card`,
+  `.illus`), and the `--fit` auto-shrink type scale.
+- `src/ach-fit.js` — **our** auto-shrink-to-fit (not theme). Lowers `--fit` on
+  the active slide's `.content` until its text stops overflowing the slide box;
+  the type tokens in `ach-accents.css` are `calc(token * var(--fit))`. Runs on
+  slide activation, fragment reveals, and resize. Loaded after `slides.js` in
+  `index.html`. To make a new font-size participate, write it as
+  `calc(<size> * var(--fit, 1))`.
 - `images/` — figures (copied from `../figures/`), Sandbox screenshots, the
   `zm-step*` walkthrough shots, the `ach26.svg` emblem, and logos.
 
@@ -72,9 +80,10 @@ through them. Files: `images/zm-step1/2/3-*.png`.
 
 No build step. Serve and open a slide by number:
 ```bash
-python3 -m http.server 8765    # from this folder
-# open http://localhost:8765/index.html#11   (#N = slide N)
+python3 -m http.server 8765 --directory .   # run from this folder; --directory
+# open http://localhost:8765/index.html#11   pins it so cwd can't misroute it
 ```
+**Serve the deck folder, not its parent.** Launched from the repo root, `localhost:8765` has no `index.html` and shows nothing — pass `--directory <deck>` to be safe. For a preview that survives, run the server in your own shell (`! python3 …`); servers backgrounded from inside a Claude tool call get reaped between turns.
 For a headless screenshot of slide N (how QA is done — there are no tests):
 `"/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" --headless=new \
   --window-size=1440,900 --virtual-time-budget=2500 --screenshot=out.png \
@@ -105,6 +114,10 @@ rebuilds (~1 min).** No build/CI step; the repo root is served as-is.
   every time you change a CSS file**, or browsers (and the Pages CDN) serve the
   *old* CSS and your layout change appears to do nothing. Use a date-ish token
   (e.g. `?v=20260624b`).
+- **Changed an image? Cache-bust the `<img src>` too.** Editing a file in
+  `images/` in place keeps its URL, so browsers and the Pages CDN serve the
+  *stale* PNG. Append/bump a `?v=…` on that specific `src` in `index.html`
+  (the CSS `?v=` won't cover it).
 - iCloud-synced tree: PNGs can go `compressed,dataless`; `brctl download images`
   before heavy reads/renders if a screenshot stalls.
 - **Mobile (<720px):** the layouts collapse to one column via the theme. A
