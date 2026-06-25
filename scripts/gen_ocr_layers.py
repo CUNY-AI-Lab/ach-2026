@@ -3,7 +3,10 @@ from PIL import Image
 IMG_DIR = "images"
 HOCR_TMP = sys.argv[1]
 # images to OCR (skip logos, wordless, vector).
-EXCLUDE = {"ach26.svg","favicon.png","cail-logo-white.png","azu_thinking.png","cali-books.gif"}
+EXCLUDE = {
+    "ach26.svg","favicon.png","cail-logo-white.png","azu_thinking.png",
+    "cali-books.gif","cail-homepage.png","cail-team-leadership.png","cail-team-fellows.png",
+}
 MANUAL_OCR = {
     "cali-books.gif": [
         "Austerity Blues: Fighting for the Soul of Public Higher Education; Michael Fabricant and Stephen Brier",
@@ -17,6 +20,47 @@ MANUAL_OCR = {
         "Teaching to Transgress: Education as the Practice of Freedom; bell hooks",
         "Teaching Machines: The History of Personalized Learning; Audrey Watters",
         "The Great Mistake: How We Wrecked Public Universities and How We Can Fix Them; Christopher Newfield",
+    ],
+    "cail-homepage.png": [
+        "CUNY AI Lab",
+        "A Graduate Center Initiative",
+        "AI Infrastructure for CUNY, by CUNY",
+        "The CUNY AI Lab is a faculty- and staff-led initiative that develops and maintains AI tools for teaching, learning, and research.",
+        "We prioritize privacy, transparency, and thoughtful integration of AI into academic work.",
+        "About the Lab",
+        "Explore Tools",
+        "Guiding Principles",
+        "Privacy by Design: We use providers that don't retain or train on user data",
+        "Transparency: We prioritize open-weight models that can be examined and understood",
+        "Environmental Accountability: Tools include visibility into computational costs",
+        "Criticality: AI literacy over AI dependency",
+        "2026 CUNY AI Lab",
+    ],
+    "cail-team-leadership.png": [
+        "CUNY AI Lab",
+        "Home; About; Tools; Resources; Blog; CAIL Sandbox",
+        "Our Team",
+        "The CUNY AI Lab is a collaborative initiative developed by faculty and staff at the Graduate Center with and for the CUNY community.",
+        "Leadership",
+        "Matthew K. Gold: Associate Professor of English and Digital Humanities; Director, Graduate Center Digital Initiatives",
+        "Laurie Hurson: Assistant Director of Open Education; Teaching and Learning Center",
+        "Stefano Morello: Assistant Director for Digital Projects; American Social History Project; Center for Media and Learning",
+        "Zach Muhlbauer: Presidential Research Fellow; Teaching and Learning Center; Technical Lead, Critical AI Literacy Institute",
+        "Maura Smale: Executive Chief Librarian; Mina Rees Library",
+        "Luke Waltzer: Director; Teaching and Learning Center",
+        "Stephen Zweibel: Associate Professor, Digital Scholarship Librarian; Mina Rees Library",
+    ],
+    "cail-team-fellows.png": [
+        "Fellows",
+        "Ellen Siyuan Pan",
+        "Jonathan Toro",
+        "Nicole Walker",
+        "Ian G. Williams",
+        "Collaborating Units",
+        "Graduate Center Digital Initiatives",
+        "Teaching and Learning Center",
+        "Mina Rees Library",
+        "American Social History Project",
     ]
 }
 def words_from_hocr(path):
@@ -75,9 +119,19 @@ js = ("/* ocr-layers.js — AUTO-GENERATED. Adds transparent, selectable OCR tex
       "   so the transparent words track the contain-fit image as it scales. */\n"
       "(function(){'use strict';\n"
       "var OCR=" + json.dumps(data,separators=(',',':')) + ";\n"
+      "var uid=0;\n"
       "function base(s){return (s||'').split('/').pop().split('?')[0];}\n"
       "function active(img){return !img.classList.contains('frag')||img.classList.contains('visible');}\n"
       "function sync(img,layer){layer.classList.toggle('ocr-active',active(img));}\n"
+      "function text(layer){return Array.prototype.map.call(layer.querySelectorAll('text'),function(t){return t.textContent.trim();}).filter(Boolean).join(' ');}\n"
+      "function describe(img,layer){\n"
+      " var txt=text(layer); if(!txt) return;\n"
+      " var id='ocr-text-'+(++uid); var span=document.createElement('span');\n"
+      " span.id=id; span.className='sr-only ocr-text'; span.textContent='Text in image: '+txt;\n"
+      " img.insertAdjacentElement('afterend',span);\n"
+      " var cur=(img.getAttribute('aria-describedby')||'').trim().split(/\\s+/).filter(Boolean);\n"
+      " if(cur.indexOf(id)<0) cur.push(id); img.setAttribute('aria-describedby',cur.join(' '));\n"
+      "}\n"
       "function add(img){\n"
       " var fig=img.closest('figure.stage,.figure-stage,.stage'); if(!fig) return;\n"
       " var svg=OCR[base(img.getAttribute('src'))]; if(!svg) return;\n"
@@ -90,7 +144,7 @@ js = ("/* ocr-layers.js — AUTO-GENERATED. Adds transparent, selectable OCR tex
       "  var i=imgs.indexOf(img); layer.classList.add('ocr-gallery-layer');\n"
       "  layer.dataset.ocrIndex=String(i); layer.style.animationDelay=(i*4.5)+'s';\n"
       " }\n"
-      " fig.appendChild(layer); img.dataset.ocrLayer='1';\n"
+      " fig.appendChild(layer); describe(img,layer); img.dataset.ocrLayer='1';\n"
       " if(img.classList.contains('walk-step')){\n"
       "  sync(img,layer);\n"
       "  new MutationObserver(function(){sync(img,layer);}).observe(img,{attributes:true,attributeFilter:['class']});\n"
