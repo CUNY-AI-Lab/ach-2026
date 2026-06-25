@@ -151,7 +151,7 @@ bottom of this file.
 - image: —
 
 ### 16 · `zach-1` (figure-hero) — Precursors to the CUNY AI Lab
-- image: **`13_cali_to_cail.png`** (convergence flowchart with discrete years: Teach@CUNY AI Toolkit 2023 · Teaching and Learning Center Workshops 2023–2024 · Communities of Practice 2024–2025 · CALI 1 2025 → new tools establish the need for private/secure/well-scaffolded infrastructure → Proposal Spring 2025 → CAIL Year 1, Fall 2025–Spring 2026)
+- image: **`13_cali_to_cail.png`** (taller convergence flowchart with a Teaching and Learning Center (TLC) node to the left of the precursor stack: Teach@CUNY Artificial Intelligence Toolkit 2023 · Teaching and Learning Center (TLC) Workshops 2023–2024 · Communities of Practice 2024–2025 · Critical AI Literacy Institute (CALI 1) 2025 → new tools establish the need for private/secure/well-scaffolded infrastructure, with Graduate Center Digital Initiatives above and Mina Rees Library plus American Social History Project / New Media Lab below as contributing nodes → Proposal Spring 2025 → CUNY AI Lab Year 1, Fall 2025–Spring 2026)
 
 ### 17 · `zach-cail-site` (horizontal gallery) — CUNY AI Lab website
 - stage: horizontal website composite — **`cail-site-home-team.png`**; next fragment reveals **`cail-site-home-fellows.png`** in the About > Team panel. Layout exception: hides deck chrome while active so the composite has the full viewport.
