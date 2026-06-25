@@ -79,7 +79,7 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
 .figure-hero .figure-stage > img,
 .figure-side > .stage > img,
 .figure-side .figure-stage > img {
-  width: 100%; height: 100%; object-fit: contain; object-position: center;
+  width: 100%; height: 100%; object-fit: contain; object-position: right center;
 }
 
 /* ── Figure-side: horizontal variant of figure-hero, for wide UI screenshots.
@@ -89,22 +89,22 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
 @media (min-width: 720px) {
   section.slide.placeholder-slide.figure-side {
     flex-direction: row; align-items: stretch;
-    gap: clamp(18px, 2.4vw, 40px);
+    gap: clamp(6px, 0.9vw, 16px);
     padding-bottom: calc(6px + var(--footer-h));
   }
   .placeholder-slide.figure-side > .content {
-    flex: 0 0 23%; max-width: 23%; min-width: 0;
+    flex: 0 0 25%; max-width: 25%; min-width: 0;
     justify-content: center;
     padding: 0 0 0 clamp(6px, 0.8vw, 16px);
     background: transparent; border: none; box-shadow: none; backdrop-filter: none;
   }
   .placeholder-slide.figure-side > .content .label { margin-bottom: 5px; }
   .placeholder-slide.figure-side > .content h1 {
-    font-size: clamp(17px, 1.75vw, 26px); line-height: 1.12; margin: 0;
+    font-size: clamp(19px, 2.0vw, 29px); line-height: 1.12; margin: 0;
   }
   .placeholder-slide.figure-side > .content li {
-    font-size: calc(clamp(12px, 1.0vw, 15px) * var(--fit, 1));
-    line-height: 1.32; margin-bottom: 6px;
+    font-size: calc(clamp(14px, 1.25vw, 18px) * var(--fit, 1));
+    line-height: 1.34; margin-bottom: 7px;
   }
   .placeholder-slide.figure-side > .stage {
     flex: 1 1 auto; min-width: 0; min-height: 0;
@@ -588,7 +588,7 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
    side-by-side layouts so the list stays compact (image gets the width). */
 .placeholder-slide.odd-layout > .content li,
 .placeholder-slide.even-layout > .content li {
-  font-size: calc(clamp(15px, 1.5vw, 21px) * var(--fit, 1));
+  font-size: calc(clamp(18px, 1.8vw, 25px) * var(--fit, 1));
   line-height: 1.36;
   margin-bottom: 8px;
 }
@@ -598,4 +598,23 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
    them so they sit beside the centered title column. */
 .placeholder-slide.odd-layout > .stage:has(> .step-grid) {
   display: flex; flex-direction: column; justify-content: center;
+}
+
+
+/* ── Matt's image slides: larger type, roomier rail ──
+   The default figure-side rail is narrow (keeps Zach's wide screenshots big),
+   but Matt's slides 6/7 need readable title + bullets, so widen the rail and
+   raise the type for Matt only. Slide 3's map also gets a bit more width. */
+@media (min-width: 720px) {
+  [data-slide^="matt-"].placeholder-slide.figure-side > .content {
+    flex: 0 0 32%; max-width: 32%;
+  }
+  [data-slide^="matt-"].placeholder-slide.figure-side > .content h1 {
+    font-size: clamp(22px, 2.2vw, 32px);
+  }
+  [data-slide^="matt-"].placeholder-slide.figure-side > .content li {
+    font-size: calc(clamp(17px, 1.6vw, 23px) * var(--fit, 1));
+  }
+  [data-slide="matt-1"].placeholder-slide.odd-layout .content { flex: 0 1 45%; }
+  [data-slide="matt-1"].placeholder-slide.odd-layout .stage { flex: 1 1 55%; }
 }
