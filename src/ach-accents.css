@@ -82,6 +82,18 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
   width: 100%; height: 100%; object-fit: contain; object-position: center;
 }
 
+/* ── Scrollable content (overflow fallback) ──
+   The theme clips `.content` (`overflow:hidden`) and, on text-only slides, pins
+   it to the slide height (`flex:1 1 100%`). So when content can't fit — a dense
+   board, or any slide on a short/narrow viewport — the overflow was clipped AND
+   unreachable: mobile keeps --fit at 1 (ach-fit.js skips shrinking below 720px),
+   and desktop floors --fit at 0.58. Let `.content` scroll its own overflow so
+   nothing is lost. --fit still shrinks first on wide screens, so the scrollbar
+   only appears as a fallback when the slide genuinely can't fit at min scale. ── */
+.placeholder-slide .content {
+  overflow-y: auto; overscroll-behavior: contain; -webkit-overflow-scrolling: touch;
+}
+
 /* ── Figure-side: horizontal variant of figure-hero, for wide UI screenshots.
    A narrow title rail on the left; the screenshot fills the right column at the
    full slide height, so ~16:9 shots run edge-to-edge in height instead of
@@ -737,6 +749,16 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
 .placeholder-slide.odd-layout[data-slide="luke-5"] > .content,
 .placeholder-slide.odd-layout[data-slide="luke-6"] > .content { justify-content: flex-start; }
 
+/* ── CALI 1 / CALI 2 (luke-5/6): lock --fit to 1 on both. ach-fit.js sets a
+   per-slide --fit on .content, and it was landing on different values for the
+   two slides (4 bullets vs 3) — so even with fonts pinned, the em-based margins
+   scaled differently and the inter-element spacing diverged. Both fit at full
+   scale (there's empty space below the content on each), so forcing --fit:1
+   makes the vertical rhythm identical. !important beats ach-fit's inline style;
+   the .content { overflow-y:auto } fallback covers any short-viewport edge case. */
+.placeholder-slide[data-slide="luke-5"] > .content,
+.placeholder-slide[data-slide="luke-6"] > .content { --fit: 1 !important; }
+
 /* ── CALI 1 / CALI 2 (luke-5/6): lock both columns to an identical 50/50 split.
    The theme's stage is `flex: 1 1 50%`, so the wider photo's intrinsic width
    grew its stage past 50% and shrank the text column — that's why the two
@@ -757,3 +779,32 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
 [data-slide="luke-5"] .content h1, [data-slide="luke-6"] .content h1 { font-size: var(--fs-display); }
 [data-slide="luke-5"] .content h2, [data-slide="luke-6"] .content h2 { font-size: var(--fs-heading); }
 [data-slide="luke-5"] .content li, [data-slide="luke-6"] .content li { font-size: clamp(18px, 1.8vw, 25px); }
+
+/* ── CALI 1 / CALI 2 (luke-5/6): tight, identical vertical rhythm — smaller
+   margins + line-heights between the label, title, subtitle, list-label, and
+   bullets so the 4-bullet slide fits at full scale (no scroll) and both slides
+   read with the same spacing. ── */
+/* styles.css:1202 sets `[data-slide="luke-5"] .content { gap: 0.6em }` on CALI 1
+   ONLY (never mirrored to luke-6) — a stray flex row-gap that added ~12.6px of
+   "extra line" after every element, so CALI 1 never matched CALI 2. Zero it on
+   both; spacing is then driven purely by the matched margins below. */
+[data-slide="luke-5"] .content, [data-slide="luke-6"] .content { gap: 0; }
+[data-slide="luke-5"] .content .label, [data-slide="luke-6"] .content .label { margin-bottom: 6px; }
+[data-slide="luke-5"] .content h1, [data-slide="luke-6"] .content h1 { margin: 0 0 6px; line-height: 1.05; }
+[data-slide="luke-5"] .content h2, [data-slide="luke-6"] .content h2 { margin: 0 0 8px; line-height: 1.15; }
+[data-slide="luke-5"] .content .list-label, [data-slide="luke-6"] .content .list-label { margin: 0 0 7px; }
+[data-slide="luke-5"] .content ul.parallel-points, [data-slide="luke-6"] .content ul.parallel-points { margin: 0; }
+[data-slide="luke-5"] .content li, [data-slide="luke-6"] .content li { margin-bottom: 7px; line-height: 1.22; }
+
+/* ── OCR text layer (selectable text inside screenshots) ──
+   ocr-layers.js drops a transparent <svg class="ocr-layer"> over each single-image
+   figure stage; its words are positioned from OCR and track the contain-fit image
+   (preserveAspectRatio meet) as it scales. The layer is click-through (clicks reach
+   the image for the lightbox) but its glyphs accept pointer events so text can be
+   dragged-over, highlighted, and copied. Invisible — no effect on how slides look. */
+.stage .ocr-layer {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  pointer-events: none; z-index: 2;
+}
+.stage .ocr-layer text { fill: transparent; pointer-events: auto; cursor: text; }
+.stage .ocr-layer ::selection { background: rgba(224,153,30,0.32); }
