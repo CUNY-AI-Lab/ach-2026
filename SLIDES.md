@@ -150,7 +150,7 @@ bottom of this file.
 - label: **Zach Muhlbauer** · h1: **Experimentation as Infrastructure: The CUNY AI Lab Sandbox** · institution: **CUNY AI Lab · CUNY Graduate Center**
 - image: —
 
-### 16 · `zach-1` (figure-hero) — From CALI to the CUNY AI Lab
+### 16 · `zach-1` (figure-hero) — Precursors to the CUNY AI Lab
 - image: **`13_cali_to_cail.png`** (convergence flowchart with discrete years: Teach@CUNY AI Toolkit 2023 · Teaching and Learning Center Workshops 2023–2024 · Communities of Practice 2024–2025 · CALI 1 2025 → new tools establish the need for private/secure/well-scaffolded infrastructure → Proposal Spring 2025 → CAIL Year 1, Fall 2025–Spring 2026)
 
 ### 17 · `zach-cail-site` (horizontal gallery) — CUNY AI Lab website
@@ -378,7 +378,7 @@ Kept on disk for reference; safe to delete if you want a lean repo.
 ## Zach — talk track (bullets, spoken not on-slide)
 Distilled from `scripts/slides_data.py`; deliver these over each figure.
 
-### From CALI to the CUNY AI Lab
+### Precursors to the CUNY AI Lab
 - Grew out of the Google.org-sponsored Critical AI Literacy Institute (CALI)
 - Faculty wanted a stable place to work, with tools that persisted between sessions
 - Launched spring 2026 with Academic Affairs, GCDI, the Mina Rees Library, and ASHP
