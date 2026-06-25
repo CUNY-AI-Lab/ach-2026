@@ -278,9 +278,9 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
 .quote-col .col-head {
   flex: 0 0 auto;
   font-family: var(--font-sans); font-weight: 600;
-  font-size: calc(clamp(12px, 1.0vw, 14.5px) * var(--fit, 1)); line-height: 1.2;
+  font-size: calc(clamp(15px, 1.35vw, 21px) * var(--fit, 1)); line-height: 1.2;
   color: var(--accent-azu);
-  padding-bottom: 4px;
+  padding-bottom: 5px;
   border-bottom: 1px solid color-mix(in oklab, var(--accent-azu) 28%, transparent);
 }
 /* Content-sized quote cards: each hugs its own text (the earlier equal-height
@@ -725,12 +725,19 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
 .placeholder-slide.odd-layout[data-slide="luke-5"] > .content,
 .placeholder-slide.odd-layout[data-slide="luke-6"] > .content { justify-content: flex-start; }
 
-/* ── CALI 1 / CALI 2 (luke-5/6): make the cohort photos fill the stage
-   identically (their source aspect ratios differ — portrait vs landscape — so
-   `contain` left one letterboxed). `cover` = both full-bleed, matched. ── */
+/* ── CALI 1 / CALI 2 (luke-5/6): lock both columns to an identical 50/50 split.
+   The theme's stage is `flex: 1 1 50%`, so the wider photo's intrinsic width
+   grew its stage past 50% and shrank the text column — that's why the two
+   slides lost parity. Pinning both columns + min-width:0 stops the image from
+   dictating the split (scoped to the ≥720px row layout; narrow still stacks).
+   `cover` then makes both differently-shaped photos full-bleed in the same box. */
+@media (min-width: 720px) {
+  [data-slide="luke-5"] > .content, [data-slide="luke-6"] > .content { flex: 0 0 50%; max-width: 50%; min-width: 0; }
+  [data-slide="luke-5"] > .stage,   [data-slide="luke-6"] > .stage   { flex: 0 0 50%; max-width: 50%; min-width: 0; }
+}
 [data-slide="luke-5"] .figure-stage > img,
 [data-slide="luke-6"] .figure-stage > img {
-  object-fit: cover; object-position: center;
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
 }
 
 /* ── CALI 1 / CALI 2 (luke-5/6): pin text sizes (no --fit) so the differing
