@@ -276,7 +276,7 @@ All text-only (`crowded`); no images.
 - Accountability and institutional control throughout
 
 ### 43 · `steve-9` — CUNY-Run AI Infrastructure
-- Together, these let CUNY run its own AI infrastructure
+- Together they let CUNY run its own AI infrastructure
 - Built so the people who use it can inspect and operate it
 - institution: CUNY AI Lab · ailab.gc.cuny.edu
 
