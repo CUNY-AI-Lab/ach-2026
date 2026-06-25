@@ -19,9 +19,9 @@ The emblem is also the favicon. (`.brand-mark` cancels the theme's logo-invert.)
 **Presenting order:** Matthew Gold → Luke Waltzer → Zach Muhlbauer →
 Azucena García Gutiérrez → Stephen Zweibel
 
-**41 slides:** 1 title · 8 Matt · 5 Luke · 1 Zach opener + 8 Zach · 11 Azucena ·
-7 Steve. (title=1 · matt 2–9 · luke 10–14 · zach-intro=15, zach 16–23 ·
-azu 24–34 · steve 35–41.)
+**43 slides:** 1 title · 8 Matt · 5 Luke · 1 Zach opener + 8 Zach · 11 Azucena ·
+9 Steve. (title=1 · matt 2–9 · luke 10–14 · zach-intro=15, zach 16–23 ·
+azu 24–34 · steve 35–43.)
 
 | accent | presenter | data-slide |
 |--------|-----------|-----------|
@@ -29,7 +29,7 @@ azu 24–34 · steve 35–41.)
 | sage `#a8c4b5` | Luke Waltzer | `luke-1…5` |
 | gold `#e8c89f` | Zach Muhlbauer | `zach-intro`, `zach-1…8` |
 | lavender `#c9a6cf` | Azucena García Gutiérrez | `azu-1…11` |
-| mint `#8fd5c3` | Stephen Zweibel | `steve-1…7` |
+| mint `#8fd5c3` | Stephen Zweibel | `steve-1…9` |
 
 ## Layouts in use (class on the `<section>`)
 - `slide-title` — animated WebGL background + title card.
@@ -234,7 +234,7 @@ column at ≤1024px. Grouped:
 - image: —
 
 ## Stephen Zweibel — slides 35–41
-From https://zweibel.net/ach-2026-steve/ (7 slides), reformatted into the theme.
+From https://zweibel.net/ach-2026-steve/ (9 slides), reformatted into the theme.
 All text-only (`crowded`); no images.
 
 ### 35 · `steve-1` — intro
@@ -255,20 +255,30 @@ All text-only (`crowded`); no images.
 - A shift from conversation toward task delegation
 - Faculty and students build tools with minimal coding
 
-### 39 · `steve-5` — Kale Workbench
-- A browser environment for controlled coding-agent work
-- Agents use only vetted tools; code runs in sandboxed environments
-- Budget controls and audit trails; hands off to Kale Deploy when ready
+### 39 · `steve-5` — Teaching Librarians to Build with AI
+- Agentic AI for Library Practice: a 16-week program for CUNY librarians, no programming background needed
+- Build working tools — Primo dashboards, LibGuides interfaces — with Claude Code, then investigate what it built
+- Spot hallucinations and errors, verify against the docs; better equipped for work with patrons and students
 
-### 40 · `steve-6` — Kale Deploy
+### 40 · `steve-6` — Kale Workbench
+- A coding agent in the browser, like Claude Code or Codex — on the lab's Cloudflare infrastructure, with open models
+- The lab runs it, so it sets the model and the limits
+- Nothing is pushed or published without your approval; hands off to Kale Deploy when ready
+
+### 41 · `steve-7` — Kale Deploy
 - Publishes projects to CUNY addresses
 - Functions like Vercel or Netlify, but institution-operated
 - Runs on Cloudflare Workers, with CUNY holding the credentials
 
-### 41 · `steve-7` — From Sandbox to a Live Web App
+### 42 · `steve-8` — From Sandbox to a Live Web App
 - Sandbox → Workbench → Kale Deploy
 - From chat access, through governed development, to publication
 - Accountability and institutional control throughout
+
+### 43 · `steve-9` — CUNY-Run AI Infrastructure
+- Together, these let CUNY run its own AI infrastructure
+- Built so the people who use it can inspect and operate it
+- institution: CUNY AI Lab · ailab.gc.cuny.edu
 
 ---
 
