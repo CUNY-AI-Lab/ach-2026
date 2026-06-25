@@ -153,8 +153,8 @@ bottom of this file.
 ### 16 · `zach-1` (figure-hero) — From CALI to the CUNY AI Lab
 - image: **`13_cali_to_cail.png`** (convergence flowchart with discrete years: Teach@CUNY AI Toolkit 2023 · Teaching and Learning Center Workshops 2023–2024 · Communities of Practice 2024–2025 · CALI 1 2025 → new tools establish the need for private/secure/well-scaffolded infrastructure → Proposal Spring 2025 → CAIL Year 1, Fall 2025–Spring 2026)
 
-### 17 · `zach-cail-site` (full-width gallery) — CUNY AI Lab website
-- stage: stacked website screenshots — **`cail-homepage.png`** above **`cail-team-leadership.png`**; next fragment reveals **`cail-team-fellows.png`** in the About > Team row.
+### 17 · `zach-cail-site` (horizontal gallery) — CUNY AI Lab website
+- stage: horizontal website composite — **`cail-site-home-team.png`**; next fragment reveals **`cail-site-home-fellows.png`** in the About > Team panel.
 
 ### 18 · `zach-2` (figure-side) — What is the CUNY AI Lab Sandbox?
 - stage: `walk-stage`, 3-step reveal — **`zm-step1-signin.png`** → **`zm-step2-chat.png`** → **`zm-step3-models.png`** (sign-in → chat → model picker)
