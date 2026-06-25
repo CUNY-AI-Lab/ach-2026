@@ -100,7 +100,7 @@ accountable AI infrastructure; how CALI grew into a broader infrastructure
 serving faculty, students, and other publics across CUNY.
 
 ### 8 · `break-luke` (slide-break) — section divider
-- tag: **Panelist 02 · Luke Waltzer** · numeral: **02** · h1: **[ Part title ]** (placeholder)
+- tag: **Panelist 02 · Luke Waltzer** · numeral: **02** · h1: **The Critical AI Literacy Institute**
 
 ### 9 · `luke-1` (odd-layout lw2) — The Critical AI Literacy Institute: Origins
 - label: **Luke Waltzer** · h1: **The Critical AI Literacy Institute: Origins**
@@ -114,13 +114,13 @@ serving faculty, students, and other publics across CUNY.
 
 ### 11 · `luke-3` (odd-layout) — CALI as an Intervention
 - label: **Luke Waltzer** · h1: **CALI as an Intervention** · h2: **Four interconnected areas**
-- stage: `step-grid`, four numbered rows — **1 Faculty Development · 2 Research · 3 Research and Development · 4 Advocacy** · src: cali-brooklyn #3
+- stage: `step-grid` (vertically centered), four numbered rows — **1 Faculty Development · 2 Research · 3 Research and Development · 4 Advocacy** · src: cali-brooklyn #3
 - image: — (CSS step-grid, no file)
 
-### 12 · `luke-4` (odd-layout) — CALI Goals
-- label: **Luke Waltzer** · h1: **CALI Goals** · h2: **Three commitments**
-- stage: `step-grid`, three numbered rows — **1 Reasoned Adoption ↔ Informed Refusal · 2 Communities of Practice · 3 Research, Tinker, Advocate** · src: cali-narst #8
-- image: — (CSS step-grid, no file)
+### 12 · `luke-4` (crowded · ladder-slide) — CALI Goals
+- label: **Luke Waltzer** · h1: **CALI Goals**
+- ladder (`.ladder-list`, **exact cali-narst #8 formatting**): **01 Reasoned Adoption ↔ Informed Refusal · 02 Communities of Practice · 03 Research, Tinker, Advocate**
+- image: — (CSS ladder, hidden stage)
 
 ### 13 · `luke-5` (odd-layout) — CALI 1
 - label: **Luke Waltzer** · h1: **CALI 1** · h2: **22 Faculty from 12 Campuses** · list-label: **Outcomes**

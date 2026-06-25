@@ -592,3 +592,10 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
   line-height: 1.36;
   margin-bottom: 8px;
 }
+
+/* ── Vertically center the step-grid in its stage (Luke's Intervention) ──
+   The odd-layout stage holding a numbered step-grid top-aligned the rows; center
+   them so they sit beside the centered title column. */
+.placeholder-slide.odd-layout > .stage:has(> .step-grid) {
+  display: flex; flex-direction: column; justify-content: center;
+}
