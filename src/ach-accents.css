@@ -279,29 +279,30 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
   font-family: var(--font-mono); font-size: var(--fs-label);
   letter-spacing: 0.14em; text-transform: uppercase;
   color: var(--accent-azu); opacity: 0.8;
-  margin: 0 0 clamp(8px, 1.1vh, 13px);
+  margin: 0 0 clamp(5px, 0.7vh, 9px);
 }
 .quote-cols { display: grid; gap: clamp(10px, 1vw, 18px); align-items: stretch; }
 .azu-impressions .quote-cols { flex: 1 1 auto; }
 .quote-cols.cols-3 { grid-template-columns: repeat(3, 1fr); }
 .quote-cols.cols-2 { grid-template-columns: repeat(2, 1fr); }
-.quote-col { display: flex; flex-direction: column; gap: clamp(8px, 1vh, 14px); min-width: 0; justify-content: flex-start; }
+.quote-col { display: flex; flex-direction: column; gap: clamp(6px, 0.7vh, 11px); min-width: 0; justify-content: flex-start; }
 .quote-col .col-head {
   flex: 0 0 auto;
   font-family: var(--font-sans); font-weight: 600;
   font-size: calc(clamp(15px, 1.35vw, 21px) * var(--fit, 1)); line-height: 1.2;
   color: var(--accent-azu);
-  padding-bottom: 5px;
+  padding-bottom: 4px;
   border-bottom: 1px solid color-mix(in oklab, var(--accent-azu) 28%, transparent);
 }
 /* Content-sized quote cards: each hugs its own text (the earlier equal-height
    grow left big boxes wrapped around small text), in normal block flow so the
-   citation runs INLINE at the end of the quote — saving a whole line — and the
-   type is large. A dense board overflows, so --fit trims it down to fit. */
+   citation runs INLINE at the end of the quote — saving a whole line. Type is
+   large; padding/gaps are tight so even the dense column fits before --fit
+   trims, keeping the quotes readable rather than shrunk. */
 .azu-impressions .quote-col blockquote {
   flex: 0 0 auto; display: block; margin: 0;
-  padding: clamp(9px, 1.1vh, 15px) clamp(12px, 0.9vw, 16px);
-  font-size: calc(clamp(16px, 1.55vw, 25px) * var(--fit, 1)); line-height: 1.4;
+  padding: clamp(7px, 0.8vh, 11px) clamp(11px, 0.85vw, 15px);
+  font-size: calc(clamp(18px, 1.9vw, 30px) * var(--fit, 1)); line-height: 1.33;
 }
 .azu-impressions .quote-col blockquote cite {
   display: inline; margin-left: 0.5em; font-size: 0.7em; white-space: nowrap;
