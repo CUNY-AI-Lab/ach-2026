@@ -289,9 +289,9 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
 .quote-col .col-head {
   flex: 0 0 auto;
   font-family: var(--font-sans); font-weight: 600;
-  font-size: calc(clamp(15px, 1.35vw, 21px) * var(--fit, 1)); line-height: 1.2;
+  font-size: calc(clamp(17px, 1.65vw, 25px) * var(--fit, 1)); line-height: 1.22;
   color: var(--accent-azu);
-  padding-bottom: 4px;
+  padding-bottom: 5px;
   border-bottom: 1px solid color-mix(in oklab, var(--accent-azu) 28%, transparent);
 }
 /* Content-sized quote cards: each hugs its own text (the earlier equal-height
