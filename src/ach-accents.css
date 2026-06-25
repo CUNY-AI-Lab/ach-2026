@@ -178,44 +178,45 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
   color: var(--accent-azu); opacity: 0.85;
 }
 
-/* ── Azucena — simulated chat (Interactions slide) ──
-   The sample exchange reads as a conversation, not one quote block: AmigAI's
-   guided prompt sits left, the student's reply sits right, each in its own
-   bubble under a mono speaker tag — a chat transcript. Sizes carry `--fit` so
-   the auto-shrink trims them with the rest of the slide. ── */
+/* ── Azucena — sample exchange (Interactions slide) ──
+   AmigAI's guided prompt and the student's reply sit in two side-by-side
+   containers (not stacked bubbles), so each keeps a readable column width and
+   the long Spanish lines don't run full-bleed. Each card carries a mono speaker
+   tag; AmigAI is neutral, the student lavender. Sizes carry `--fit`. ── */
 [data-slide^="azu-"] .azu-chat {
-  display: flex; flex-direction: column;
-  gap: clamp(10px, 1.6vh, 18px);
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: clamp(12px, 1.6vw, 24px);
   margin-top: clamp(8px, 1.3vh, 16px);
-  width: 100%; max-width: none;
+  width: 100%; max-width: none; align-items: stretch;
 }
-.azu-chat .chat-msg { display: flex; flex-direction: column; max-width: 74%; }
-.azu-chat .chat-amigai  { align-self: flex-start; align-items: flex-start; }
-.azu-chat .chat-student { align-self: flex-end;   align-items: flex-end;   }
+.azu-chat .chat-msg { display: flex; flex-direction: column; min-width: 0; }
 .azu-chat .chat-who {
   font-family: var(--font-mono);
   font-size: calc(clamp(10px, 0.85vw, 12px) * var(--fit, 1));
   letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--accent-azu); opacity: 0.85;
-  margin: 0 0.5em 0.3em;
+  margin: 0 0.2em 0.35em;
 }
+.azu-chat .chat-amigai  .chat-who { text-align: left;  }
+.azu-chat .chat-student .chat-who { text-align: right; }
 .azu-chat .chat-bubble {
-  margin: 0;
-  padding: clamp(10px, 1.2vh, 15px) clamp(13px, 1.2vw, 18px);
-  font-size: calc(clamp(14px, 1.45vw, 19px) * var(--fit, 1));
-  line-height: 1.4; text-align: left; border-radius: 16px;
+  margin: 0; flex: 1 1 auto;
+  padding: clamp(11px, 1.3vh, 16px) clamp(14px, 1.2vw, 18px);
+  font-size: calc(clamp(14px, 1.4vw, 18px) * var(--fit, 1));
+  line-height: 1.42; text-align: left; border-radius: 14px;
 }
 .azu-chat .chat-amigai .chat-bubble {
   background: rgba(180, 200, 220, 0.09);
   border: 1px solid rgba(180, 200, 220, 0.18);
-  border-bottom-left-radius: 5px;
 }
 .azu-chat .chat-student .chat-bubble {
   background: rgba(201, 166, 207, 0.16);
   border: 1px solid rgba(201, 166, 207, 0.34);
-  border-bottom-right-radius: 5px;
 }
-@media (max-width: 720px) { .azu-chat .chat-msg { max-width: 88%; } }
+@media (max-width: 720px) {
+  [data-slide^="azu-"] .azu-chat { grid-template-columns: 1fr; }
+  .azu-chat .chat-student .chat-who { text-align: left; }
+}
 
 /* ── Azucena — components restored from her source deck ────────────────────
    Her slides carried colored sub-labels, check-mark lists ("Fundamental
@@ -282,10 +283,12 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
   padding-bottom: 4px;
   border-bottom: 1px solid color-mix(in oklab, var(--accent-azu) 28%, transparent);
 }
-/* each quote grows to fill its column equally and centers its text — so a
-   2-quote column fills top-to-bottom just like a 5-quote one, no dead voids. */
+/* each quote grows to help fill its column, but never shrinks below its own
+   text — min-height:0 let long quotes collapse and overlap the next one, and
+   since the column didn't grow, --fit never saw the overflow. With min-height
+   at its auto default the board overflows when dense, so --fit shrinks it. */
 .azu-impressions .quote-col blockquote {
-  flex: 1 1 0; min-height: 0;
+  flex: 1 1 auto;
   display: flex; flex-direction: column; justify-content: center;
   margin: 0;
   padding: clamp(8px, 1vh, 14px) clamp(10px, 0.8vw, 14px);

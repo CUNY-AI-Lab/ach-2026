@@ -19,9 +19,9 @@ The emblem is also the favicon. (`.brand-mark` cancels the theme's logo-invert.)
 **Presenting order:** Matthew K. Gold → Luke Waltzer → Zach Muhlbauer →
 Azucena García Gutiérrez → Stephen Zweibel
 
-**48 slides:** 1 title · 3 section openers · 6 Matt · 6 Luke · 1 Zach opener + 8 Zach ·
-10 Azucena · 11 Steve · Q&A · References. (title=1 · break-matt=2, matt 3–8 · break-luke=9,
-luke 10–15 · zach-intro=16, zach 17–24 · azu 25–34 · break-steve=35, steve 36–46 · qa=47, references=48.)
+**47 slides:** 1 title · 3 section openers · 6 Matt · 6 Luke · 1 Zach opener + 8 Zach ·
+10 Azucena · 10 Steve · Q&A · References. (title=1 · break-matt=2, matt 3–8 · break-luke=9,
+luke 10–15 · zach-intro=16, zach 17–24 · azu 25–34 · break-steve=35, steve 36–45 · qa=46, references=47.)
 
 | accent | presenter | data-slide |
 |--------|-----------|-----------|
@@ -29,7 +29,7 @@ luke 10–15 · zach-intro=16, zach 17–24 · azu 25–34 · break-steve=35, st
 | sage `#a8c4b5` | Luke Waltzer | `luke-1…5` |
 | gold `#e8c89f` | Zach Muhlbauer | `zach-intro`, `zach-1…8` |
 | lavender `#c9a6cf` | Azucena García Gutiérrez | `azu-1…11` |
-| mint `#8fd5c3` | Stephen Zweibel | `steve-1…11` |
+| mint `#8fd5c3` | Stephen Zweibel | `steve-2…11` |
 
 ## Layouts in use (class on the `<section>`)
 - `slide-title` — animated WebGL background + title card.
@@ -268,7 +268,7 @@ column at ≤1024px. Grouped:
 - h1: **Thank you** · institution: **CUNY, The Graduate Center · azucena.garciagutierrez39@gc.cuny.edu**
 - image: —
 
-## Stephen Zweibel — slides 35–46  (`break-steve` + 11 slides)
+## Stephen Zweibel — slides 35–45  (`break-steve` + 10 slides)
 From https://zweibel.net/ach-2026-steve/ (9 slides), reformatted into the theme,
 plus two slides (steve-6, steve-7) drawn from the lab's knowledge base.
 All text-only (`crowded`); no images.
@@ -276,10 +276,7 @@ All text-only (`crowded`); no images.
 ### 34 · `break-steve` (crowded) — section opener (zach-intro style)
 - label: **Stephen Zweibel** · h1: **Harnessing Agentic AI: Tools for Open University Infrastructure** · institution: **CUNY AI Lab | Mina Rees Library, CUNY Graduate Center**
 
-### 35 · `steve-1` — intro
-- h1: **Tools, Agentic AI, and Scholarly Communication** · institution: **CUNY Graduate Center · Mina Rees Library**
-
-### 36 · `steve-2` — What the Lab Builds and Runs
+### 35 · `steve-2` — What the Lab Builds and Runs
 - How faculty and students build and run their own AI tools
 - The impact of agentic AI on research and libraries
 - From building tools to publishing them live
