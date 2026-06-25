@@ -100,7 +100,7 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
   }
   .placeholder-slide.figure-side > .content .label { margin-bottom: 5px; }
   .placeholder-slide.figure-side > .content h1 {
-    font-size: clamp(19px, 2.0vw, 29px); line-height: 1.12; margin: 0;
+    font-size: clamp(22px, 2.2vw, 32px); line-height: 1.12; margin: 0;
   }
   .placeholder-slide.figure-side > .content li {
     font-size: calc(clamp(14px, 1.25vw, 18px) * var(--fit, 1));
@@ -192,6 +192,7 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
   font-weight: 600;
   color: var(--accent-azu); opacity: 0.9;
   margin: 0.1em 0 0.7em;
+  max-width: none !important;   /* override theme's 52ch cap so the one-line subtitle doesn't wrap */
 }
 
 /* Check-mark lists (Classroom Application, Conclusions) */
@@ -618,3 +619,21 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
   [data-slide="matt-1"].placeholder-slide.odd-layout .content { flex: 0 1 45%; }
   [data-slide="matt-1"].placeholder-slide.odd-layout .stage { flex: 1 1 55%; }
 }
+
+/* ── In-slide links (Steve's tool URLs) ──
+   Subtle underline that inherits the body color, brightening to the slide's
+   presenter accent on hover/focus. (Clicking a slide only acts in overview
+   mode, so these links never advance the deck.) */
+.placeholder-slide .content a {
+  color: inherit;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  text-decoration-color: color-mix(in oklab, currentColor 45%, transparent);
+  transition: color 0.15s ease;
+}
+[data-slide^="matt-"]  .content a:hover, [data-slide^="matt-"]  .content a:focus-visible { color: var(--accent-matt);  text-decoration-color: currentColor; }
+[data-slide^="luke-"]  .content a:hover, [data-slide^="luke-"]  .content a:focus-visible { color: var(--accent-luke);  text-decoration-color: currentColor; }
+[data-slide^="zach-"]  .content a:hover, [data-slide^="zach-"]  .content a:focus-visible { color: var(--accent-zach);  text-decoration-color: currentColor; }
+[data-slide^="azu-"]   .content a:hover, [data-slide^="azu-"]   .content a:focus-visible { color: var(--accent-azu);   text-decoration-color: currentColor; }
+[data-slide^="steve-"] .content a:hover, [data-slide^="steve-"] .content a:focus-visible { color: var(--accent-steve); text-decoration-color: currentColor; }
