@@ -301,7 +301,10 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
 .quote-col .col-head {
   flex: 0 0 auto;
   font-family: var(--font-sans); font-weight: 600;
-  font-size: calc(clamp(17px, 1.65vw, 25px) * var(--fit, 1)); line-height: 1.22;
+  /* NOT scaled by --fit: the dense 3-col positive board shrinks --fit more than
+     the 2-col negative one, which made its headers smaller. Pinned, both boards'
+     headers render the same size; the quotes (which keep --fit) absorb the fit. */
+  font-size: clamp(17px, 1.65vw, 25px); line-height: 1.22;
   color: var(--accent-azu);
   padding-bottom: 5px;
   border-bottom: 1px solid color-mix(in oklab, var(--accent-azu) 28%, transparent);
