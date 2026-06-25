@@ -19,9 +19,9 @@ The emblem is also the favicon. (`.brand-mark` cancels the theme's logo-invert.)
 **Presenting order:** Matthew K. Gold → Luke Waltzer → Zach Muhlbauer →
 Azucena García Gutiérrez → Stephen Zweibel
 
-**43 slides:** 1 title · 2 section breaks · 5 Matt · 6 Luke · 1 Zach opener + 8 Zach ·
-11 Azucena · 9 Steve. (title=1 · break-matt=2, matt 3–7 · break-luke=8, luke 9–14 ·
-zach-intro=15, zach 16–23 · azu 24–34 · steve 35–43.)
+**45 slides:** 1 title · 2 section breaks · 5 Matt · 6 Luke · 1 Zach opener + 8 Zach ·
+11 Azucena · 11 Steve. (title=1 · break-matt=2, matt 3–7 · break-luke=8, luke 9–14 ·
+zach-intro=15, zach 16–23 · azu 24–34 · steve 35–45.)
 
 | accent | presenter | data-slide |
 |--------|-----------|-----------|
@@ -29,7 +29,7 @@ zach-intro=15, zach 16–23 · azu 24–34 · steve 35–43.)
 | sage `#a8c4b5` | Luke Waltzer | `luke-1…5` |
 | gold `#e8c89f` | Zach Muhlbauer | `zach-intro`, `zach-1…8` |
 | lavender `#c9a6cf` | Azucena García Gutiérrez | `azu-1…11` |
-| mint `#8fd5c3` | Stephen Zweibel | `steve-1…9` |
+| mint `#8fd5c3` | Stephen Zweibel | `steve-1…11` |
 
 ## Layouts in use (class on the `<section>`)
 - `slide-title` — animated WebGL background + title card.
@@ -269,8 +269,9 @@ column at ≤1024px. Grouped:
 - h1: **Thank you** · institution: **CUNY, The Graduate Center · azucena.garciagutierrez39@gc.cuny.edu**
 - image: —
 
-## Stephen Zweibel — slides 35–43
-From https://zweibel.net/ach-2026-steve/ (9 slides), reformatted into the theme.
+## Stephen Zweibel — slides 35–45
+From https://zweibel.net/ach-2026-steve/ (9 slides), reformatted into the theme,
+plus two slides (steve-6, steve-7) drawn from the lab's knowledge base.
 All text-only (`crowded`); no images.
 
 ### 35 · `steve-1` — intro
@@ -296,22 +297,33 @@ All text-only (`crowded`); no images.
 - Build working tools — Primo dashboards, LibGuides interfaces — with Claude Code, then investigate what it built
 - Spot hallucinations and errors, verify against the docs; better equipped for work with patrons and students
 
-### 40 · `steve-6` — Kale Workbench
+### 40 · `steve-6` — Tools CUNY librarians built
+- Harvested 133,000+ records from CUNY Academic Works
+- A daily-rebuilt RSS feed for a library journal
+- Turned an OER spreadsheet into a searchable guide
+- Flagged at-risk database access after one campus lost HeinOnline
+
+### 41 · `steve-7` — An accessible scholarly record
+- Students preflight their dissertations for accessibility before deposit
+- Staff remediate library PDFs at scale, with AI doing the first pass
+- Built and run by the lab for the Mina Rees Library
+
+### 42 · `steve-8` — Kale Workbench
 - A coding agent in the browser, like Claude Code or Codex — on the lab's Cloudflare infrastructure, with open models
 - The lab runs it, so it sets the model and the limits
 - Nothing is pushed or published without your approval; hands off to Kale Deploy when ready
 
-### 41 · `steve-7` — Kale Deploy
+### 43 · `steve-9` — Kale Deploy
 - Agents deploy it themselves, through an MCP server
 - Build with an agent, and it's live at <project>.cuny.qzz.io — the first CUNY home for live web projects
 - Hosts many projects at once for very little; users run their own
 
-### 42 · `steve-8` — From Sandbox to a Live Web App
+### 44 · `steve-10` — From Sandbox to a Live Web App
 - Sandbox → Workbench → Kale Deploy
 - A complete path, from an open model to a live app
 - Hosted by the lab, meant for everyone at CUNY
 
-### 43 · `steve-9` — CUNY-Run AI Infrastructure
+### 45 · `steve-11` — CUNY-Run AI Infrastructure
 - Together they let CUNY run its own AI infrastructure
 - Built so the people who use it can inspect and operate it
 - institution: CUNY AI Lab · ailab.gc.cuny.edu
