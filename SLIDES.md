@@ -140,7 +140,7 @@ serving faculty, students, and other publics across CUNY.
 - body: Critical Foundations · Ecological Implications · T(h)inkering
 - image: **`cali-cohort2-slide16.png`** (faculty presenting an 8-class module at the GC) · src: cali-brooklyn slide16
 
-## Zach Muhlbauer — opener (15) + slides 16–23
+## Zach Muhlbauer — opener (15) + slides 16–24
 Charts use `figure-hero` (title on top, image fills width); screenshots and the
 near-square diagram use `figure-side` (title rail left, image fills right). The
 on-slide bullets were removed; they now live as the spoken talk track at the
@@ -153,25 +153,28 @@ bottom of this file.
 ### 16 · `zach-1` (figure-hero) — From CALI to the CUNY AI Lab
 - image: **`13_cali_to_cail.png`** (convergence flowchart with discrete years: Teach@CUNY AI Toolkit 2023 · Teaching and Learning Center Workshops 2023–2024 · Communities of Practice 2024–2025 · CALI 1 2025 → new tools establish the need for private/secure/well-scaffolded infrastructure → Proposal Spring 2025 → CAIL Year 1, Fall 2025–Spring 2026)
 
-### 17 · `zach-2` (figure-side) — What is the CUNY AI Lab Sandbox?
+### 17 · `zach-cail-site` (full-width gallery) — CUNY AI Lab website
+- stage: stacked website screenshots — **`cail-homepage.png`** above **`cail-team-leadership.png`**; next fragment reveals **`cail-team-fellows.png`** in the About > Team row.
+
+### 18 · `zach-2` (figure-side) — What is the CUNY AI Lab Sandbox?
 - stage: `walk-stage`, 3-step reveal — **`zm-step1-signin.png`** → **`zm-step2-chat.png`** → **`zm-step3-models.png`** (sign-in → chat → model picker)
 
-### 18 · `zach-3` (figure-hero) — Transparency and Privacy by Design
+### 19 · `zach-3` (figure-hero) — Transparency and Privacy by Design
 - image: **`14_zero_retention_flow.png`** (zero-retention routing flow)
 
-### 19 · `zach-4` (figure-side) — Evaluating and Comparing Open-Weight Models
+### 20 · `zach-4` (figure-side) — Evaluating and Comparing Open-Weight Models
 - stage: `walk-stage` A→B click-reveal — **`owui_comparison_a.png`** then **`owui_comparison_b.png`** (each shown full-stage; not side by side — each shot is itself a 2-model split)
 
-### 20 · `zach-5` (figure-side) — Supporting Purpose-Built, Custom Models
+### 21 · `zach-5` (figure-side) — Supporting Purpose-Built, Custom Models
 - image: **`owui_model_cards.png`** (course-specific model configurations)
 
-### 21 · `zach-6` (figure-side) — Communities of Practice within the Sandbox
+### 22 · `zach-6` (figure-side) — Communities of Practice within the Sandbox
 - image: **`17_communities_hub.png`** (the Sandbox as connective tissue — near-square diagram)
 
-### 22 · `zach-7` (figure-hero) — T(h)inkering with Faculty Fellows
+### 23 · `zach-7` (figure-hero) — T(h)inkering with Faculty Fellows
 - image: **`18_thinkering_fellows.png`** (fellows across five disciplines)
 
-### 23 · `zach-8` (figure-hero) — Workshopping Project Pilots: AmigAI
+### 24 · `zach-8` (figure-hero) — Workshopping Project Pilots: AmigAI
 - image: **`19_amigai_build.png`** (AmigAI adapted across three sections)
 - Hands off to Azucena after this slide.
 
