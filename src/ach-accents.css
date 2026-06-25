@@ -98,7 +98,7 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
     padding: 0 0 0 clamp(6px, 0.8vw, 16px);
     background: transparent; border: none; box-shadow: none; backdrop-filter: none;
   }
-  .placeholder-slide.figure-side > .content .label { margin-bottom: 10px; }
+  .placeholder-slide.figure-side > .content .label { margin-bottom: 5px; }
   .placeholder-slide.figure-side > .content h1 {
     font-size: clamp(20px, 2.1vw, 32px); line-height: 1.1; margin: 0;
   }
@@ -527,3 +527,9 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
   -webkit-hyphens: manual;
   hyphens: manual;
 }
+
+/* ── Tighter eyebrow→title gap (general) ──
+   The theme's .content .label margin-bottom (14px) leaves too much air between
+   the presenter eyebrow and the slide title; pull it in across all layouts.
+   (figure-hero keeps its own 2px; figure-side set to 5px above.) */
+.placeholder-slide .content .label { margin-bottom: 6px; }
