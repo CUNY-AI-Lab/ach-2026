@@ -51,7 +51,7 @@ talk track). Edit `SLIDES.md` and `index.html` together.
 
 ## Slide layouts (class on the `<section>`)
 
-- `slide-title` — title slide (animated WebGL background + title card).
+- `slide-title` — title slide (interactive Molnar canvas background + title card).
 - `placeholder-slide even-layout` / `odd-layout` — text column + figure stage.
 - `placeholder-slide crowded` — text-only (stage hidden); used by Azucena/Steve.
 - `placeholder-slide figure-hero` — **minimal title line on top, the image

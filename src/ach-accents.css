@@ -47,6 +47,16 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
 /* ── Title slide: the theme's --fs-title runs up to 120px, which overpowered
    this long panel title. Bring it down to a calmer display size. ── */
 .slide-title .title-card h1 { font-size: clamp(30px, 4vw, 64px); }
+.slide-title .title-overlay { pointer-events: none; }
+.slide-title .title-card { pointer-events: auto; }
+.title-molnar {
+  position: absolute;
+  inset: 0;
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  touch-action: none;
+}
 
 /* ── Figure-hero: a minimal title line on top, the image foregrounded across
    nearly the whole slide below. The label + title are stripped to bare text

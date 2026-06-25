@@ -32,7 +32,7 @@ luke 10–15 · zach-intro=16, zach 17–24 · azu 25–34 · break-steve=35, st
 | mint `#8fd5c3` | Stephen Zweibel | `steve-2…11` |
 
 ## Layouts in use (class on the `<section>`)
-- `slide-title` — animated WebGL background + title card.
+- `slide-title` — interactive Molnar canvas background + title card.
 - `crowded` — text-only; the `figure.stage` is `aria-hidden` and hidden.
 - `odd-layout` / `even-layout` — text column + figure stage side by side.
 - `figure-hero` — minimal title line on top, image fills the body (wide charts).
@@ -55,7 +55,7 @@ Azucena's verbatim student quotes, which are evidence and kept as-is.
 - h1: **Building Community-Oriented Infrastructures for AI Experimentation**
 - panelists: **Matthew K. Gold, Luke Waltzer, Zach Muhlbauer, Azucena García Gutiérrez, and Stephen Zweibel**
 - institution: **CUNY Graduate Center · Association for Computers and the Humanities (ACH) 2026**
-- stage: animated domain-warp canvas (no image file).
+- stage: interactive Molnar canvas adapted from `https://creative-clawing.com/artifacts/molnar.html` (no image file).
 
 ## Matt Gold — slides 2–8  (`break-matt` + `matt-1…6` · crowded)
 Five slides from `ach26.docx` (Matt's outline; Slide 3 uses his 2026-06-24 comment,
