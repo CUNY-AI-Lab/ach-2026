@@ -178,6 +178,45 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
   color: var(--accent-azu); opacity: 0.85;
 }
 
+/* ── Azucena — simulated chat (Interactions slide) ──
+   The sample exchange reads as a conversation, not one quote block: AmigAI's
+   guided prompt sits left, the student's reply sits right, each in its own
+   bubble under a mono speaker tag — a chat transcript. Sizes carry `--fit` so
+   the auto-shrink trims them with the rest of the slide. ── */
+[data-slide^="azu-"] .azu-chat {
+  display: flex; flex-direction: column;
+  gap: clamp(10px, 1.6vh, 18px);
+  margin-top: clamp(8px, 1.3vh, 16px);
+  width: 100%; max-width: none;
+}
+.azu-chat .chat-msg { display: flex; flex-direction: column; max-width: 74%; }
+.azu-chat .chat-amigai  { align-self: flex-start; align-items: flex-start; }
+.azu-chat .chat-student { align-self: flex-end;   align-items: flex-end;   }
+.azu-chat .chat-who {
+  font-family: var(--font-mono);
+  font-size: calc(clamp(10px, 0.85vw, 12px) * var(--fit, 1));
+  letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent-azu); opacity: 0.85;
+  margin: 0 0.5em 0.3em;
+}
+.azu-chat .chat-bubble {
+  margin: 0;
+  padding: clamp(10px, 1.2vh, 15px) clamp(13px, 1.2vw, 18px);
+  font-size: calc(clamp(14px, 1.45vw, 19px) * var(--fit, 1));
+  line-height: 1.4; text-align: left; border-radius: 16px;
+}
+.azu-chat .chat-amigai .chat-bubble {
+  background: rgba(180, 200, 220, 0.09);
+  border: 1px solid rgba(180, 200, 220, 0.18);
+  border-bottom-left-radius: 5px;
+}
+.azu-chat .chat-student .chat-bubble {
+  background: rgba(201, 166, 207, 0.16);
+  border: 1px solid rgba(201, 166, 207, 0.34);
+  border-bottom-right-radius: 5px;
+}
+@media (max-width: 720px) { .azu-chat .chat-msg { max-width: 88%; } }
+
 /* ── Azucena — components restored from her source deck ────────────────────
    Her slides carried colored sub-labels, check-mark lists ("Fundamental
    Components" / "Conclusions"), and two "First Impressions" boards that lay
@@ -234,17 +273,22 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
 .azu-impressions .quote-cols { flex: 1 1 auto; }
 .quote-cols.cols-3 { grid-template-columns: repeat(3, 1fr); }
 .quote-cols.cols-2 { grid-template-columns: repeat(2, 1fr); }
-.quote-col { display: flex; flex-direction: column; gap: clamp(8px, 1vh, 14px); min-width: 0; justify-content: space-between; }
+.quote-col { display: flex; flex-direction: column; gap: clamp(8px, 1vh, 14px); min-width: 0; justify-content: flex-start; }
 .quote-col .col-head {
+  flex: 0 0 auto;
   font-family: var(--font-sans); font-weight: 600;
   font-size: calc(clamp(12px, 1.0vw, 14.5px) * var(--fit, 1)); line-height: 1.2;
   color: var(--accent-azu);
   padding-bottom: 4px;
   border-bottom: 1px solid color-mix(in oklab, var(--accent-azu) 28%, transparent);
 }
+/* each quote grows to fill its column equally and centers its text — so a
+   2-quote column fills top-to-bottom just like a 5-quote one, no dead voids. */
 .azu-impressions .quote-col blockquote {
+  flex: 1 1 0; min-height: 0;
+  display: flex; flex-direction: column; justify-content: center;
   margin: 0;
-  padding: clamp(7px, 0.8vh, 10px) clamp(9px, 0.75vw, 12px);
+  padding: clamp(8px, 1vh, 14px) clamp(10px, 0.8vw, 14px);
   font-size: calc(clamp(14px, 1.2vw, 19px) * var(--fit, 1)); line-height: 1.36;
 }
 .azu-impressions .quote-col blockquote cite { display: inline; margin: 0 0 0 0.4em; font-size: 0.72em; }
@@ -672,9 +716,11 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
 
 
 /* ── CALI 1 / CALI 2 (luke-5/6): top-align so the differing bullet counts don't
-   shift the block vertically — same spacing on both. ── */
-[data-slide="luke-5"] > .content,
-[data-slide="luke-6"] > .content { justify-content: flex-start; }
+   shift the block vertically — label/title/subtitle line up on both. Needs to
+   outrank `.placeholder-slide.odd-layout > .content { justify-content:center }`
+   (0,3,0), so we carry the same two classes plus the [data-slide] hook (0,4,0). ── */
+.placeholder-slide.odd-layout[data-slide="luke-5"] > .content,
+.placeholder-slide.odd-layout[data-slide="luke-6"] > .content { justify-content: flex-start; }
 
 /* ── CALI 1 / CALI 2 (luke-5/6): make the cohort photos fill the stage
    identically (their source aspect ratios differ — portrait vs landscape — so

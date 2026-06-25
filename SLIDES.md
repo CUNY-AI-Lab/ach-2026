@@ -19,13 +19,13 @@ The emblem is also the favicon. (`.brand-mark` cancels the theme's logo-invert.)
 **Presenting order:** Matthew K. Gold → Luke Waltzer → Zach Muhlbauer →
 Azucena García Gutiérrez → Stephen Zweibel
 
-**47 slides:** 1 title · 3 section openers · 5 Matt · 6 Luke · 1 Zach opener + 8 Zach ·
-10 Azucena · 11 Steve · Q&A · References. (title=1 · break-matt=2, matt 3–7 · break-luke=8,
-luke 9–14 · zach-intro=15, zach 16–23 · azu 24–34 · break-steve=35, steve 36–46 · qa=47, references=48.)
+**48 slides:** 1 title · 3 section openers · 6 Matt · 6 Luke · 1 Zach opener + 8 Zach ·
+10 Azucena · 11 Steve · Q&A · References. (title=1 · break-matt=2, matt 3–8 · break-luke=9,
+luke 10–15 · zach-intro=16, zach 17–24 · azu 25–34 · break-steve=35, steve 36–46 · qa=47, references=48.)
 
 | accent | presenter | data-slide |
 |--------|-----------|-----------|
-| pale blue `#c9d5e8` | Matthew K. Gold | `matt-1…5` |
+| pale blue `#c9d5e8` | Matthew K. Gold | `matt-1…6` |
 | sage `#a8c4b5` | Luke Waltzer | `luke-1…5` |
 | gold `#e8c89f` | Zach Muhlbauer | `zach-intro`, `zach-1…8` |
 | lavender `#c9a6cf` | Azucena García Gutiérrez | `azu-1…11` |
@@ -57,13 +57,13 @@ Azucena's verbatim student quotes, which are evidence and kept as-is.
 - institution: **CUNY Graduate Center · Association for Computers and the Humanities (ACH) 2026**
 - stage: animated domain-warp canvas (no image file).
 
-## Matt Gold — slides 2–7  (`break-matt` + `matt-1…5` · crowded)
+## Matt Gold — slides 2–8  (`break-matt` + `matt-1…6` · crowded)
 Five slides from `ach26.docx` (Matt's outline; Slide 3 uses his 2026-06-24 comment,
 which supersedes the doc's older bullets). Text-only for now — the doc references
 screenshots (CUNY context, DH platforms, AI-studies image) not yet in `images/`.
 
 ### 2 · `break-matt` (crowded) — section opener (zach-intro style)
-- label: **Matthew K. Gold** · h1: **[ Part title ]** (placeholder) · institution: **CUNY AI Lab · CUNY Graduate Center**
+- label: **Matthew K. Gold** · h1: **Approaching AI from a CUNY DH Perspective** · institution: **CUNY AI Lab · Graduate Center Digital Initiatives (GCDI)**
 
 ### 3 · `matt-1` (odd-layout) — The CUNY Context
 - The largest urban public university
@@ -91,6 +91,13 @@ screenshots (CUNY context, DH platforms, AI-studies image) not yet in `images/`.
 - Build alternatives to enterprise-level initiatives
 - Preserve CUNY values
 - image: **`matt-ai-at-cuny.png`** (Critical AI Studies course — DHUM 78000 / ENGL 89600, Fall 2025)
+
+### 8 · `matt-6` (odd-layout) — CUNY Graduate Center AI Guidelines
+- Expectations around accountability, collective responsibility, data privacy, right of refusal, and transparency
+- Recommendations that foreground a critical approach to AI
+- Discussion of ethical issues around commercial AI models
+- Tools for disclosure that build upon the Generative AI Delegation Taxonomy (GAIDeT)
+- image: **`matt-ai-guidelines.png`** (CUNY GC AI Guidelines draft — gc.cuny.edu, rev. June 5 2026) — _pending user re-drop_
 
 ## Luke Waltzer — slides 8–14  (`break-luke` + CALI origin story)
 Recreated from the presenter's source decks (cali-narst / cali-brooklyn); content
