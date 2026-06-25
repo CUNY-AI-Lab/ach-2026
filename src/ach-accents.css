@@ -283,18 +283,18 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
   padding-bottom: 4px;
   border-bottom: 1px solid color-mix(in oklab, var(--accent-azu) 28%, transparent);
 }
-/* each quote grows to help fill its column, but never shrinks below its own
-   text — min-height:0 let long quotes collapse and overlap the next one, and
-   since the column didn't grow, --fit never saw the overflow. With min-height
-   at its auto default the board overflows when dense, so --fit shrinks it. */
+/* Content-sized quote cards: each hugs its own text (the earlier equal-height
+   grow left big boxes wrapped around small text), in normal block flow so the
+   citation runs INLINE at the end of the quote — saving a whole line — and the
+   type is large. A dense board overflows, so --fit trims it down to fit. */
 .azu-impressions .quote-col blockquote {
-  flex: 1 1 auto;
-  display: flex; flex-direction: column; justify-content: center;
-  margin: 0;
-  padding: clamp(8px, 1vh, 14px) clamp(10px, 0.8vw, 14px);
-  font-size: calc(clamp(14px, 1.2vw, 19px) * var(--fit, 1)); line-height: 1.36;
+  flex: 0 0 auto; display: block; margin: 0;
+  padding: clamp(9px, 1.1vh, 15px) clamp(12px, 0.9vw, 16px);
+  font-size: calc(clamp(16px, 1.55vw, 25px) * var(--fit, 1)); line-height: 1.4;
 }
-.azu-impressions .quote-col blockquote cite { display: inline; margin: 0 0 0 0.4em; font-size: 0.72em; }
+.azu-impressions .quote-col blockquote cite {
+  display: inline; margin-left: 0.5em; font-size: 0.7em; white-space: nowrap;
+}
 /* 3-up / 2-up on wide; stack vertically for medium and small viewports. */
 @media (max-width: 1024px) {
   .quote-cols.cols-3, .quote-cols.cols-2 { grid-template-columns: 1fr; }
