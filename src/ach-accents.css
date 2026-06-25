@@ -336,6 +336,40 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
 @media (max-width: 1024px) {
   .quote-cols.cols-3, .quote-cols.cols-2 { grid-template-columns: 1fr; }
 }
+@media (max-width: 720px) {
+  .placeholder-slide.azu-impressions .content {
+    padding: 10px 12px;
+    overflow: hidden;
+  }
+  .azu-impressions .content h1 {
+    font-size: clamp(26px, 6.8vw, 34px);
+    line-height: 1.02;
+  }
+  .azu-impressions .impressions-sub {
+    font-size: 10px;
+    line-height: 1.1;
+    margin-bottom: 5px;
+  }
+  .quote-cols {
+    gap: 6px;
+  }
+  .quote-col {
+    gap: 4px;
+  }
+  .quote-col .col-head {
+    font-size: 14px;
+    line-height: 1.15;
+    padding-bottom: 3px;
+  }
+  .azu-impressions .quote-col blockquote {
+    padding: 5px 7px;
+    font-size: calc(11.5px * var(--fit, 1));
+    line-height: 1.18;
+  }
+  .azu-impressions .quote-col blockquote cite {
+    font-size: 0.62em;
+  }
+}
 
 /* Numbered step-grid — imported verbatim from the cali-brooklyn deck's
    styles.css (§236-247) so Luke's "CALI as an Intervention" slide renders as it
@@ -722,18 +756,22 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
 
   [data-slide="matt-6"].placeholder-slide.odd-layout > .content {
     flex: 0 1 44%;
-    padding-inline: clamp(24px, 2.5vw, 36px);
+    padding-inline: clamp(22px, 2.2vw, 32px);
   }
   [data-slide="matt-6"].placeholder-slide.odd-layout > .stage {
     flex: 1 1 56%;
   }
+  [data-slide="matt-6"].placeholder-slide.odd-layout > .stage > img {
+    transform: scale(1.08);
+    transform-origin: center top;
+  }
   [data-slide="matt-6"].placeholder-slide.odd-layout > .content h1 {
-    font-size: calc(clamp(28px, 3.1vw, 40px) * var(--fit, 1));
+    font-size: calc(clamp(26px, 2.75vw, 37px) * var(--fit, 1));
   }
   [data-slide="matt-6"].placeholder-slide.odd-layout > .content li {
-    font-size: calc(clamp(16px, 1.45vw, 20px) * var(--fit, 1));
-    line-height: 1.32;
-    margin-bottom: 7px;
+    font-size: calc(clamp(15px, 1.3vw, 18px) * var(--fit, 1));
+    line-height: 1.3;
+    margin-bottom: 6px;
   }
 }
 
@@ -877,9 +915,9 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
 [data-slide="luke-5"] .content ul.parallel-points, [data-slide="luke-6"] .content ul.parallel-points { margin: 0; }
 [data-slide="luke-5"] .content li, [data-slide="luke-6"] .content li { margin-bottom: 7px; line-height: 1.22; }
 
-/* ── OCR text layer (selectable text inside screenshots) ──
-   ocr-layers.js drops a transparent <svg class="ocr-layer"> over each single-image
-   figure stage; its words are positioned from OCR and track the contain-fit image
+/* ── OCR text layers (selectable text inside screenshots) ──
+   ocr-layers.js drops a transparent <svg class="ocr-layer"> over each OCR-backed
+   figure image; its words are positioned from OCR and track the contain-fit image
    (preserveAspectRatio meet) as it scales. The layer is click-through (clicks reach
    the image for the lightbox) but its glyphs accept pointer events so text can be
    dragged-over, highlighted, and copied. Invisible — no effect on how slides look. */
@@ -888,4 +926,12 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
   pointer-events: none; z-index: 2;
 }
 .stage .ocr-layer text { fill: transparent; pointer-events: auto; cursor: text; }
+.stage .ocr-layer:not(.ocr-active) text { pointer-events: none; }
 .stage .ocr-layer ::selection { background: rgba(224,153,30,0.32); }
+.walk-stage .ocr-layer { opacity: 0; transition: opacity 0.35s ease; }
+.walk-stage .ocr-layer.ocr-active { opacity: 1; }
+.mkg-gallery .ocr-gallery-layer { opacity: 0; animation: mkgCycle 18s infinite; }
+@media (prefers-reduced-motion: reduce) {
+  .mkg-gallery .ocr-gallery-layer { animation: none; opacity: 0; }
+  .mkg-gallery .ocr-gallery-layer[data-ocr-index="0"] { opacity: 1; }
+}
