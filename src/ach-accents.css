@@ -93,14 +93,18 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
     padding-bottom: calc(6px + var(--footer-h));
   }
   .placeholder-slide.figure-side > .content {
-    flex: 0 0 29%; max-width: 29%; min-width: 0;
+    flex: 0 0 23%; max-width: 23%; min-width: 0;
     justify-content: center;
     padding: 0 0 0 clamp(6px, 0.8vw, 16px);
     background: transparent; border: none; box-shadow: none; backdrop-filter: none;
   }
   .placeholder-slide.figure-side > .content .label { margin-bottom: 5px; }
   .placeholder-slide.figure-side > .content h1 {
-    font-size: clamp(20px, 2.1vw, 32px); line-height: 1.1; margin: 0;
+    font-size: clamp(17px, 1.75vw, 26px); line-height: 1.12; margin: 0;
+  }
+  .placeholder-slide.figure-side > .content li {
+    font-size: calc(clamp(12px, 1.0vw, 15px) * var(--fit, 1));
+    line-height: 1.32; margin-bottom: 6px;
   }
   .placeholder-slide.figure-side > .stage {
     flex: 1 1 auto; min-width: 0; min-height: 0;
@@ -576,4 +580,15 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
 @media (prefers-reduced-motion: reduce) {
   .mkg-gallery img { animation: none; }
   .mkg-gallery img:nth-child(1) { opacity: 1; }
+}
+
+/* ── Image slides: tighter bullets ──
+   On text+figure slides the theme's --fs-body (~30px at 1440) makes bullets
+   wrap several lines deep beside the image. Pull the bullet size down on the
+   side-by-side layouts so the list stays compact (image gets the width). */
+.placeholder-slide.odd-layout > .content li,
+.placeholder-slide.even-layout > .content li {
+  font-size: calc(clamp(15px, 1.5vw, 21px) * var(--fit, 1));
+  line-height: 1.36;
+  margin-bottom: 8px;
 }
