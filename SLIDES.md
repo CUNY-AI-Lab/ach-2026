@@ -16,7 +16,7 @@ The emblem is also the favicon. (`.brand-mark` cancels the theme's logo-invert.)
 **Panel:** Building Community-Oriented Infrastructures for AI Experimentation
 **Event:** Association for Computers and the Humanities (ACH) 2026
 **When:** Friday, June 26, 2026 · 12:00–13:15 CDT
-**Presenting order:** Matthew Gold → Luke Waltzer → Zach Muhlbauer →
+**Presenting order:** Matthew K. Gold → Luke Waltzer → Zach Muhlbauer →
 Azucena García Gutiérrez → Stephen Zweibel
 
 **43 slides:** 1 title · 2 section breaks · 5 Matt · 6 Luke · 1 Zach opener + 8 Zach ·
@@ -25,7 +25,7 @@ zach-intro=15, zach 16–23 · azu 24–34 · steve 35–43.)
 
 | accent | presenter | data-slide |
 |--------|-----------|-----------|
-| pale blue `#c9d5e8` | Matthew Gold | `matt-1…8` |
+| pale blue `#c9d5e8` | Matthew K. Gold | `matt-1…5` |
 | sage `#a8c4b5` | Luke Waltzer | `luke-1…5` |
 | gold `#e8c89f` | Zach Muhlbauer | `zach-intro`, `zach-1…8` |
 | lavender `#c9a6cf` | Azucena García Gutiérrez | `azu-1…11` |
@@ -53,7 +53,7 @@ Azucena's verbatim student quotes, which are evidence and kept as-is.
 ## 1 · Title  (`title` · slide-title)
 - eyebrow: **ACH 2026 · Friday, June 26 · 12:00–13:15 CDT**
 - h1: **Building Community-Oriented Infrastructures for AI Experimentation**
-- panelists: **Matthew Gold, Luke Waltzer, Zach Muhlbauer, Azucena García Gutiérrez, and Stephen Zweibel**
+- panelists: **Matthew K. Gold, Luke Waltzer, Zach Muhlbauer, Azucena García Gutiérrez, and Stephen Zweibel**
 - institution: **CUNY Graduate Center · Association for Computers and the Humanities (ACH) 2026**
 - stage: animated domain-warp canvas (no image file).
 
