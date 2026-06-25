@@ -65,33 +65,32 @@ screenshots (CUNY context, DH platforms, AI-studies image) not yet in `images/`.
 ### 2 · `break-matt` (slide-break) — section divider
 - tag: **Panelist 01 · Matthew K. Gold** · numeral: **01** · h1: **[ Part title ]** (placeholder)
 
-### 3 · `matt-1` (crowded) — The CUNY Context
+### 3 · `matt-1` (odd-layout) — The CUNY Context
 - The largest urban public university
 - Mission: to educate "the children of the whole people" of New York City
 - The CUNY Graduate Center as a central node
-- image: — (screenshot pending)
+- image: **`matt-cuny-context.png`** (CUNY — 1 University, 26 Colleges + five-boroughs map)
 
 ### 4 · `matt-2` (crowded) — CUNY as an Engine of Social Mobility
 - blockquote — David Leonhardt, "America's Great Working-Class Colleges," *New York Times*, Jan 18 2017: "Because the elite colleges aren't fulfilling that responsibility, working-class colleges have become vastly larger engines of social mobility. The new data shows, for example, that the City University of New York system propelled almost six times as many low-income students into the middle class and beyond as all eight Ivy League campuses, plus Duke, M.I.T., Stanford and Chicago, combined."
 - image: —
 
-### 5 · `matt-3` (crowded) — DH at CUNY: Building Open Knowledge Infrastructures
+### 5 · `matt-3` (odd-layout) — DH at CUNY: Building Open Knowledge Infrastructures
 - Building open-source platforms
 - Building in response to community feedback and needs
 - Prioritizing open source and open access
 - Providing alternatives to enterprise infrastructure
-- image: — (Commons/Manifold/DHDebates/CBOX screenshots pending)
+- stage: **`.mkg-gallery`** — auto-crossfading **`matt-dh-1…4.png`** (Academic Commons · Manifold · Debates in the DH · Commons In A Box); CSS timer, no JS
 
-### 6 · `matt-4` (crowded) — The Challenge
-- note: **screenshot to be added** (image-only slide in the doc)
-- image: — (screenshot pending)
+### 6 · `matt-4` (figure-side) — The Challenge
+- image: **`matt-challenge.png`** (The Scandal of Digital Humanities — Greenspan, Debates in the DH 2019)
 
-### 7 · `matt-5` (crowded) — AI at CUNY
+### 7 · `matt-5` (figure-side) — AI at CUNY
 - Embed reflexive critique and a critical approach to technology
 - Focus on classroom use
 - Build alternatives to enterprise-level initiatives
 - Preserve CUNY values
-- image: — (critical-AI-studies image pending)
+- image: **`matt-ai-at-cuny.png`** (Critical AI Studies course — DHUM 78000 / ENGL 89600, Fall 2025)
 
 ## Luke Waltzer — slides 8–14  (`break-luke` + CALI origin story)
 Recreated from the presenter's source decks (cali-narst / cali-brooklyn); content
