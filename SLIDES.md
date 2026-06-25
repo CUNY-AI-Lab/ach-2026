@@ -169,7 +169,7 @@ bottom of this file.
 - image: **`owui_model_cards.png`** (course-specific model configurations)
 
 ### 23 · `zach-6` (figure-side) — Communities of Practice within the Sandbox
-- image: **`17_communities_hub.png`** (the Sandbox as connective tissue — near-square diagram)
+- image: **`17_communities_hub.png`** (figure title: **Communities of Practice w/in Sandbox** — near-square diagram)
 
 ### 24 · `zach-7` (figure-hero) — T(h)inkering with Faculty Fellows
 - image: **`18_thinkering_fellows.png`** (fellows across five disciplines)
