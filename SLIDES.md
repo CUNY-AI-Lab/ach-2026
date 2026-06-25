@@ -304,7 +304,7 @@ All text-only (`crowded`); no images.
 - Flagged at-risk database access after one campus lost HeinOnline
 
 ### 41 · `steve-7` — An accessible scholarly record
-- Students can run an optional accessibility check before depositing a dissertation
+- Students can run an accessibility check before depositing a dissertation
 - Staff remediate library PDFs at scale, with AI doing the first pass
 - Built and run by the lab for the Mina Rees Library
 
