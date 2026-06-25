@@ -200,6 +200,173 @@ body:has(section.cail-site-slide.active) .sticky-footer {
   }
 }
 
+/* Final links slide: a compact text gallery. */
+.links-reading-slide {
+  --links-accent: var(--accent-steve);
+}
+.links-reading-slide .content {
+  flex: 1 1 100%;
+  max-width: none;
+  min-height: 0;
+  padding: clamp(22px, 3.6vh, 42px) clamp(26px, 4vw, 58px);
+  overflow: hidden;
+}
+.links-reading-slide .content .label {
+  color: var(--links-accent);
+}
+.links-reading-slide .content h1 {
+  font-size: calc(clamp(33px, 4.1vw, 58px) * var(--fit, 1));
+  line-height: 0.98;
+  margin-bottom: clamp(10px, 1.2vh, 16px);
+}
+.links-reading-slide .stage {
+  display: none;
+}
+.text-gallery-shell {
+  position: relative;
+  min-height: clamp(224px, 38vh, 284px);
+  overflow: hidden;
+}
+.text-gallery {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(6px, 0.75vw, 9px);
+  align-content: start;
+}
+.text-gallery-page {
+  transition: opacity 0.34s ease, transform 0.34s ease;
+}
+.text-gallery-page-secondary {
+  position: absolute;
+  inset: 0;
+}
+.text-gallery-page-secondary.frag {
+  opacity: 0;
+  transform: translateX(-42px);
+  pointer-events: none;
+}
+.text-gallery-page-secondary.frag.visible {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+}
+.text-gallery-shell:has(.text-gallery-page-secondary.visible) .text-gallery-page-primary {
+  opacity: 0;
+  transform: translateX(42px);
+  pointer-events: none;
+}
+.text-tile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: clamp(68px, 9.6vh, 82px);
+  min-width: 0;
+  padding: clamp(7px, 0.82vw, 10px);
+  border: 1px solid rgba(190, 210, 220, 0.12);
+  border-radius: 7px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.052), rgba(255, 255, 255, 0.022)),
+    rgba(12, 17, 23, 0.58);
+  color: rgba(245, 249, 252, 0.94);
+  text-decoration: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  -webkit-user-select: none;
+  user-select: none;
+}
+.text-tile:hover {
+  border-color: color-mix(in oklab, var(--links-accent) 54%, transparent);
+}
+.link-tile {
+  background:
+    linear-gradient(180deg, color-mix(in oklab, var(--links-accent) 18%, transparent), rgba(255, 255, 255, 0.02)),
+    rgba(12, 17, 23, 0.62);
+}
+.tile-kicker {
+  display: block;
+  width: fit-content;
+  margin-bottom: 0.46em;
+  font-family: var(--font-mono);
+  font-size: calc(clamp(7px, 0.58vw, 8.5px) * var(--fit, 1));
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: 0;
+  text-transform: uppercase;
+  color: color-mix(in oklab, var(--links-accent) 82%, white 18%);
+}
+.text-tile strong {
+  display: block;
+  font-family: var(--font-display);
+  font-size: calc(clamp(10px, 0.92vw, 13px) * var(--fit, 1));
+  font-weight: 500;
+  line-height: 1.08;
+  color: rgba(245, 249, 252, 0.96);
+  text-wrap: balance;
+}
+.text-tile span:not(.tile-kicker),
+.text-tile code {
+  display: block;
+  margin-top: 0.34em;
+  font-size: calc(clamp(8px, 0.66vw, 9.5px) * var(--fit, 1));
+  line-height: 1.14;
+  color: rgba(229, 236, 242, 0.78);
+  text-wrap: pretty;
+  overflow-wrap: anywhere;
+}
+.text-tile em {
+  color: rgba(234, 240, 245, 0.86);
+}
+@media (max-width: 1100px) and (min-width: 720px) and (max-height: 620px) {
+  .links-reading-slide .content {
+    padding: clamp(14px, 2.8vh, 18px) clamp(18px, 3.2vw, 34px);
+    overflow: hidden;
+  }
+  .links-reading-slide .content h1 {
+    font-size: calc(clamp(26px, 3.4vw, 38px) * var(--fit, 1));
+    margin-bottom: 8px;
+  }
+  .text-gallery {
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+    gap: 5px;
+  }
+  .text-gallery-shell {
+    min-height: 112px;
+  }
+  .text-tile {
+    min-height: 52px;
+    padding: 6px;
+    border-radius: 6px;
+  }
+  .tile-kicker {
+    margin-bottom: 0.32em;
+    font-size: calc(6.2px * var(--fit, 1));
+  }
+  .text-tile strong {
+    font-size: calc(8.6px * var(--fit, 1));
+    line-height: 1.05;
+  }
+  .text-tile span:not(.tile-kicker),
+  .text-tile code {
+    margin-top: 0.22em;
+    font-size: calc(6.4px * var(--fit, 1));
+    line-height: 1.08;
+  }
+}
+@media (max-width: 719px) {
+  .links-reading-slide .content {
+    padding: 18px 16px;
+    overflow-y: auto;
+  }
+  .text-gallery {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .text-gallery-shell {
+    min-height: 620px;
+  }
+  .text-tile {
+    min-height: 78px;
+  }
+}
+
 /* Stepped image walkthrough (works in figure-hero or figure-side): each
    screenshot is a .frag stacked over the last, so clicking advances the steps.
    Transparent so the shots foreground on the slide ground, not a black box. */

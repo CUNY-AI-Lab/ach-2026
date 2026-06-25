@@ -32,6 +32,7 @@ function show(i, revealAll) {
   slides[idx].classList.remove('active');
   idx = next;
   slides[idx].classList.add('active');
+  slides[idx].scrollTop = 0;
   fragsOf(slides[idx]).forEach(function(f) { f.classList.toggle('visible', !!revealAll); });
   syncAllBoroughsOnShow();
 
@@ -45,6 +46,7 @@ function show(i, revealAll) {
   history.replaceState(null, '', '#' + (idx + 1));
 
   var f = slides[idx].querySelector('.content');
+  if (f) f.scrollTop = 0;
   if (f && document.activeElement !== scrubber) {
     f.setAttribute('tabindex', '-1');
     f.focus({ preventScroll: true });
@@ -249,6 +251,14 @@ function toggleFullscreen() {
   } catch (err) {}
 }
 
+function isForwardKey(e) {
+  return ['ArrowRight', 'Right', 'PageDown', ' ', 'Spacebar', 'Space'].includes(e.key) || e.code === 'Space';
+}
+
+function isBackKey(e) {
+  return ['ArrowLeft', 'Left', 'PageUp'].includes(e.key);
+}
+
 document.addEventListener('keydown', function(e) {
   if (['INPUT','TEXTAREA'].includes(document.activeElement.tagName)) return;
   if (e.metaKey || e.ctrlKey || e.altKey) return;
@@ -268,8 +278,8 @@ document.addEventListener('keydown', function(e) {
   }
   if (lightbox && lightbox.classList.contains('open')) return;
   if (document.body.classList.contains('overview')) return;
-  if (['ArrowRight','PageDown',' '].includes(e.key)) { e.preventDefault(); advance(); }
-  if (['ArrowLeft','PageUp'].includes(e.key)) { e.preventDefault(); retreat(); }
+  if (isForwardKey(e)) { e.preventDefault(); advance(); }
+  if (isBackKey(e)) { e.preventDefault(); retreat(); }
   if (e.key === 'Home') { e.preventDefault(); show(0); }
   if (e.key === 'End') { e.preventDefault(); show(slides.length - 1, true); }
 });
