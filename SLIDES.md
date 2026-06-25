@@ -19,9 +19,9 @@ The emblem is also the favicon. (`.brand-mark` cancels the theme's logo-invert.)
 **Presenting order:** Matthew K. Gold → Luke Waltzer → Zach Muhlbauer →
 Azucena García Gutiérrez → Stephen Zweibel
 
-**46 slides:** 1 title · 3 section breaks · 5 Matt · 6 Luke · 1 Zach opener + 8 Zach ·
-11 Azucena · 11 Steve. (title=1 · break-matt=2, matt 3–7 · break-luke=8, luke 9–14 ·
-zach-intro=15, zach 16–23 · azu 24–34 · break-steve=35, steve 36–46.)
+**48 slides:** 1 title · 3 section openers · 5 Matt · 6 Luke · 1 Zach opener + 8 Zach ·
+11 Azucena · 11 Steve · Q&A · References. (title=1 · break-matt=2, matt 3–7 · break-luke=8,
+luke 9–14 · zach-intro=15, zach 16–23 · azu 24–34 · break-steve=35, steve 36–46 · qa=47, references=48.)
 
 | accent | presenter | data-slide |
 |--------|-----------|-----------|
@@ -62,8 +62,8 @@ Five slides from `ach26.docx` (Matt's outline; Slide 3 uses his 2026-06-24 comme
 which supersedes the doc's older bullets). Text-only for now — the doc references
 screenshots (CUNY context, DH platforms, AI-studies image) not yet in `images/`.
 
-### 2 · `break-matt` (slide-break) — section divider
-- tag: **Panelist 01 · Matthew K. Gold** · numeral: **01** · h1: **[ Part title ]** (placeholder)
+### 2 · `break-matt` (crowded) — section opener (zach-intro style)
+- label: **Matthew K. Gold** · h1: **[ Part title ]** (placeholder) · institution: **CUNY AI Lab · CUNY Graduate Center**
 
 ### 3 · `matt-1` (odd-layout) — The CUNY Context
 - The largest urban public university
@@ -99,8 +99,8 @@ commitments to the CALI origin story and fellows' need for model-agnostic,
 accountable AI infrastructure; how CALI grew into a broader infrastructure
 serving faculty, students, and other publics across CUNY.
 
-### 8 · `break-luke` (slide-break) — section divider
-- tag: **Panelist 02 · Luke Waltzer** · numeral: **02** · h1: **The Critical AI Literacy Institute**
+### 8 · `break-luke` (crowded) — section opener (zach-intro style)
+- label: **Luke Waltzer** · h1: **The Critical AI Literacy Institute** · institution: **CUNY AI Lab · CUNY Graduate Center**
 
 ### 9 · `luke-1` (odd-layout lw2) — The Critical AI Literacy Institute: Origins
 - label: **Luke Waltzer** · h1: **The Critical AI Literacy Institute: Origins**
@@ -143,7 +143,7 @@ bottom of this file.
 - image: —
 
 ### 16 · `zach-1` (figure-hero) — From CALI to the CUNY AI Lab
-- image: **`13_cali_to_cail.png`** (CALI → year-one R&D → tools → proposal → CAIL timeline)
+- image: **`13_cali_to_cail.png`** (convergence flowchart: Teach@CUNY AI Toolkit · TLC Workshops · Working Groups · CALI 1 → new tools establish the need for private/secure/well-scaffolded infrastructure → proposal → CAIL)
 
 ### 17 · `zach-2` (figure-side) — What is the CUNY AI Lab Sandbox?
 - stage: `walk-stage`, 3-step reveal — **`zm-step1-signin.png`** → **`zm-step2-chat.png`** → **`zm-step3-models.png`** (sign-in → chat → model picker)
@@ -274,8 +274,8 @@ From https://zweibel.net/ach-2026-steve/ (9 slides), reformatted into the theme,
 plus two slides (steve-6, steve-7) drawn from the lab's knowledge base.
 All text-only (`crowded`); no images.
 
-### 35 · `break-steve` (slide-break) — section divider
-- tag: **Panelist 05 · Stephen Zweibel** · numeral: **05** · h1: **Harnessing Agentic AI: Tools for Open University Infrastructure**
+### 35 · `break-steve` (crowded) — section opener (zach-intro style)
+- label: **Stephen Zweibel** · h1: **Harnessing Agentic AI: Tools for Open University Infrastructure** · institution: **CUNY AI Lab | Mina Rees Library, CUNY Graduate Center**
 
 ### 36 · `steve-1` — intro
 - h1: **Tools, Agentic AI, and Scholarly Communication** · institution: **CUNY Graduate Center · Mina Rees Library**
@@ -330,6 +330,12 @@ All text-only (`crowded`); no images.
 - Together they let CUNY run its own AI infrastructure
 - Built so the people who use it can inspect and operate it
 - institution: CUNY AI Lab · ailab.gc.cuny.edu
+
+### 47 · `qa` (crowded · qa-slide) — Q&A & Discussion
+- h1 only, large + centered: **Q&A & Discussion**
+
+### 48 · `references` (crowded) — References
+- h1: **References** · body intentionally empty (placeholder to fill)
 
 ---
 
