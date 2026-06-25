@@ -533,3 +533,20 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
    the presenter eyebrow and the slide title; pull it in across all layouts.
    (figure-hero keeps its own 2px; figure-side set to 5px above.) */
 .placeholder-slide .content .label { margin-bottom: 6px; }
+
+/* ── Matt's long pull-quote (slide 3) ──
+   It's ~85 words; at the generic blockquote size it overflows narrow/short
+   windows (and ach-fit stops shrinking below 720px). Give .big-quote a tighter
+   base size + leading, and a firmer clamp under 720px, so it stays in-frame.
+   On large viewports ach-fit still scales it via the --fit multiplier. */
+.placeholder-slide .content blockquote.big-quote {
+  font-size: calc(var(--fs-quote-tight) * var(--fit, 1));
+  line-height: 1.4;
+}
+@media (max-width: 720px) {
+  .placeholder-slide .content blockquote.big-quote {
+    font-size: var(--fs-quote-dense);
+    line-height: 1.32;
+    padding: 0.7em 0.85em;
+  }
+}
