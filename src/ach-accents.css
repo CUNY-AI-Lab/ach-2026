@@ -516,3 +516,14 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
   /* the bubbles' absolute scatter needs a real box once it's height-capped */
   .stage.bubble-cloud { min-height: 34vh; }
 }
+
+/* ── No mid-word auto-hyphenation ──
+   The theme sets `hyphens: auto` on slide body text, which breaks long words
+   like "tech-nology" mid-word. Force whole-word wrapping instead. */
+.placeholder-slide .content,
+.placeholder-slide .content p,
+.placeholder-slide .content li,
+.placeholder-slide .content blockquote {
+  -webkit-hyphens: manual;
+  hyphens: manual;
+}
