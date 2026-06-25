@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="src/styles.css?v=20260624r" />
-  <link rel="stylesheet" href="src/ach-accents.css?v=20260626d" />
+  <link rel="stylesheet" href="src/ach-accents.css?v=20260626f" />
 </head>
 <body>
 <div id="image-lightbox" class="lightbox" aria-hidden="true">
@@ -40,7 +40,7 @@
   <section class="slide slide-title" data-slide="title" aria-label="Title slide">
     <figure class="title-map-wrap stage">
       <div class="stage-fill title-art-shell" aria-hidden="true">
-        <canvas id="title-domainwarp" class="title-domainwarp"></canvas>
+        <canvas id="title-molnar" class="title-molnar"></canvas>
       </div>
       <div class="title-overlay">
         <div class="title-card title-card-contrast">
@@ -720,63 +720,120 @@
 <script src="src/ocr-layers.js?v=20260625a"></script>
 <script>
 (function () {
-  // Animated WebGL background for the title slide (domain-warped fbm noise),
-  // carried over from the CALI-NARST theme.
-  function initTitleDomainwarp(canvas) {
+  // Title background adapted from the Creative Clawing Molnar sketch.
+  function initTitleMolnar(canvas) {
     if (!canvas || canvas.dataset.init) return;
     canvas.dataset.init = '1';
-    var gl = canvas.getContext('webgl');
-    if (!gl) return;
-    var VS = 'attribute vec2 a_pos; varying vec2 v_uv; void main(){v_uv=a_pos*.5+.5;gl_Position=vec4(a_pos,0.0,1.0);}';
-    var FS = 'precision highp float; varying vec2 v_uv; uniform float u_time; uniform vec2 u_res; vec2 hash2(vec2 p){p=vec2(dot(p,vec2(127.1,311.7)),dot(p,vec2(269.5,183.3)));return -1.0+2.0*fract(sin(p)*43758.5453123);} float noise(vec2 p){vec2 i=floor(p);vec2 f=fract(p);vec2 u=f*f*(3.0-2.0*f);return mix(mix(dot(hash2(i+vec2(0.0,0.0)),f-vec2(0.0,0.0)),dot(hash2(i+vec2(1.0,0.0)),f-vec2(1.0,0.0)),u.x),mix(dot(hash2(i+vec2(0.0,1.0)),f-vec2(0.0,1.0)),dot(hash2(i+vec2(1.0,1.0)),f-vec2(1.0,1.0)),u.x),u.y);} float fbm(vec2 p){float v=0.0;float a=0.5;mat2 rot=mat2(1.6,1.2,-1.2,1.6);for(int i=0;i<6;i++){v+=a*noise(p);p=rot*p;a*=0.5;}return v;} vec3 palette(float t){vec3 a=vec3(.30,.36,.42),b=vec3(.22,.20,.18),c=vec3(1.0,1.0,1.0),d=vec3(.0,.15,.30);return a+b*cos(6.28318*(c*t+d));} void main(){vec2 uv=(v_uv-0.5)*vec2(u_res.x/u_res.y,1.0)*2.0;float t=u_time*0.06;vec2 p=uv*2.1;vec2 q=vec2(fbm(p+t),fbm(p+vec2(5.2,1.3)+t));vec2 r=vec2(fbm(p+4.0*q+vec2(1.7,9.2)+0.15*t),fbm(p+4.0*q+vec2(8.3,2.8)+0.15*t));float f=fbm(p+4.0*r+0.05*t);float s=(f+1.0)*0.5;float s2=s+0.25*length(r)-0.08*length(q);vec3 col=palette(s2);col=mix(col,vec3(.04,.06,.10),0.18);col*=1.0-0.36*dot(uv*0.45,uv*0.45);float grain=fract(sin(dot(v_uv*u_res.xy, vec2(12.9898,78.233)))*43758.5453);col+=(grain-0.5)*0.025;gl_FragColor=vec4(col,1.0);}';
-    function compile(type, src) { var s = gl.createShader(type); gl.shaderSource(s, src); gl.compileShader(s); return s; }
-    var prog = gl.createProgram();
-    gl.attachShader(prog, compile(gl.VERTEX_SHADER, VS));
-    gl.attachShader(prog, compile(gl.FRAGMENT_SHADER, FS));
-    gl.linkProgram(prog);
-    if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) return;
-    gl.useProgram(prog);
-    var buf = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1,3,-1,-1,3]), gl.STATIC_DRAW);
-    var aPos = gl.getAttribLocation(prog, 'a_pos');
-    gl.enableVertexAttribArray(aPos);
-    gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
-    var uTime = gl.getUniformLocation(prog, 'u_time');
-    var uRes = gl.getUniformLocation(prog, 'u_res');
+    var ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    var width = 1;
+    var height = 1;
+    var dpr = 1;
+    var pointerX = -1;
+    var pointerY = -1;
+    var grid = [];
+    var running = false;
+    var onScreen = true;
+    var reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
     function resize() {
-      var dpr = Math.min(window.devicePixelRatio || 1, 1.5);
       var rect = canvas.getBoundingClientRect();
-      canvas.width = Math.max(1, Math.floor(rect.width * dpr));
-      canvas.height = Math.max(1, Math.floor(rect.height * dpr));
-      gl.viewport(0, 0, canvas.width, canvas.height);
+      dpr = Math.min(window.devicePixelRatio || 1, 1.5);
+      width = Math.max(1, rect.width);
+      height = Math.max(1, rect.height);
+      canvas.width = Math.max(1, Math.floor(width * dpr));
+      canvas.height = Math.max(1, Math.floor(height * dpr));
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      generate();
+      paint();
     }
-    window.addEventListener('resize', resize);
-    if (window.visualViewport) window.visualViewport.addEventListener('resize', resize);
-    resize();
-    var running = false, onScreen = true, accumElapsed = 0, lastTs = null;
-    function frame(ts) {
+
+    function generate() {
+      grid = [];
+      var cols = 24;
+      var rows = 24;
+      var cellW = width / cols;
+      var cellH = height / rows;
+      for (var row = 0; row < rows; row++) {
+        for (var col = 0; col < cols; col++) {
+          grid.push({
+            x: col * cellW + cellW / 2,
+            y: row * cellH + cellH / 2,
+            w: cellW * 0.7,
+            h: cellH * 0.7,
+            baseAngle: (Math.random() - 0.5) * 0.15,
+            seed: Math.random()
+          });
+        }
+      }
+    }
+
+    function setPointer(clientX, clientY) {
+      var rect = canvas.getBoundingClientRect();
+      pointerX = clientX - rect.left;
+      pointerY = clientY - rect.top;
+      if (reduceMotion) paint();
+    }
+
+    function paint() {
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      ctx.fillStyle = '#0a0a0a';
+      ctx.fillRect(0, 0, width, height);
+      ctx.strokeStyle = '#c0c0c0';
+      ctx.lineWidth = 1;
+
+      var radius = Math.min(width, height) * 0.25;
+      for (var i = 0; i < grid.length; i++) {
+        var item = grid[i];
+        var dx = pointerX - item.x;
+        var dy = pointerY - item.y;
+        var dist = Math.sqrt(dx * dx + dy * dy);
+        var influence = Math.max(0, 1 - dist / radius);
+        var disruption = influence * influence;
+        var angle = item.baseAngle + disruption * (item.seed - 0.5) * Math.PI * 1.5;
+        var scale = 1 - disruption * 0.4 * item.seed;
+        var ox = disruption * (item.seed - 0.5) * 12;
+        var oy = disruption * (item.seed - 0.5) * 12;
+
+        ctx.save();
+        ctx.translate(item.x + ox, item.y + oy);
+        ctx.rotate(angle);
+        ctx.globalAlpha = 0.4 + 0.6 * (1 - disruption * 0.5);
+        ctx.strokeRect(-item.w * scale / 2, -item.h * scale / 2, item.w * scale, item.h * scale);
+        ctx.restore();
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    function frame() {
       if (!running) return;
-      if (lastTs !== null) accumElapsed += (ts - lastTs) / 1000;
-      lastTs = ts;
-      gl.uniform1f(uTime, accumElapsed);
-      gl.uniform2f(uRes, canvas.width, canvas.height);
-      gl.drawArrays(gl.TRIANGLES, 0, 3);
+      paint();
       requestAnimationFrame(frame);
     }
-    var reduceMotion = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
-    function paintOnce() {
-      gl.uniform1f(uTime, accumElapsed);
-      gl.uniform2f(uRes, canvas.width, canvas.height);
-      gl.drawArrays(gl.TRIANGLES, 0, 3);
-    }
+
     function startLoop() {
       if (running || document.hidden || !onScreen) return;
-      if (reduceMotion) { paintOnce(); return; }
-      running = true; lastTs = null;
+      if (reduceMotion) { paint(); return; }
+      running = true;
       requestAnimationFrame(frame);
     }
-    function stopLoop() { running = false; lastTs = null; }
+
+    function stopLoop() { running = false; }
+
+    canvas.addEventListener('pointermove', function(e) { setPointer(e.clientX, e.clientY); });
+    canvas.addEventListener('pointerleave', function() {
+      pointerX = -1;
+      pointerY = -1;
+      if (reduceMotion) paint();
+    });
+    canvas.addEventListener('click', function() {
+      generate();
+      paint();
+    });
+    window.addEventListener('resize', resize);
+    if (window.visualViewport) window.visualViewport.addEventListener('resize', resize);
+    window.addEventListener('orientationchange', function() { requestAnimationFrame(resize); });
     document.addEventListener('visibilitychange', function() {
       if (document.hidden) stopLoop(); else startLoop();
     });
@@ -794,13 +851,14 @@
       io.observe(canvas);
     }
     canvas.__deckResize = resize;
+    resize();
     if (canvas.getBoundingClientRect().width > 1) startLoop();
   }
-  function initAllDomainwarp() {
-    var canvases = document.querySelectorAll('.title-domainwarp');
-    for (var i = 0; i < canvases.length; i++) initTitleDomainwarp(canvases[i]);
+  function initAllMolnar() {
+    var canvases = document.querySelectorAll('.title-molnar');
+    for (var i = 0; i < canvases.length; i++) initTitleMolnar(canvases[i]);
   }
-  window.addEventListener('load', initAllDomainwarp);
+  window.addEventListener('load', initAllMolnar);
 })();
 </script>
 </body>
