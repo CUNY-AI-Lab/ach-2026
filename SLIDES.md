@@ -97,7 +97,7 @@ screenshots (CUNY context, DH platforms, AI-studies image) not yet in `images/`.
 - Recommendations that foreground a critical approach to AI
 - Discussion of ethical issues around commercial AI models
 - Tools for disclosure that build upon the Generative AI Delegation Taxonomy (GAIDeT)
-- link: **`https://www.gc.cuny.edu/research-faculty/research-graduate-center/ai-graduate-center/cuny-graduate-center-ai-guidelines`**
+- link: **CUNY Graduate Center AI Guidelines (Draft) — gc.cuny.edu, last revision June 5, 2026** (`https://www.gc.cuny.edu/research-faculty/research-graduate-center/ai-graduate-center/cuny-graduate-center-ai-guidelines`)
 - image: **`matt-ai-guidelines.png`** (CUNY GC AI Guidelines draft — gc.cuny.edu, rev. June 5 2026) — _pending user re-drop_
 
 ## Luke Waltzer — slides 8–14  (`break-luke` + CALI origin story)
