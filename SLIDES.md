@@ -143,7 +143,7 @@ bottom of this file.
 - image: —
 
 ### 16 · `zach-1` (figure-hero) — From CALI to the CUNY AI Lab
-- image: **`13_cali_to_cail.png`** (convergence flowchart with discrete years: Teach@CUNY AI Toolkit 2023 · TLC Workshops 2023–2024 · Communities of Practice 2024–2025 · CALI 1 2025 → new tools establish the need for private/secure/well-scaffolded infrastructure → Proposal Spring 2025 → CAIL Year 1, Fall 2025–Spring 2026)
+- image: **`13_cali_to_cail.png`** (convergence flowchart with discrete years: Teach@CUNY AI Toolkit 2023 · Teaching and Learning Center Workshops 2023–2024 · Communities of Practice 2024–2025 · CALI 1 2025 → new tools establish the need for private/secure/well-scaffolded infrastructure → Proposal Spring 2025 → CAIL Year 1, Fall 2025–Spring 2026)
 
 ### 17 · `zach-2` (figure-side) — What is the CUNY AI Lab Sandbox?
 - stage: `walk-stage`, 3-step reveal — **`zm-step1-signin.png`** → **`zm-step2-chat.png`** → **`zm-step3-models.png`** (sign-in → chat → model picker)
