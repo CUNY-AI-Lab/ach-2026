@@ -280,7 +280,7 @@ All text-only (`crowded`); no images.
 ### 36 · `steve-2` — What the Lab Builds and Runs
 - How faculty and students build and run their own AI tools
 - The impact of agentic AI on research and libraries
-- An infrastructure layer for custom tool development
+- From building tools to publishing them live
 
 ### 37 · `steve-3` — Tools Portal
 - tools.ailab.gc.cuny.edu — standalone applications
@@ -309,8 +309,8 @@ All text-only (`crowded`); no images.
 
 ### 42 · `steve-8` — From Sandbox to a Live Web App
 - Sandbox → Workbench → Kale Deploy
-- From chat access, through governed development, to publication
-- Accountability and institutional control throughout
+- A complete path, from an open model to a live app
+- Hosted by the lab, meant for everyone at CUNY
 
 ### 43 · `steve-9` — CUNY-Run AI Infrastructure
 - Together they let CUNY run its own AI infrastructure
