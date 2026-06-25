@@ -637,3 +637,22 @@ body.overview section.slide[data-slide="break-steve"] { border-top: 2px solid va
 [data-slide^="zach-"]  .content a:hover, [data-slide^="zach-"]  .content a:focus-visible { color: var(--accent-zach);  text-decoration-color: currentColor; }
 [data-slide^="azu-"]   .content a:hover, [data-slide^="azu-"]   .content a:focus-visible { color: var(--accent-azu);   text-decoration-color: currentColor; }
 [data-slide^="steve-"] .content a:hover, [data-slide^="steve-"] .content a:focus-visible { color: var(--accent-steve); text-decoration-color: currentColor; }
+
+/* ── Section openers (break-*) now use the crowded intro style (like zach-intro),
+   so give them the presenter label color + content accent bar by exact id. */
+[data-slide="break-matt"]  .content .label { color: var(--accent-matt); }
+[data-slide="break-luke"]  .content .label { color: var(--accent-luke); }
+[data-slide="break-steve"] .content .label { color: var(--accent-steve); }
+[data-slide="break-matt"]  .content { box-shadow: inset 3px 0 0 0 color-mix(in oklab, var(--accent-matt) 75%, transparent); }
+[data-slide="break-luke"]  .content { box-shadow: inset 3px 0 0 0 color-mix(in oklab, var(--accent-luke) 75%, transparent); }
+[data-slide="break-steve"] .content { box-shadow: inset 3px 0 0 0 color-mix(in oklab, var(--accent-steve) 75%, transparent); }
+
+/* ── Q&A & Discussion closing slide — large, centered title. ── */
+.qa-slide .content {
+  align-items: center; justify-content: center; text-align: center;
+  box-shadow: none;
+}
+.qa-slide .content h1 {
+  font-size: clamp(40px, 7vw, 104px);
+  text-align: center; max-width: none; line-height: 1.04;
+}
