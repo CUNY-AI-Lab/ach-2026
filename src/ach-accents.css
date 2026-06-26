@@ -1293,10 +1293,10 @@ body:has(section.cail-site-slide.active) .sticky-footer {
   .steve-studio-pair .studio-shot img,
   .steve-studio-pair .studio-shot.front img,
   .steve-studio-pair .studio-shot.back img {
-    height: min(16vh, 130px) !important;
+    height: min(18vh, 150px) !important;
     aspect-ratio: auto;
     transform: none;
-    object-fit: contain;
+    object-fit: cover;
     object-position: center top;
   }
 }
