@@ -147,7 +147,7 @@ on-slide bullets were removed; they now live as the spoken talk track at the
 bottom of this file.
 
 ### 16 · `zach-intro` (crowded) — section opener
-- label: **Zach Muhlbauer** · h1: **Experimentation as Infrastructure: The CUNY AI Lab Sandbox** · institution: **CUNY AI Lab · CUNY Graduate Center**
+- label: **Zach Muhlbauer** · h1: **Experimental Learning Infrastructures: The CUNY AI Lab Sandbox** · institution: **CUNY AI Lab · CUNY Graduate Center**
 - image: —
 
 ### 17 · `zach-1` (figure-hero) — Precursors to the CUNY AI Lab
@@ -175,7 +175,7 @@ bottom of this file.
 - image: **`18_thinkering_fellows.png`** (fellows across five disciplines)
 
 ### 25 · `zach-8` (figure-hero) — Workshopping Project Pilots: AmigAI
-- image: **`19_amigai_build.png`** (AmigAI adapted across three sections)
+- image: **`19_amigai_build.png`** (AmigAI adapted across four sections)
 - Hands off to Azucena after this slide.
 
 ## Azucena García Gutiérrez — slides 26–35
@@ -296,7 +296,7 @@ Slides 38, 39, and 42 use figure-side tool screenshots; the rest are text-only
 - Agent Studio and Site Studio for research tasks
 - A shift from conversation toward task delegation
 - Faculty and students build tools with minimal coding
-- Figure: two-up Agent Studio and Site Studio live screenshots
+- Figure: `walk-stage` toggle — **Site Studio** (`site-studio-new-project.png`) shown full-stage first, then Space/arrow/click swaps to **Agent Studio** (`agent-studio-crop.png`, cropped to its content). Each fills the stage in its own window chrome; shown one at a time, not side by side (the two screenshots don't pair cleanly at equal size)
 
 ### 40 · `steve-5` — Teaching Librarians to Build with AI
 - Agentic AI for Library Practice: a 16-week program for CUNY librarians, no programming background needed
@@ -340,7 +340,7 @@ Slides 38, 39, and 42 use figure-side tool screenshots; the rest are text-only
 
 ### 48 · `references` (crowded · links-reading-slide) — Links & Readings
 - label: **ACH 2026** · h1: **Links & Readings**
-- layout (`.text-gallery-shell`): two compact text-gallery panels; the second panel is a `.frag` that slides in from the left on Space, right arrow, or footer next
+- layout (`.text-gallery-shell`): three text-gallery panels in a **3-column** grid (9 / 9 / 10 tiles); panels 2 and 3 are `.frag`s that slide in one at a time on Space, right arrow, or footer next (page 1 = 6 links + first readings, pages 2–3 = the rest of the readings, alphabetical)
 - Link tiles:
   - CUNY AI Lab — `http://cuny.is/ai`
   - GC Teaching and Learning Center — `http://cuny.is/teaching`
@@ -428,6 +428,6 @@ Distilled from `scripts/slides_data.py`; deliver these over each figure.
 - An interdisciplinary cohort: sociology, mathematics, physics, policy, and music
 
 ### Workshopping Project Pilots: AmigAI
-- One configuration template, adapted across three Spanish sections
-- SPAN 101 conversation · SPA 204 discourse analysis · SPAN 207 heritage critique
+- One configuration template, adapted across four Spanish sections
+- SPAN 101 conversation · SPA 204 discourse analysis · SPAN 207 heritage critique · SPA 4010 writing coach
 - The AmigAI sections are the busiest workload — 36.6% of all messages

@@ -224,33 +224,50 @@ body:has(section.cail-site-slide.active) .sticky-footer {
 }
 .text-gallery-shell {
   position: relative;
-  min-height: clamp(224px, 38vh, 284px);
+  /* tall enough for the largest page (page 3 = 10 tiles → 4 rows) so the
+     absolutely-stacked pages never clip a bottom row. The max has to clear 4
+     rows of full-size tiles on a tall display (≈116px each); the vh term keeps
+     it modest on short viewports. */
+  min-height: clamp(372px, 60vh, 564px);
   overflow: hidden;
 }
 .text-gallery {
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
-  gap: clamp(6px, 0.75vw, 9px);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(9px, 1vw, 14px);
   align-content: start;
 }
 .text-gallery-page {
   transition: opacity 0.34s ease, transform 0.34s ease;
 }
-.text-gallery-page-secondary {
+/* Pages 2 and 3 stack over page 1 and reveal one click at a time (each is a
+   .frag); the page being left behind slides out. Lets the bigger 3-column tiles
+   spread the full reading list across more pages instead of cramming one grid. */
+.text-gallery-page-2,
+.text-gallery-page-3 {
   position: absolute;
   inset: 0;
 }
-.text-gallery-page-secondary.frag {
+.text-gallery-page-2.frag,
+.text-gallery-page-3.frag {
   opacity: 0;
   transform: translateX(-42px);
   pointer-events: none;
 }
-.text-gallery-page-secondary.frag.visible {
+.text-gallery-page-2.frag.visible,
+.text-gallery-page-3.frag.visible {
   opacity: 1;
   transform: translateX(0);
   pointer-events: auto;
 }
-.text-gallery-shell:has(.text-gallery-page-secondary.visible) .text-gallery-page-primary {
+/* page 1 retires once page 2 (and beyond) is shown */
+.text-gallery-shell:has(.text-gallery-page-2.visible) .text-gallery-page-1 {
+  opacity: 0;
+  transform: translateX(42px);
+  pointer-events: none;
+}
+/* page 2 retires once page 3 is shown */
+.text-gallery-shell:has(.text-gallery-page-3.visible) .text-gallery-page-2 {
   opacity: 0;
   transform: translateX(42px);
   pointer-events: none;
@@ -259,9 +276,9 @@ body:has(section.cail-site-slide.active) .sticky-footer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: clamp(68px, 9.6vh, 82px);
+  min-height: clamp(92px, 13vh, 116px);
   min-width: 0;
-  padding: clamp(7px, 0.82vw, 10px);
+  padding: clamp(11px, 1.05vw, 15px);
   border: 1px solid rgba(190, 210, 220, 0.12);
   border-radius: 7px;
   background:
@@ -286,7 +303,7 @@ body:has(section.cail-site-slide.active) .sticky-footer {
   width: fit-content;
   margin-bottom: 0.46em;
   font-family: var(--font-mono);
-  font-size: calc(clamp(7px, 0.58vw, 8.5px) * var(--fit, 1));
+  font-size: calc(clamp(9px, 0.72vw, 11px) * var(--fit, 1));
   font-weight: 600;
   line-height: 1;
   letter-spacing: 0;
@@ -296,18 +313,18 @@ body:has(section.cail-site-slide.active) .sticky-footer {
 .text-tile strong {
   display: block;
   font-family: var(--font-display);
-  font-size: calc(clamp(10px, 0.92vw, 13px) * var(--fit, 1));
+  font-size: calc(clamp(14px, 1.3vw, 19px) * var(--fit, 1));
   font-weight: 500;
-  line-height: 1.08;
+  line-height: 1.1;
   color: rgba(245, 249, 252, 0.96);
   text-wrap: balance;
 }
 .text-tile span:not(.tile-kicker),
 .text-tile code {
   display: block;
-  margin-top: 0.34em;
-  font-size: calc(clamp(8px, 0.66vw, 9.5px) * var(--fit, 1));
-  line-height: 1.14;
+  margin-top: 0.4em;
+  font-size: calc(clamp(11px, 0.95vw, 14px) * var(--fit, 1));
+  line-height: 1.2;
   color: rgba(229, 236, 242, 0.78);
   text-wrap: pretty;
   overflow-wrap: anywhere;
@@ -325,30 +342,30 @@ body:has(section.cail-site-slide.active) .sticky-footer {
     margin-bottom: 8px;
   }
   .text-gallery {
-    grid-template-columns: repeat(7, minmax(0, 1fr));
-    gap: 5px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 7px;
   }
   .text-gallery-shell {
-    min-height: 112px;
+    min-height: 318px;
   }
   .text-tile {
-    min-height: 52px;
-    padding: 6px;
+    min-height: 70px;
+    padding: 8px 9px;
     border-radius: 6px;
   }
   .tile-kicker {
-    margin-bottom: 0.32em;
-    font-size: calc(6.2px * var(--fit, 1));
+    margin-bottom: 0.3em;
+    font-size: calc(8px * var(--fit, 1));
   }
   .text-tile strong {
-    font-size: calc(8.6px * var(--fit, 1));
-    line-height: 1.05;
+    font-size: calc(12.5px * var(--fit, 1));
+    line-height: 1.06;
   }
   .text-tile span:not(.tile-kicker),
   .text-tile code {
-    margin-top: 0.22em;
-    font-size: calc(6.4px * var(--fit, 1));
-    line-height: 1.08;
+    margin-top: 0.26em;
+    font-size: calc(10px * var(--fit, 1));
+    line-height: 1.12;
   }
 }
 @media (max-width: 719px) {
@@ -1148,37 +1165,30 @@ body:has(section.cail-site-slide.active) .sticky-footer {
   box-shadow: 0 20px 54px rgba(0,0,0,0.34);
 }
 
-/* Two studio windows, side by side. The crop files carry the zoom, while the
-   layout keeps both interfaces visible at the same size. */
-.steve-studio-pair {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(6px, 0.8vw, 14px);
-  padding: clamp(2px, 0.4vw, 6px);
-  background: transparent;
-  border: none;
-}
+/* steve-4: Site Studio and Agent Studio shown ONE AT A TIME, each filling the
+   stage. The two screenshots never paired cleanly side by side — one is a dense
+   app, the other a sparse prompt — so they're staged as walk-steps instead: Site
+   is the base, Agent is a `.frag` that swaps in on Space / arrow / click. Each
+   reads large and crisp with no matching-scale compromise. `.walk-step` (shared
+   rule below) supplies the absolute, full-stage positioning; these rules add the
+   window chrome and contain the screenshot inside it. */
+.steve-toggle { position: relative; }
 
-.studio-shot {
-  position: relative;
-  flex: 1 1 0;
-  min-width: 0;
-  max-width: 50%;
+/* Selector outweighs the shared `.figure-side .stage .walk-step` rule (which
+   forces a transparent background) so each window is OPAQUE — otherwise the
+   revealed Agent window is see-through and the Site title bar bleeds through it. */
+.figure-side .stage.steve-toggle .walk-step.studio-shot {
+  display: flex;
+  flex-direction: column;
   border-radius: 12px;
   overflow: hidden;
   border: 1px solid rgba(180,200,220,0.18);
   background: #0a0d12;
-  box-shadow: 0 18px 46px rgba(0,0,0,0.45);
+  box-shadow: 0 22px 60px rgba(0,0,0,0.5);
 }
 
-.studio-shot.back { z-index: 1; }
-
-.studio-shot.front {
-  z-index: 2;
+.figure-side .stage.steve-toggle .walk-step.studio-shot.front {
   border-color: color-mix(in oklab, var(--accent-steve) 42%, rgba(180,200,220,0.18));
-  box-shadow: 0 30px 76px rgba(0,0,0,0.55);
 }
 
 .studio-shot .win-bar {
@@ -1207,13 +1217,14 @@ body:has(section.cail-site-slide.active) .sticky-footer {
   color: var(--accent-steve);
 }
 
-/* Natural 16:10 frames match the crop files, so the windows keep their shape
-   across short and wide projection surfaces. */
-.studio-shot img {
+/* The screenshot fills the window body under the chrome and is contained, so the
+   whole interface shows however wide or short the stage is. */
+.steve-toggle .studio-shot img {
   display: block;
+  flex: 1 1 auto;
+  min-height: 0;
   width: 100%;
-  aspect-ratio: 16 / 10;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
   background: #05070b;
 }
@@ -1255,49 +1266,25 @@ body:has(section.cail-site-slide.active) .sticky-footer {
     object-fit: contain;
   }
 
-  /* The diagonal cascade needs absolute room it won't have on a phone; unstack
-     to two full-width windows in normal flow. */
-  .placeholder-slide.figure-side.steve-tool-slide > .stage.steve-studio-pair {
-    height: auto !important;
+  /* steve-4 toggle: the single full-stage window wants more room than the
+     single-shot tool slides; the walk-steps fill it and tap swaps Site -> Agent. */
+  .placeholder-slide.figure-side.steve-tool-slide > .stage.steve-toggle {
+    height: min(48vh, 340px) !important;
     flex: 0 0 auto !important;
   }
 
-  .steve-studio-pair {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .steve-studio-pair .studio-shot {
-    position: static;
-    flex: 0 0 auto;
-    width: 100%;
-    max-width: 100%;
-    transform: none;
-  }
-
-  .steve-studio-pair .studio-shot .win-bar {
+  .steve-toggle .studio-shot .win-bar {
     height: 22px;
     padding: 0 10px;
   }
 
-  .steve-studio-pair .studio-shot .win-name {
+  .steve-toggle .studio-shot .win-name {
     font-size: 11px;
   }
 
-  .steve-studio-pair .studio-shot .dots i {
+  .steve-toggle .studio-shot .dots i {
     width: 7px;
     height: 7px;
-  }
-
-  .steve-studio-pair .studio-shot img,
-  .steve-studio-pair .studio-shot.front img,
-  .steve-studio-pair .studio-shot.back img {
-    height: min(18vh, 150px) !important;
-    aspect-ratio: auto;
-    transform: none;
-    object-fit: cover;
-    object-position: center top;
   }
 }
 
