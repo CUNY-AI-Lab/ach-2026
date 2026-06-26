@@ -1258,12 +1258,31 @@ body:has(section.cail-site-slide.active) .sticky-footer {
   .steve-studio-pair {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 8px;
   }
 
   .steve-studio-pair .studio-shot {
     position: static;
     width: 100%;
+  }
+
+  .steve-studio-pair .studio-shot .win-bar {
+    height: 22px;
+    padding: 0 10px;
+  }
+
+  .steve-studio-pair .studio-shot .win-name {
+    font-size: 11px;
+  }
+
+  .steve-studio-pair .studio-shot .dots i {
+    width: 7px;
+    height: 7px;
+  }
+
+  .steve-studio-pair .studio-shot img {
+    height: min(14vh, 110px) !important;
+    aspect-ratio: auto;
   }
 }
 
