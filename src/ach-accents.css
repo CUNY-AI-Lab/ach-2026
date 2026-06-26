@@ -1097,6 +1097,92 @@ body:has(section.cail-site-slide.active) .sticky-footer {
 [data-slide="break-luke"]  .content { box-shadow: inset 3px 0 0 0 color-mix(in oklab, var(--accent-luke) 75%, transparent); }
 [data-slide="break-steve"] .content { box-shadow: inset 3px 0 0 0 color-mix(in oklab, var(--accent-steve) 75%, transparent); }
 
+/* Stephen: tool screenshots. These slides need enough text rail for live
+   delivery while letting the CAIL tool interfaces read as actual products. */
+@media (min-width: 720px) {
+  section.slide.placeholder-slide.figure-side.steve-tool-slide {
+    gap: clamp(12px, 1.4vw, 24px);
+  }
+
+  .placeholder-slide.figure-side.steve-tool-slide > .content {
+    flex: 0 0 31%;
+    max-width: 31%;
+  }
+
+  .placeholder-slide.figure-side.steve-tool-slide > .content h1 {
+    font-size: clamp(30px, 3.2vw, 52px);
+  }
+
+  .placeholder-slide.figure-side.steve-tool-slide > .content li {
+    font-size: calc(clamp(16px, 1.55vw, 23px) * var(--fit, 1));
+    line-height: 1.36;
+  }
+
+  .placeholder-slide.figure-side.steve-tool-slide > .stage {
+    flex: 1 1 69%;
+    min-width: 0;
+    padding: clamp(4px, 0.7vw, 10px);
+  }
+}
+
+.steve-tool-shot {
+  background:
+    linear-gradient(180deg, rgba(180,200,220,0.04), rgba(180,200,220,0.015));
+  border: 1px solid rgba(180,200,220,0.08);
+}
+
+.figure-side .figure-stage.steve-tool-shot > img.framed {
+  border-radius: 12px;
+  border: 1px solid rgba(180,200,220,0.18);
+  background: #fff;
+  box-shadow: 0 20px 54px rgba(0,0,0,0.34);
+}
+
+.steve-studio-pair {
+  display: grid;
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: clamp(10px, 1.2vw, 18px);
+  padding: clamp(6px, 0.8vw, 12px);
+  background: transparent;
+  border: none;
+}
+
+.studio-shot {
+  min-height: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 7px;
+}
+
+.studio-shot img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 12px;
+  border: 1px solid rgba(180,200,220,0.18);
+  background: #05070b;
+  box-shadow: 0 20px 54px rgba(0,0,0,0.34);
+}
+
+.studio-shot figcaption {
+  font-family: var(--font-mono);
+  font-size: var(--fs-caption);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-steve);
+  opacity: 0.82;
+}
+
+@media (max-width: 720px) {
+  .steve-studio-pair {
+    grid-template-rows: none;
+    grid-auto-rows: minmax(180px, 1fr);
+    max-height: none !important;
+  }
+}
+
 /* ── Q&A & Discussion closing slide — large, centered title. ── */
 .qa-slide .content {
   align-items: center; justify-content: center; text-align: center;

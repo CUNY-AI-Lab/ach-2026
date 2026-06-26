@@ -275,7 +275,8 @@ column at ≤1024px. Grouped:
 ## Stephen Zweibel — slides 36–46  (`break-steve` + 10 slides)
 From https://zweibel.net/ach-2026-steve/ (9 slides), reformatted into the theme,
 plus two slides (steve-6, steve-7) drawn from the lab's knowledge base.
-All text-only (`crowded`); no images.
+Slides 38, 39, and 42 use figure-side tool screenshots; the rest are text-only
+(`crowded`).
 
 ### 36 · `break-steve` (crowded) — section opener (zach-intro style)
 - label: **Stephen Zweibel** · h1: **Harnessing Agentic AI: Tools for Open University Infrastructure** · institution: **CUNY AI Lab | Mina Rees Library, CUNY Graduate Center**
@@ -289,11 +290,13 @@ All text-only (`crowded`); no images.
 - tools.ailab.gc.cuny.edu — standalone applications
 - Media tools: transcription, OCR, image description; plus a disclosure tool and agentic studios
 - Zero-retention: the providers store nothing from prompts or outputs
+- Figure: Tools Portal screenshot showing Agent Studio, Site Studio, AI Chat Interface, Image Description, Audio Transcription, and Document OCR
 
 ### 39 · `steve-4` — Working with Agentic AI
 - Agent Studio and Site Studio for research tasks
 - A shift from conversation toward task delegation
 - Faculty and students build tools with minimal coding
+- Figure: two-up Agent Studio and Site Studio live screenshots
 
 ### 40 · `steve-5` — Teaching Librarians to Build with AI
 - Agentic AI for Library Practice: a 16-week program for CUNY librarians, no programming background needed
@@ -310,6 +313,7 @@ All text-only (`crowded`); no images.
 - Students can run an accessibility check before depositing a dissertation
 - Staff remediate library PDFs at scale, with AI doing the first pass
 - Built and run by the lab for the Mina Rees Library
+- Figure: OCR Document Extraction screenshot
 
 ### 43 · `steve-8` — Kale Workbench
 - A coding agent in the browser, like Claude Code or Codex — on the lab's Cloudflare infrastructure, with open models
