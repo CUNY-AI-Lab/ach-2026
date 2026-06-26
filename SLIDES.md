@@ -296,7 +296,7 @@ Slides 38, 39, and 42 use figure-side tool screenshots; the rest are text-only
 - Agent Studio and Site Studio for research tasks
 - A shift from conversation toward task delegation
 - Faculty and students build tools with minimal coding
-- Figure: `walk-stage` toggle — **Site Studio** (`site-studio-new-project.png`) shown full-stage first, then Space/arrow/click swaps to **Agent Studio** (`agent-studio-crop.png`, cropped to its content). Each fills the stage in its own window chrome; shown one at a time, not side by side (the two screenshots don't pair cleanly at equal size)
+- Figure: `walk-stage` toggle, built as **real accessible HTML** (not screenshots, so it stays legible at any size and is screen-reader readable). **Site Studio** shows first — a split view: the AI chat/editor on the left (a conversation editing `index.html`: a request, the file write, the "Done!" reply) beside the live page preview on the right (Zach's profile — avatar, name, role, bio, nav). Space/arrow/click swaps to **Agent Studio** — a centered prompt ("What would you like to work on?") with input bar and suggestion chips. Markup in `index.html`; styled under `.steve-toggle` in `ach-accents.css`. Old screenshot PNGs (`site-studio-*`, `agent-studio-*`) now unused.
 
 ### 40 · `steve-5` — Teaching Librarians to Build with AI
 - Agentic AI for Library Practice: a 16-week program for CUNY librarians, no programming background needed

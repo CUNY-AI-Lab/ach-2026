@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
   <link rel="stylesheet" href="src/styles.css?v=20260624r" />
-  <link rel="stylesheet" href="src/ach-accents.css?v=20260626gg" />
+  <link rel="stylesheet" href="src/ach-accents.css?v=20260626kk" />
 </head>
 <body>
 <div id="image-lightbox" class="lightbox" aria-hidden="true">
@@ -600,14 +600,50 @@
         <li>Faculty and students build tools with minimal coding</li>
       </ul>
     </div>
-    <figure class="stage walk-stage steve-toggle" aria-label="Site Studio and Agent Studio interfaces, shown one at a time">
-      <div class="walk-step studio-shot back">
+    <figure class="stage walk-stage steve-toggle" aria-label="Site Studio and Agent Studio, shown one at a time">
+      <div class="walk-step studio-shot back" role="group" aria-label="Site Studio: editing a personal academic website by chatting with AI, with the live page preview on the right">
         <div class="win-bar"><span class="dots"><i></i><i></i><i></i></span><span class="win-name">Site Studio</span></div>
-        <img src="images/tools/site-studio-new-project.png?v=20260626e" alt="Site Studio new project dialog showing academic website template previews">
+        <div class="ss-split">
+          <div class="ss-chat">
+            <div class="ss-projbar">
+              <span class="ss-proj">zach-muhlbauer</span>
+              <span class="ss-publish">Publish</span>
+            </div>
+            <div class="ss-msgs">
+              <div class="ss-msg ss-msg-ai">
+                Both updates are done:
+                <ul class="ss-updates">
+                  <li><strong>Bio shortened</strong> &mdash; trimmed to one clean sentence that captures your research focus</li>
+                  <li><strong>Photo updated</strong> &mdash; your actual photo now shows in place of the placeholder</li>
+                </ul>
+                The subtitle still says &ldquo;Assistant Professor, Department of Sociology&rdquo; &mdash; want to update that to reflect your actual role and department?
+              </div>
+              <div class="ss-msg ss-msg-user">PhD candidate in English / Co-Founder of the CUNY AI Lab</div>
+              <div class="ss-file"><span class="ss-file-ic" aria-hidden="true">&#9656;</span> file <code>index.html</code> <span class="ss-check" aria-hidden="true">&#10003;</span></div>
+              <div class="ss-msg ss-msg-ai">Done! Subtitle now reads &ldquo;PhD Candidate in English &middot; Co-Founder, CUNY AI Lab.&rdquo; Want to update any of the nav links (Email, CV, Research, Teaching) with real URLs?</div>
+            </div>
+            <div class="ss-input"><span>Ask a follow-up&hellip;</span><span class="ss-send" aria-hidden="true">&#10148;</span></div>
+          </div>
+          <div class="ss-preview">
+            <div class="ss-avatar" aria-hidden="true">ZM</div>
+            <h3 class="ss-name">Zach Muhlbauer</h3>
+            <p class="ss-role">PhD Candidate in English &middot; Co-Founder, CUNY AI Lab</p>
+            <p class="ss-bio">My research explores digital public spheres, literacy technologies, critical AI studies, creative coding, and electronic literature &mdash; with a particular focus on how generative AI is reshaping composition and coding classrooms, and what students&rsquo; everyday literacy practices reveal about our shifting knowledge landscape.</p>
+            <div class="ss-nav"><span>Email</span><span>CV</span><span>Research</span><span>Teaching</span></div>
+          </div>
+        </div>
       </div>
-      <div class="walk-step frag studio-shot front">
+      <div class="walk-step frag studio-shot front" role="group" aria-label="Agent Studio: describe a research or build task in one prompt">
         <div class="win-bar"><span class="dots"><i></i><i></i><i></i></span><span class="win-name">Agent Studio</span></div>
-        <img src="images/tools/agent-studio-crop.png?v=20260626e" alt="Agent Studio landing screen with a prompt bar and suggested research and build tasks">
+        <div class="as-body">
+          <div class="as-logo"><span class="as-bolt" aria-hidden="true">&#9889;</span> Agent Studio</div>
+          <h3 class="as-head">What would you like to work on?</h3>
+          <p class="as-sub">Search APIs, analyze data, create visualizations, or build tools.</p>
+          <div class="as-prompt"><span>Ask anything or describe what you want to build&hellip;</span><span class="as-go" aria-hidden="true">&rarr;</span></div>
+          <div class="as-try">Try these</div>
+          <div class="as-chips"><span>Search papers</span><span>Analyze trends</span><span>Find books</span><span>Build a tool</span></div>
+          <p class="as-foot">Built for the CUNY community</p>
+        </div>
       </div>
     </figure>
   </section>
