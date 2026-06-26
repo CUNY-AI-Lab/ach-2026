@@ -288,9 +288,9 @@ Slides 38, 39, and 42 use figure-side tool screenshots; the rest are text-only
 
 ### 38 · `steve-3` — Tools Portal
 - tools.ailab.gc.cuny.edu — standalone applications
-- Media tools: transcription, OCR, image description; plus a disclosure tool and agentic studios
+- Media tools: transcription, PDF accessibility, image description; plus a disclosure tool and agentic studios
 - Zero-retention: the providers store nothing from prompts or outputs
-- Figure: Tools Portal screenshot showing Agent Studio, Site Studio, AI Chat Interface, Image Description, Audio Transcription, and Document OCR
+- Figure: animated ASR demo from the Tools Portal page
 
 ### 39 · `steve-4` — Working with Agentic AI
 - Agent Studio and Site Studio for research tasks
@@ -313,7 +313,7 @@ Slides 38, 39, and 42 use figure-side tool screenshots; the rest are text-only
 - Students can run an accessibility check before depositing a dissertation
 - Staff remediate library PDFs at scale, with AI doing the first pass
 - Built and run by the lab for the Mina Rees Library
-- Figure: OCR Document Extraction screenshot
+- Figure: PDF Accessibility app screenshot
 
 ### 43 · `steve-8` — Kale Workbench
 - A coding agent in the browser, like Claude Code or Codex — on the lab's Cloudflare infrastructure, with open models
